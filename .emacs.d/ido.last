@@ -2,6 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/c0mplex/suckless/" . "dwm/")
  ("/home/c0mplex/.config/" . "zsh/")
  ("/home/c0mplex/Documents/Programming/ruby/oop/" . "bookproject/")
  ("/home/c0mplex/Documents/Programming/ruby/" . "oop/")
@@ -15,7 +16,7 @@
  ("/home/c0mplex/Documents/Programming/" . "c/")
  ("/home/c0mplex/Documents/PROGRAMMING/cpp/obs_plugin/obs-multi-rtmp/" . "build/")
  ("/home/c0mplex/Documents/PROGRAMMING/cpp/obs_plugin/" . "obs-multi-rtmp/")
- ("/home/c0mplex/" . ".config/")
+ ("/home/c0mplex/" . ".vim/")
  ("/home/c0mplex/Documents/Web/blog/" . "subpages/")
  ("/home/c0mplex/Documents/Web/blog/subpages/" . "aboutme/")
  ("/home/c0mplex/Documents/Web/" . "angiepage/")
@@ -35,6 +36,9 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/c0mplex/.vim/"
+ "/home/c0mplex/dotfiles/"
+ "/home/c0mplex/suckless/dwm/"
  "/home/c0mplex/.config/zsh/"
  "/home/c0mplex/.config/i3/"
  "/home/c0mplex/.scripts/"
@@ -77,21 +81,29 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "vimrc"
+ "README.md"
+ "Description.md"
+ "config.h"
  "aliases.zsh"
  "config"
  "fetch.sh"
  "character_body_2d.gd"
  "x.c"
  "init.el"
- "early-init.el"
- "config.def.h"
- "bread_dwm.png"
- "config.h"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/c0mplex/" (27090 57967 978794 63000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".mozilla/" ".local/" ".zshenv" ".tmux/" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".duck.log" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" ".files/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".xsession" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".python_history" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" ".bib_history" ".xsessionrc" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
+ ("/home/c0mplex/.vim/" (27092 4609 228660 605000) "autoload/" ".netrwhist" "vimrc" "plugged/" "../" "./" "filebackups/" "Description.md" "bundle/")
+
+ ("/home/c0mplex/" (27092 4609 259758 250000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".duck.log" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" ".files/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".xsession" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" ".bib_history" ".xsessionrc" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
+
+ ("/home/c0mplex/dotfiles/" (27092 961 6227 396000) ".zshenv" ".config/" ".tmux.conf" ".vim/" "README.md" ".gitconfig" "install" ".files/" ".Xdefaults" "LICENSE" ".gitignore" "../" "./" "remove" ".Xresources" ".zshrc" "THEME.md" ".git/" "Description.md")
+
+ ("/home/c0mplex/suckless/dwm/" (27083 8861 836422 789000) "swallow" "util.c" "Makefile" "dwm" "dwm.cfg" "drw.c" ".clang-format" "vanitygaps.c" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "LICENSE" "dwm.1" "dwm.c" "../" ".celangbak" "./" "util.o" "drw.o" "Description.md" "config.def.h" "dwm.png" "drw.h" "util.h")
+
+ ("/home/c0mplex/suckless/" (27091 58871 472360 334000) "dwm/" "dmenu-flexipatch/" "tray/" ".gitignore" "dwmblocks-async/" "../" "./" ".git/" "stwithpatches/")
 
  ("/home/c0mplex/.config/zsh/" (27090 32691 815971 310000) "utility.zsh" "tmp/" "program-specific/" "keybinds.zsh" "specific/" "env.zsh" "theme.zsh" "prompt.zsh" "../" "./" "options.zsh" "Description.md" "aliases.zsh" "plugins.zsh")
 

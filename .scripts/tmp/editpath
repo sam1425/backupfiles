@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-tmpfile=$(mktemp)
-echo "$PATH" | tr ':' '\n' > "$tmpfile"
-vim "$tmpfile"
-export PATH=$(tr '\n' ':' < "$tmpfile" | sed 's/:$//')
-rm "$tmpfile"
