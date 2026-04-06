@@ -13,7 +13,6 @@
                       :underline nil
                       :overline nil
                       :box nil))
-
 ;; Run after the theme loads to prevent 'Invalid face' errors
 (add-hook 'window-setup-hook #'my-top-padding)
 
@@ -412,6 +411,18 @@
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
   (define-key evil-normal-state-map [escape]      'my-evil-mc-escape))
 (setq compile-command "")
+
+(defun my/title-case-buffer ()
+  "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "\\<\\(\\w\\)\\(\\w*\\)\\>" nil t)
+      (replace-match (concat (upcase (match-string 1))
+                             (downcase (match-string 2)))))))
+
+;; Map it to a Vim-style Ex command
+(evil-ex-define-cmd "Uppercasefile" 'my/title-case-buffer)
 
 (defun toggle-mode-line ()
   (interactive)
