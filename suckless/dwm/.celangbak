@@ -1,0 +1,38 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+# --- THE VERTICAL ALIGNMENT ENGINE ---
+# This forces the '=' signs to line up even if there are gaps or comments
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+
+# This forces variable names (borderpx, snap, etc.) to line up 
+# regardless of whether it's "static int" or "static const unsigned int"
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+
+# This keeps the columns in rules[] and buttons[] perfectly straight
+AlignArrayOfStructures: Left
+
+# --- SUCKLESS TAB STANDARDS ---
+IndentWidth: 8
+TabWidth: 8
+UseTab: Always
+ColumnLimit: 0
+
+# --- MACROS & COMMENTS ---
+# Keeps TAGKEYS/STACKKEYS from drifting
+AlignConsecutiveMacros: true
+# Ensures your /* comments */ at the end of lines stay vertically aligned
+AlignTrailingComments: true
+
+# --- BRACES & PADDING ---
+BreakBeforeBraces: Attach
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: Never
+---
