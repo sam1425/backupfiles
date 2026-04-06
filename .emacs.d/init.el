@@ -406,6 +406,8 @@
   (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
   (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
+  ;(define-key evil-normal-state-map (kbd "C-S-V") 'evil-paste-after)
+  ;(define-key evil-insert-state-map (kbd "C-S-C") 'yank)
   (define-key evil-normal-state-map (kbd "C-n")   'evil-mc-make-and-goto-next-match)
   (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
