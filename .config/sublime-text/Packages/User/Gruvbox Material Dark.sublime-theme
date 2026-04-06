@@ -1,0 +1,22 @@
+// Documentation at https://www.sublimetext.com/docs/themes.html
+{
+	"variables":
+	{
+	},
+	"rules":
+	[
+	{
+	    "class": "status_bar",
+	    "background_color": "var(--background)",
+	    "foreground_color": "var(--foreground)",
+	    "font.face": "JetBrainsMono Nerd Font",
+	    "font.size": 12,
+	    "content_margin": [10, 6]
+	}
+	{
+	    "class": "sidebar_button_control",
+	    "content_margin": [0, 0],
+	    "layer0.opacity": 0
+	}
+	]
+}

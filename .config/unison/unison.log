@@ -1,0 +1,657 @@
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 16:21:01
+
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 16:21:36
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://main//home/c0mplex/Documents/Programming
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 16:23:04
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://main//home/c0mplex/Documents/Programming
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 16:23:18
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 16:25:19
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 21:41:01
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 22:12:00
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 22:12:07
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Warning: inconsistent state.  
+The archive file is missing on some hosts.
+For safety, the remaining copies should be deleted.
+  Archive ar816f765c3a33908c1f34b6a1cdc5eaef on host c0mplex should be DELETED
+  Archive ar816f765c3a33908c1f34b6a1cdc5eaef on host c0mplex is MISSING
+Please delete archive files as appropriate and try again
+or invoke Unison with -ignorearchives flag.
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-21 at 22:12:16
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+2 items will be synced, 0 skipped
+28.4 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 22:12:25.73 on 21 Mar 2026
+[BGN] Updating file c/dwm/dwm/config.h from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/dwmblocks-async/config.h from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[END] Updating file c/dwm/dwm/config.h
+[END] Updating file c/dwm/dwmblocks-async/config.h
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 22:12:25.74 on 21 Mar 2026, 0.018 s
+Synchronization complete at 22:12:25  (2 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:34:43
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:35:26
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+18 items will be synced, 0 skipped
+461 KiB to be synced from local to c0mplex
+338 KiB to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 19:35:29.31 on 30 Mar 2026
+[BGN] Updating file c/dwm/dwm/config.h from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/dwm/dwm from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Updating file c/Birthday_project/birthday.c from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/Birthday_project/center.c from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying c/dwm/.gitignore from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying c/dwm/dwmblocks-async/config.bak from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/dwmblocks-async/config.h from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/stwithpatches/config.h from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/stwithpatches/st from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Copying c/glyphcheck.c from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying c/holamundo.c from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/slop/Makefile from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/slop/gitstatus from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/slop/starshipslop.c from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying c/under.c from //c0mplex//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Copying church/Description.md from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying church/mediamtxserver from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying church/srtmeetingapp from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.clang-format from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.clang-format
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.gersemirc from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.gersemirc
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.gitignore from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.gitignore
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/CMakePresets.json from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/CMakePresets.json
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/LICENSE from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/LICENSE
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.clang-format from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.clang-format
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.gersemirc from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.gersemirc
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.gitignore from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.gitignore
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/CMakePresets.json from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/CMakePresets.json
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/LICENSE from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/LICENSE
+[END] Updating file c/dwm/dwm/config.h
+[END] Updating file c/dwm/dwm/dwm
+[END] Updating file c/Birthday_project/birthday.c
+[END] Updating file c/Birthday_project/center.c
+[END] Copying c/dwm/.gitignore
+[END] Copying c/dwm/dwmblocks-async/config.bak
+[END] Updating file c/dwm/dwmblocks-async/config.h
+[END] Updating file c/dwm/stwithpatches/config.h
+[END] Updating file c/dwm/stwithpatches/st
+[END] Copying c/glyphcheck.c
+[END] Copying c/holamundo.c
+[END] Updating file c/slop/Makefile
+[END] Updating file c/slop/gitstatus
+[END] Updating file c/slop/starshipslop.c
+[END] Copying c/under.c
+[END] Copying church/Description.md
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/CMakeFiles/cmake.check_cache from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/CMakeFiles/cmake.check_cache
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.run-format.zsh from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.run-format.zsh
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/src/plugin-support.c.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/src/plugin-support.c.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/src/plugin-support.h from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/src/plugin-support.h
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.run-format.zsh from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.run-format.zsh
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/src/plugin-support.c.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/src/plugin-support.c.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/src/plugin-support.h from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/src/plugin-support.h
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/.Aptfile from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/.Aptfile
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/.Brewfile from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/.Brewfile
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/Build-Windows.ps1 from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/Build-Windows.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/Package-Windows.ps1 from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/Package-Windows.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/build-macos from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/build-macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/build-ubuntu from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/build-ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/package-macos from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/package-macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/package-ubuntu from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/package-ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/workflows/build-project.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/workflows/build-project.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/workflows/check-format.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/workflows/check-format.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/workflows/dispatch.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/workflows/dispatch.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/workflows/pr-pull.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/workflows/pr-pull.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/workflows/push.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/workflows/push.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/CMakeLists.txt from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/CMakeLists.txt
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/README.md from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/README.md
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_debug from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_debug
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_error from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_error
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_group from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_group
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_info from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_info
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_output from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_output
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_status from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_status
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/log_warning from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/log_warning
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/build-aux/.functions/set_loglevel from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/build-aux/.functions/set_loglevel
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/buildspec.json from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/buildspec.json
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/bootstrap.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/bootstrap.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/buildnumber.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/buildnumber.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/buildspec_common.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/buildspec_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/ccache.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/ccache.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/compiler_common.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/compiler_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/helpers_common.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/helpers_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/common/osconfig.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/common/osconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/linux/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/linux/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/linux/defaults.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/linux/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/linux/helpers.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/linux/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/buildspec.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/buildspec.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/defaults.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/helpers.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/xcode.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/xcode.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/windows/buildspec.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/windows/buildspec.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/windows/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/windows/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/windows/defaults.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/windows/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/windows/helpers.cmake from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/windows/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/data/locale/en-US.ini from local file /home/c0mplex/Documents/Programming/ruby/web/blog/vendor/.keep
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/.Aptfile from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/.Aptfile
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/.Brewfile from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/.Brewfile
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/Build-Windows.ps1 from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/Build-Windows.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/Package-Windows.ps1 from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/Package-Windows.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/build-macos from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/build-macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/build-ubuntu from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/build-ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/package-macos from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/package-macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/package-ubuntu from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/package-ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/workflows/build-project.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/workflows/build-project.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/workflows/check-format.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/workflows/check-format.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/workflows/dispatch.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/workflows/dispatch.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/workflows/pr-pull.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/workflows/pr-pull.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/workflows/push.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/workflows/push.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_debug from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_debug
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_error from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_error
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_group from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_group
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_info from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_info
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_output from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_output
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_status from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_status
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/log_warning from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/log_warning
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/build-aux/.functions/set_loglevel from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/set_loglevel
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/bootstrap.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/bootstrap.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/buildnumber.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/buildnumber.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/buildspec_common.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/buildspec_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/ccache.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/ccache.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/compiler_common.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/compiler_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/helpers_common.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/helpers_common.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/common/osconfig.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/common/osconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/linux/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/linux/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/linux/defaults.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/linux/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/linux/helpers.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/linux/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/buildspec.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/buildspec.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/defaults.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/helpers.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/xcode.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/xcode.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/windows/buildspec.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/windows/buildspec.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/windows/compilerconfig.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/windows/compilerconfig.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/windows/defaults.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/windows/defaults.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/windows/helpers.cmake from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/windows/helpers.cmake
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/data/locale/en-US.ini from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/data/locale/en-US.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/build-plugin/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/build-plugin/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/check-changes/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/check-changes/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/package-plugin/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/package-plugin/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/run-clang-format/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/run-clang-format/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/run-gersemi/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/run-gersemi/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/actions/setup-macos-codesigning/action.yaml from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/actions/setup-macos-codesigning/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.pwsh/Ensure-Location.ps1 from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.pwsh/Ensure-Location.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.pwsh/Invoke-External.ps1 from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.pwsh/Invoke-External.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.pwsh/Logger.ps1 from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.pwsh/Logger.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/check_macos from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/check_macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/check_ubuntu from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/check_ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_debug from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_debug
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_error from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_error
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_group from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_group
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_info from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_info
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_output from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_output
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_status from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_status
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/log_warning from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/log_warning
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/mkcd from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/mkcd
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/set_loglevel from local file /home/c0mplex/Documents/Programming/church/.unison.srtmeetingapp.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/build-aux/.functions/set_loglevel
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/.github/scripts/utils.zsh/setup_ubuntu from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/.github/scripts/utils.zsh/setup_ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/resources/ccache-launcher-c.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/resources/ccache-launcher-c.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/resources/ccache-launcher-cxx.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/resources/ccache-launcher-cxx.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/resources/create-package.cmake.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/resources/create-package.cmake.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/resources/distribution.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/resources/distribution.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/macos/resources/installer-macos.pkgproj.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/macos/resources/installer-macos.pkgproj.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/mediamtxserver/obs-srt-meeting/cmake/windows/resources/resource.rc.in from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/obs-plugintemplate/cmake/windows/resources/resource.rc.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/src/plugin-main.c from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/src/plugin-main.c
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/build-plugin/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/build-plugin/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/check-changes/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/check-changes/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/package-plugin/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/package-plugin/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/run-clang-format/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/run-clang-format/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/run-gersemi/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/run-gersemi/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/actions/setup-macos-codesigning/action.yaml from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/actions/setup-macos-codesigning/action.yaml
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.pwsh/Ensure-Location.ps1 from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.pwsh/Ensure-Location.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.pwsh/Invoke-External.ps1 from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.pwsh/Invoke-External.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.pwsh/Logger.ps1 from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.pwsh/Logger.ps1
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/check_macos from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/check_macos
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/check_ubuntu from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/check_ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_debug from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_debug
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_error from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_error
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_group from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_group
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_info from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_info
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_output from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_output
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_status from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_status
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/log_warning from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/log_warning
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/mkcd from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/mkcd
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/set_loglevel from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/set_loglevel
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/.github/scripts/utils.zsh/setup_ubuntu from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/.github/scripts/utils.zsh/setup_ubuntu
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/resources/ccache-launcher-c.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/resources/ccache-launcher-c.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/resources/ccache-launcher-cxx.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/resources/ccache-launcher-cxx.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/resources/create-package.cmake.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/resources/create-package.cmake.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/resources/distribution.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/resources/distribution.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/macos/resources/installer-macos.pkgproj.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/macos/resources/installer-macos.pkgproj.in
+Shortcut: copied /home/c0mplex/Documents/Programming/church/srtmeetingapp/obs-srt-meeting/cmake/windows/resources/resource.rc.in from local file /home/c0mplex/Documents/Programming/church/.unison.mediamtxserver.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-srt-meeting/cmake/windows/resources/resource.rc.in
+[END] Copying church/mediamtxserver
+[END] Copying church/srtmeetingapp
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 19:35:29.47 on 30 Mar 2026, 0.160 s
+Synchronization complete at 19:35:29  (18 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:40:09
+
+Roots:
+  /home/c0mplex/.scripts
+  ssh://laptop//home/c0mplex/.scripts
+
+
+9 items will be synced, 0 skipped
+25.1 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 19:40:10.31 on 30 Mar 2026
+[BGN] Updating file system/birthday from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying .duck.log from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying Description.md from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying performancemode.sh from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying python from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying shellaliases from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying tmp/autoupdaterouterip from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying tmp/router.sh from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying tmp/startmango from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+Shortcut: copied /home/c0mplex/.scripts/.duck.log from local file /home/c0mplex/.scripts/README.md
+[END] Copying .duck.log
+[END] Updating file system/birthday
+[END] Copying Description.md
+[END] Copying performancemode.sh
+[END] Copying shellaliases
+[END] Copying tmp/autoupdaterouterip
+[END] Copying tmp/router.sh
+[END] Copying tmp/startmango
+[END] Copying python
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 19:40:10.34 on 30 Mar 2026, 0.033 s
+Synchronization complete at 19:40:10  (9 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:44:06
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+225 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 19:44:06.94 on 30 Mar 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 19:44:06.95 on 30 Mar 2026, 0.007 s
+Synchronization incomplete at 19:44:06  (0 items transferred, 0 skipped, 1 failed)
+  failed: 
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:45:41
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+225 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 19:45:41.56 on 30 Mar 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 19:45:41.57 on 30 Mar 2026, 0.007 s
+Synchronization incomplete at 19:45:41  (0 items transferred, 0 skipped, 1 failed)
+  failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 19:46:05
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+225 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 19:46:06.04 on 30 Mar 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 19:46:06.05 on 30 Mar 2026, 0.006 s
+Synchronization incomplete at 19:46:06  (0 items transferred, 0 skipped, 1 failed)
+  failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 20:23:06
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+3 items will be synced, 0 skipped
+282 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 20:23:07.23 on 30 Mar 2026
+[BGN] Copying c/dwm/dwm from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying c/dwm/dwmblocks-async/config.h from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/LICENSE from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/LICENSE
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/Makefile from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/Makefile
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/README.md from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/README.md
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/config.mk from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/config.mk
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/drw.c from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/drw.c
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/drw.h from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm/drw.h
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/dwm.1 from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm.1
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/dwm.cfg from local file /home/c0mplex/Documents/Programming/c/Birthday_project/crt.cfg
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/dwm.png from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/dwm.png
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/swallow from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/swallow
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/transient.c from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/transient.c
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/util.c from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/util.c
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/util.h from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/util.h
+Shortcut: copied /home/c0mplex/Documents/Programming/c/dwm/dwm/vanitygaps.c from local file /home/c0mplex/Documents/Programming/c/dwm/backup/dwm/vanitygaps.c
+[END] Copying c/dwm/dwmblocks-async/config.h
+[END] Copying c/dwm/dwm
+[BGN] Deleting c/dwm/dwmblocks-async/config.bak from //c0mplex//home/c0mplex/Documents/Programming
+[END] Deleting c/dwm/dwmblocks-async/config.bak
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 20:23:07.28 on 30 Mar 2026, 0.050 s
+Synchronization complete at 20:23:07  (3 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-03-30 at 20:26:02
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+2 items will be synced, 0 skipped
+119 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 20:26:02.93 on 30 Mar 2026
+[BGN] Updating file c/dwm/dwm/config.h from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/dwm/dwm from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[END] Updating file c/dwm/dwm/config.h
+[END] Updating file c/dwm/dwm/dwm
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 20:26:02.95 on 30 Mar 2026, 0.022 s
+Synchronization complete at 20:26:03  (2 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:13:29
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:14:09
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+15 items will be synced, 0 skipped
+25.2 MiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 10:14:12.02 on 05 Apr 2026
+[BGN] Updating file c/dwm/stwithpatches/config.h from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file c/dwm/stwithpatches/st from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file church/srtmeetingapp/obs-srt-meeting/cmake/.CMakeBuildNumber from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/.github/scripts/Package-Windows.ps1 from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/build-project.yaml from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/check-format.yaml from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/push.yaml from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/README.md from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying cpp/obs_plugin/multipleRTMP/autortmp.py from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying cpp/obs_plugin/multipleRTMP/build_x86_64 from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/cmake/.CMakeBuildNumber from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/cmake/common/buildspec_common.cmake from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/installer.nsi from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/src/obs-multi-rtmp.cpp from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+[BGN] Copying go/range.go from /home/c0mplex/Documents/Programming to //c0mplex//home/c0mplex/Documents/Programming
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/plugin-support.c from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/plugin-support.c
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/CMakeFiles/cmake.check_cache from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/CMakeFiles/cmake.check_cache
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/obs-multi-rtmp_autogen/mocs_compilation.cpp from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/obs-multi-rtmp_autogen/mocs_compilation.cpp
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/obs-multi-rtmp_autogen/timestamp from local file /home/c0mplex/Documents/Programming/ruby/web/blog/vendor/.keep
+[END] Updating file c/dwm/stwithpatches/config.h
+[END] Updating file c/dwm/stwithpatches/st
+[END] Updating file church/srtmeetingapp/obs-srt-meeting/cmake/.CMakeBuildNumber
+[END] Updating file cpp/obs_plugin/multipleRTMP/.github/scripts/Package-Windows.ps1
+[END] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/build-project.yaml
+[END] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/check-format.yaml
+[END] Updating file cpp/obs_plugin/multipleRTMP/.github/workflows/push.yaml
+[END] Updating file cpp/obs_plugin/multipleRTMP/README.md
+[END] Copying cpp/obs_plugin/multipleRTMP/autortmp.py
+[END] Updating file cpp/obs_plugin/multipleRTMP/cmake/.CMakeBuildNumber
+[END] Updating file cpp/obs_plugin/multipleRTMP/cmake/common/buildspec_common.cmake
+[END] Updating file cpp/obs_plugin/multipleRTMP/installer.nsi
+[END] Updating file cpp/obs_plugin/multipleRTMP/src/obs-multi-rtmp.cpp
+[END] Copying go/range.go
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/CMakeFiles/4.3.1/CompilerIdC/CMakeCCompilerId.c from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/CMakeFiles/4.2.1/CompilerIdC/CMakeCCompilerId.c
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/CMakeFiles/4.3.1/CompilerIdCXX/CMakeCXXCompilerId.cpp from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/CMakeFiles/4.2.1/CompilerIdCXX/CMakeCXXCompilerId.cpp
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/an-ES.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/an-ES.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ar-AR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ar-AR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ar-SA.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ar-SA.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/az-AZ.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/az-AZ.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ba-RU.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ba-RU.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/be-BY.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/be-BY.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bem-ZM.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bem-ZM.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bg-BG.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bg-BG.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bn-BD.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/bn-BD.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ca-ES.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ca-ES.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/cs-CZ.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/cs-CZ.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/da-DK.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/da-DK.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/de-DE.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/de-DE.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/el-GR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/el-GR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/en-GB.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/te-IN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/en-US.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/en-US.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/eo-UY.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/eo-UY.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/es-ES.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/es-ES.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/et-EE.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/et-EE.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/eu-ES.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/eu-ES.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fa-IR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fa-IR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fi-FI.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fi-FI.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fil-PH.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fil-PH.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fr-FR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/fr-FR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/gd-GB.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/gd-GB.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/gl-ES.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/gl-ES.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/he-IL.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/he-IL.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hi-IN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hi-IN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hr-HR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hr-HR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hu-HU.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hu-HU.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hy-AM.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/hy-AM.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/id-ID.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/id-ID.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/it-IT.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/it-IT.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ja-JP.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ja-JP.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ka-GE.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ka-GE.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/kab-KAB.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/kab-KAB.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/kmr-TR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/kmr-TR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ko-KR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ko-KR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lo-LA.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lo-LA.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lt-LT.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lt-LT.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lv-LV.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/lv-LV.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/mn-MN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/mn-MN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ms-MY.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ms-MY.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nb-NO.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nb-NO.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nl-NL.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nl-NL.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nn-NO.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/nn-NO.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/oc-FR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/oc-FR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pa-IN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pa-IN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pl-PL.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pl-PL.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pt-BR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pt-BR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pt-PT.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/pt-PT.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ro-RO.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ro-RO.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ru-RU.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ru-RU.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/si-LK.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/si-LK.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sk-SK.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sk-SK.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sl-SI.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sl-SI.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sq-AL.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sq-AL.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sr-CS.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sr-CS.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sr-SP.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sr-SP.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sv-SE.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/sv-SE.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/szl-PL.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/szl-PL.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ta-IN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ta-IN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/te-IN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/.unison.build_x86_64.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/rundir/RelWithDebInfo/obs-multi-rtmp/locale/en-GB.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/th-TH.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/th-TH.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/tl-PH.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/tl-PH.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/tr-TR.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/tr-TR.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/uk-UA.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/uk-UA.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ur-PK.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/ur-PK.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/vi-VN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/vi-VN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/zh-CN.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/zh-CN.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp/locale/zh-TW.ini from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/remastered/rundir/RelWithDebInfo/obs-multi-rtmp/locale/zh-TW.ini
+Shortcut: copied /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/build_x86_64/rundir/RelWithDebInfo/obs-multi-rtmp.so from local file /home/c0mplex/Documents/Programming/cpp/obs_plugin/multipleRTMP/.unison.build_x86_64.816f765c3a33908c1f34b6a1cdc5eaef.unison.tmp/obs-multi-rtmp.so
+[END] Copying cpp/obs_plugin/multipleRTMP/build_x86_64
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:14:12.75 on 05 Apr 2026, 0.733 s
+Synchronization complete at 10:14:12  (15 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:15:06
+
+Roots:
+  /home/c0mplex/.scripts
+  ssh://laptop//home/c0mplex/.scripts
+
+
+3 items will be synced, 0 skipped
+44.7 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 10:15:06.29 on 05 Apr 2026
+[BGN] Copying search.sh from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Updating file tmp/autoupdaterouterip from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[BGN] Copying tmp/dmenu-scripts from /home/c0mplex/.scripts to //c0mplex//home/c0mplex/.scripts
+[END] Copying search.sh
+[END] Updating file tmp/autoupdaterouterip
+[END] Copying tmp/dmenu-scripts
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:15:06.33 on 05 Apr 2026, 0.041 s
+Synchronization complete at 10:15:06  (3 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:16:33
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+232 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 10:16:34.13 on 05 Apr 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:16:34.14 on 05 Apr 2026, 0.006 s
+Synchronization incomplete at 10:16:34  (0 items transferred, 0 skipped, 1 failed)
+  failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:18:37
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://c0mplex//home/sam/.emacs.d
+
+Error: Lost connection with the server
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:19:11
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+232 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 10:19:11.76 on 05 Apr 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:19:11.77 on 05 Apr 2026, 0.009 s
+Synchronization incomplete at 10:19:11  (0 items transferred, 0 skipped, 1 failed)
+  failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-05 at 10:19:42
+
+Roots:
+  /home/c0mplex/.emacs.d
+  ssh://laptop//home/.emacs.d
+
+
+1 items will be synced, 0 skipped
+232 KiB to be synced from local to c0mplex
+0 B to be synced from c0mplex to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 10:19:43.23 on 05 Apr 2026
+[BGN] Copying  from /home/c0mplex/.emacs.d to //c0mplex//home/.emacs.d
+Failed []: Error in creating directory:
+Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5.unison.tmp)]
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:19:43.24 on 05 Apr 2026, 0.006 s
+Synchronization incomplete at 10:19:43  (0 items transferred, 0 skipped, 1 failed)
+  failed: 

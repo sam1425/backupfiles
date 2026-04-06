@@ -1,0 +1,17 @@
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
+{
+	"variables":
+	{
+	},
+
+    "globals":
+    {
+        "background": "#111314",
+        "gutter": "#111314",
+        "line_highlight": "#1a1c1e",
+        "selection": "#2d3134",
+        "selection_border": "#3d4245", 
+        "caret": "#ffffff"
+    },
+    "rules": []
+}
