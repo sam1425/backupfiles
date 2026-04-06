@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ;; -*- lexical-binding: t; -*-
 
+||||||| (empty tree)
+=======
+>>>>>>> 3fe26ac (adding configs)
 (require 'ansi-color)
 
 (global-set-key (kbd "C-x C-g") 'find-file-at-point)

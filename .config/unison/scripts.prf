@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 root = $HOME/.scripts
 root = ssh://laptop/$HOME/.scripts
+||||||| (empty tree)
+=======
+root = /home/c0mplex/.scripts
+root = ssh://laptop//home/c0mplex/.scripts
+>>>>>>> 3fe26ac (adding configs)
 
 repeat = watch
 auto = true

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 root = $HOME/.emacs.d
+||||||| (empty tree)
+=======
+root = /home/c0mplex/.emacs.d
+>>>>>>> 3fe26ac (adding configs)
 root = ssh://laptop//home/.emacs.d
 
 auto = true

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ;;; c3-mode.el --- Major mode for C3 -*- lexical-binding: t; -*-
 
+||||||| (empty tree)
+=======
+>>>>>>> 3fe26ac (adding configs)
 (require 'subr-x)
 
 (defvar c3-mode-syntax-table

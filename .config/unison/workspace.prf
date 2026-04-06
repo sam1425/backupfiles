@@ -1,5 +1,10 @@
 root = /home/c0mplex/Documents/Programming
+<<<<<<< HEAD
 root = ssh://main//home/c0mplex/Documents/Programming
+||||||| (empty tree)
+=======
+root = ssh://laptop//home/c0mplex/Documents/Programming
+>>>>>>> 3fe26ac (adding configs)
 
 # repeat = watch
 repeat = 60
