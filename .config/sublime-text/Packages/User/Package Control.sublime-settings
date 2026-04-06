@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Auto Refresh",
+		"AutoFileName",
+		"C Improved",
+		"C++ Completions",
+		"Clang Format",
+		"FileIcons",
+		"gruvbox",
+		"Gruvbox Material Theme",
+		"LSP",
+		"LSP-clangd",
+		"NeoVintageous",
+		"NeoVintageousFiles",
+		"NeoVintageousHighlightLine",
+		"NeoVintageousLineNumbers",
+		"NeoVintageousToggle",
+		"Package Control",
+		"SideBarTools",
+		"SublimeLinter",
+		"SublimeLinter-clang",
+		"TerminalView",
+	],
+}

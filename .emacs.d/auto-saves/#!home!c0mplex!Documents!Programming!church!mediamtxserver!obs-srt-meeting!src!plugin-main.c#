@@ -1,0 +1,220 @@
+#include <obs-module.h>
+#include <obs-frontend-api.h>
+#include <plugin-support.h>
+#include <pthread.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+OBS_DECLARE_MODULE()
+OBS_MODULE_USE_DEFAULT_LOCALE(PLUGIN_NAME, "en-US")
+
+#define HTTP_PORT 9550
+#define MEDIAMTX_SRT_URL "srt://127.0.0.1:8000"
+
+static pthread_t http_server_thread;
+static volatile bool plugin_running = false;
+static int server_fd = -1;
+static bool easy_mode = true;
+
+struct source_task_info {
+    char *name;
+    char *path;
+    bool connect;
+};
+
+/**
+ * @brief Find or create a scene by name.
+ */
+static obs_source_t *get_or_create_meeting_scene() {
+    obs_source_t *scene_source = obs_get_source_by_name("Meeting");
+    if (!scene_source) {
+        if (easy_mode) {
+            obs_log(LOG_INFO, "[SRT Meeting] Easy Mode: Creating 'Meeting' scene.");
+            obs_scene_t *new_scene = obs_scene_create("Meeting");
+            scene_source = obs_scene_get_source(new_scene);
+            obs_source_get_ref(scene_source);
+            obs_scene_release(new_scene);
+        }
+    }
+    return scene_source;
+}
+
+static void handle_source_task(void *arg) {
+    struct source_task_info *info = (struct source_task_info *)arg;
+    if (!info) return;
+
+    if (info->connect) {
+        char url[512];
+        snprintf(url, sizeof(url), "%s?streamid=read:%s", MEDIAMTX_SRT_URL, info->path);
+
+        obs_source_t *existing_source = obs_get_source_by_name(info->name);
+        obs_data_t *settings = obs_data_create();
+        obs_data_set_bool(settings, "is_local_file", false);
+        obs_data_set_string(settings, "input", url);
+        obs_data_set_string(settings, "input_format", "mpegts");
+        obs_data_set_bool(settings, "looping", false);
+        obs_data_set_bool(settings, "hw_decode", true);
+
+        if (existing_source) {
+            obs_log(LOG_INFO, "[SRT Meeting] Updating source '%s'", info->name);
+            obs_source_update(existing_source, settings);
+            obs_source_release(existing_source);
+        } else {
+            obs_log(LOG_INFO, "[SRT Meeting] Creating source '%s' for path '%s'", info->name, info->path);
+            obs_source_t *source = obs_source_create("ffmpeg_source", info->name, settings, NULL);
+            if (source) {
+                obs_source_t *target_scene_source = get_or_create_meeting_scene();
+                
+                if (target_scene_source) {
+                    obs_scene_t *scene = obs_scene_from_source(target_scene_source);
+                    if (scene) {
+                        obs_scene_add(scene, source);
+                    }
+                    obs_source_release(target_scene_source);
+                } else {
+                    obs_log(LOG_INFO, "[SRT Meeting] Meeting scene not found and Easy Mode is OFF. Source created but not added to any scene.");
+                }
+                obs_source_release(source);
+            }
+        }
+        obs_data_release(settings);
+    } else {
+        obs_source_t *source = obs_get_source_by_name(info->name);
+        if (source) {
+            obs_log(LOG_INFO, "[SRT Meeting] Removing source '%s'", info->name);
+            obs_source_remove(source);
+            obs_source_release(source);
+        }
+    }
+
+    free(info->name);
+    free(info->path);
+    free(info);
+}
+
+static void *http_server_func(void *arg) {
+    (void)arg;
+    struct sockaddr_in address;
+    int opt = 1;
+    int addrlen = sizeof(address);
+
+    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
+        obs_log(LOG_ERROR, "[SRT Meeting] Socket failed");
+        return NULL;
+    }
+
+    setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(HTTP_PORT);
+
+    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
+        obs_log(LOG_ERROR, "[SRT Meeting] Bind failed on port %d", HTTP_PORT);
+        return NULL;
+    }
+
+    if (listen(server_fd, 10) < 0) {
+        obs_log(LOG_ERROR, "[SRT Meeting] Listen failed");
+        return NULL;
+    }
+
+    obs_log(LOG_INFO, "[SRT Meeting] HTTP Server listening on port %d", HTTP_PORT);
+
+    while (plugin_running) {
+        int new_socket;
+        if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen)) < 0) {
+            if (plugin_running) usleep(100000);
+            continue;
+        }
+
+        char buffer[2048] = {0};
+        read(new_socket, buffer, 2048);
+
+        // Very basic HTTP parsing
+        bool is_connect = strstr(buffer, "POST /connect") != NULL;
+        bool is_disconnect = strstr(buffer, "POST /disconnect") != NULL;
+
+        if (is_connect || is_disconnect) {
+            char *body = strstr(buffer, "\r\n\r\n");
+            if (body) {
+                body += 4;
+                struct source_task_info *info = malloc(sizeof(struct source_task_info));
+                info->path = strdup(body);
+                // Strip potential trailing newline from curl --data-raw
+                char *nl = strpbrk(info->path, "\r\n");
+                if (nl) *nl = '\0';
+                
+                info->name = malloc(strlen(info->path) + 10);
+                snprintf(info->name, strlen(info->path) + 10, "SRT_%s", info->path);
+                info->connect = is_connect;
+
+                obs_queue_task(OBS_TASK_UI, handle_source_task, info, false);
+            }
+
+            const char *response = "HTTP/1.1 200 OK\r\nContent-Length: 0\r\nConnection: close\r\n\r\n";
+            send(new_socket, response, strlen(response), 0);
+        } else {
+            const char *response = "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n";
+            send(new_socket, response, strlen(response), 0);
+        }
+        close(new_socket);
+    }
+
+    return NULL;
+}
+
+static void toggle_easy_mode_callback(void *private_data) {
+    (void)private_data;
+    easy_mode = !easy_mode;
+    obs_log(LOG_INFO, "[SRT Meeting] Easy Mode toggled: %s", easy_mode ? "ON" : "OFF");
+}
+
+bool obs_module_load(void) {
+    plugin_running = true;
+
+    // Load settings from JSON
+    char *config_path = obs_module_get_config_path(obs_current_module(), "settings.json");
+    if (config_path) {
+        obs_data_t *settings = obs_data_create_from_json_file(config_path);
+        if (settings) {
+            easy_mode = obs_data_get_bool(settings, "easy_mode");
+            obs_data_release(settings);
+        } else {
+            easy_mode = true; // Default
+        }
+        bfree(config_path);
+    }
+
+    pthread_create(&http_server_thread, NULL, http_server_func, NULL);
+
+    obs_frontend_add_tools_menu_item("SRT Meeting: Toggle Easy Mode", toggle_easy_mode_callback, NULL);
+    
+    return true;
+}
+
+void obs_module_unload(void) {
+    plugin_running = false;
+    if (server_fd != -1) {
+        shutdown(server_fd, SHUT_RDWR);
+        close(server_fd);
+    }
+    pthread_join(http_server_thread, NULL);
+
+    // Save settings to JSON
+    char *config_path = obs_module_get_config_path(obs_current_module(), "settings.json");
+    if (config_path) {
+        obs_data_t *settings = obs_data_create();
+        obs_data_set_bool(settings, "easy_mode", easy_mode);
+        obs_data_save_json(settings, config_path);
+        obs_data_release(settings);
+        bfree(config_path);
+    }
+
+    obs_log(LOG_INFO, "[SRT Meeting] Plugin Unloaded.");
+}

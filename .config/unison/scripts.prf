@@ -1,0 +1,21 @@
+root = /home/c0mplex/.scripts
+root = ssh://laptop//home/c0mplex/.scripts
+
+repeat = watch
+auto = true
+batch = true
+prefer = newer
+
+# Ignore dev stuff
+ignore = Name .git
+ignore = Name .git/*
+ignore = Name node_modules
+ignore = Name build
+ignore = Name dist
+ignore = Name target
+ignore = Name __pycache__
+ignore = Name *.o
+ignore = Name *.out
+ignore = Name *.exe
+ignore = Name *.obj
+ignore = Name *.class

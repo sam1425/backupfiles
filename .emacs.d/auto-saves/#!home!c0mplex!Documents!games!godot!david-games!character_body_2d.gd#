@@ -1,0 +1,110 @@
+extends CharacterBody2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+const SPEED = 300.0
+# Jump
+const JUMP_VELOCITY = -500.0
+const JUMP_BUFFER_TIME := 0.10
+var jump_buffer_timer := 0.0
+# Coyote Time
+const COYOTE_TIME := 0.15
+var coyote_timer := 0.0
+var was_on_floor := false
+# Glide
+const GLIDE_GRAVITY_SCALE := 0.5
+const GLIDE_FALL_SPEED := 80.0
+const GLIDE_DRIFT_SPEED := 380.0
+const GLIDE_DURATION := 6.0
+const HOLD_TO_FLY_TIME := 0.12
+# Variable Jump Height
+const JUMP_CUT_MULTIPLIER := 0.060
+# Abilities
+var has_double_jump := false
+var has_fly_pickup := false
+var fly_fuel := 0.0
+# State
+var is_flying := false
+var hold_time := 0.0
+var jumps_left := 1
+
+func get_max_jumps() -> int:
+	return 2 if has_double_jump else 1
+
+func unlock_double_jump() -> void:
+	has_double_jump = true
+
+func unlock_flying_ability() -> void:
+	has_fly_pickup = true
+	fly_fuel = GLIDE_DURATION
+
+func _ready() -> void:
+	fly_fuel = 0.0
+
+func _physics_process(delta: float) -> void:
+	var direction := Input.get_axis("ui_left", "ui_right")
+
+	if is_on_floor():
+		jumps_left = get_max_jumps()
+		is_flying = false
+		coyote_timer = COYOTE_TIME
+		if has_fly_pickup:
+			fly_fuel = GLIDE_DURATION
+	elif was_on_floor:
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer -= delta
+	was_on_floor = is_on_floor()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		jump_buffer_timer = JUMP_BUFFER_TIME
+	else:
+		jump_buffer_timer -= delta
+
+	if Input.is_action_pressed("ui_accept"):
+		hold_time += delta
+	else:
+		hold_time = 0.0
+
+	# Glide
+	var wants_glide := Input.is_action_pressed("ui_accept") and hold_time >= HOLD_TO_FLY_TIME
+	var can_glide := has_fly_pickup and fly_fuel > 0.0 and not is_on_floor() and velocity.y >= 0.0
+	is_flying = wants_glide and can_glide
+
+
+	if is_flying:
+		fly_fuel = max(0.0, fly_fuel - delta)
+		velocity += get_gravity() * GLIDE_GRAVITY_SCALE * delta
+		velocity.y = min(velocity.y, GLIDE_FALL_SPEED)
+		velocity.x = direction * GLIDE_DRIFT_SPEED if direction else move_toward(velocity.x, 0.0, GLIDE_DRIFT_SPEED)
+	else:
+		# Jump execution
+		if jump_buffer_timer > 0.0 and hold_time < HOLD_TO_FLY_TIME:
+			if is_on_floor() or coyote_timer > 0.0:
+				velocity.y = JUMP_VELOCITY
+				jump_buffer_timer = 0.0
+				coyote_timer = 0.0 # Forcefully end coyote time
+				jumps_left = get_max_jumps() - 1
+			elif jumps_left > 0:
+				velocity.y = JUMP_VELOCITY
+				jumps_left -= 1
+				jump_buffer_timer = 0.0
+
+		# Normal Gravity
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		velocity.x = direction * SPEED if direction else move_toward(velocity.x, 0.0, SPEED)
+
+		# Variable Jump Height (short hop)
+		if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
+			velocity.y *= JUMP_CUT_MULTIPLIER
+
+	if direction != 0:
+		anim.flip_h = direction < 0
+	if not is_on_floor():
+		anim.play("Jump")
+	elif abs(velocity.x) > 1:
+		anim.play("Walk")
+	else:
+		anim.play("Idle")
+
+	move_and_slide()

@@ -1,0 +1,59 @@
+
+;; ----- smex-history -----
+(
+ server-start
+ server-force-delete
+ c-mode
+ align-regexp
+ evil-mode
+ compile
+ ruby-mode
+)
+
+;; ----- smex-data -----
+(
+ (visual-line-mode . 1)
+ (whitespace-mode . 5)
+ (evil-ex . 1)
+ (evil-mode . 24)
+ (server-start . 26)
+ (server-force-delete . 4)
+ (strokes-help . 1)
+ (describe-face . 1)
+ (highlight-indentation-mode . 1)
+ (describe-variable . 1)
+ (fringe-mode . 1)
+ (eval-buffer . 1)
+ (list-tags . 1)
+ (list-packages . 3)
+ (package-install . 9)
+ (ido-exit-minibuffer . 1)
+ (evil-first-non-blank . 1)
+ (evil-yank-line . 1)
+ (execute-extended-command . 1)
+ (evil-backward-char . 1)
+ (evil-goggles-mode . 1)
+ (evil-collection-init . 1)
+ (list-fontsets . 1)
+ (evil-visual-state . 1)
+ (compile . 4)
+ (beginning-of-buffer . 1)
+ (dired . 1)
+ (c-mode . 6)
+ (package-refresh-contents . 3)
+ (my-evil-mc-escape . 1)
+ (set-fringe-style . 1)
+ (align . 1)
+ (align-regexp . 15)
+ (find-library . 15)
+ (gruvbox-screenshot . 1)
+ (byte-compile-file . 4)
+ (smex . 1)
+ (helm-M-x . 1)
+ (helm-mode . 2)
+ (helm-find . 1)
+ (helm-info-ido . 1)
+ (org-mode . 2)
+ (start-kbd-macro . 1)
+ (ruby-mode . 1)
+)

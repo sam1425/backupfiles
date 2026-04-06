@@ -1,0 +1,21 @@
+[
+	{
+	    "keys": ["ctrl+x", "ctrl+f"],
+	    "command": "show_overlay",
+	    "args": { "overlay": "goto", "show_files": true }
+	},
+	{ 
+	    "keys": ["alt+`"], "command": "toggle_terminus_panel", "args": {
+	        "cwd": "${file_path:${folder}}"
+	    }
+	},
+	{ 
+	    "keys": ["ctrl+w"], "command": "terminus_close", "context": [{ "key": "terminus_view"}]
+	},
+	{ "keys": ["tab"], "command": "indent" },
+	{ "keys": ["shift+tab"], "command": "unindent" },
+	{ "keys": ["ctrl+shift+o"], "command": "prompt_open_folder" },
+
+	{ "keys": ["ctrl+y"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+	{ "keys": ["ctrl+r"], "command": "redo" },
+]
