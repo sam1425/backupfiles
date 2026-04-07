@@ -112,7 +112,7 @@ char *termname = "st";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* bg opacity */
 float alpha = 0.8;
@@ -139,7 +139,7 @@ static const char *colorname[] = {
 	"#34A0A4",
 	"#EBDBB2",
 
-	
+
 
 	[255] = 0,
 
@@ -314,9 +314,13 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
-    { XK_Return,      ShiftMask,      "\033[13;2u",    0,    0}, // Add this
-    { XK_Return,   ControlMask,   "\033[13;5u",   0,    0 },
 	/* keysym           mask            string      appkey appcursor */
+    { XK_BackSpace,     ShiftMask,      "\033[13;6u",    0,    0},
+    { XK_Return,        ShiftMask,      "\033[13;2u",    0,    0},
+    //{ XK_Return,      ShiftMask,      "\026\n",        0,    0},
+    //{ XK_Return,      ShiftMask,      "\033[13;2u",    0,    0},
+    { XK_Return,        ControlMask,    "\026\n",        0,    0},
+
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
 	{ XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
 	{ XK_KP_Home,       XK_ANY_MOD,     "\033[H",        0,   -1},
