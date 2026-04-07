@@ -314,6 +314,7 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
+    { XK_Return,      ShiftMask,      "\033[13;2u",    0,    0}, // Add this
     { XK_Return,   ControlMask,   "\033[13;5u",   0,    0 },
 	/* keysym           mask            string      appkey appcursor */
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
