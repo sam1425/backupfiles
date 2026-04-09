@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ magit
+ ruby-mode
  server-start
  server-force-delete
  c-mode
  align-regexp
  evil-mode
- compile
- ruby-mode
 )
 
 ;; ----- smex-data -----
@@ -55,5 +55,6 @@
  (helm-info-ido . 1)
  (org-mode . 2)
  (start-kbd-macro . 1)
- (ruby-mode . 1)
+ (ruby-mode . 2)
+ (magit . 1)
 )

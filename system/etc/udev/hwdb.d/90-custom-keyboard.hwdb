@@ -1,0 +1,5 @@
+evdev:input:b0003v258Ap002A*
+  KEYBOARD_KEY_70039=esc
+  KEYBOARD_KEY_70065=rightctrl
+  KEYBOARD_KEY_700e3=leftctrl
+  KEYBOARD_KEY_70029=leftctrl
