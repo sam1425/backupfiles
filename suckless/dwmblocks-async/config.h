@@ -39,7 +39,7 @@
 //High Volume: 󰕾 (Red/Purple)
 
 #define BLOCKS(X)             \
-    X("", "status=$(playerctl status 2>/dev/null); if [ \"$status\" = \"Playing\" ]; then [ \"$BLOCK_BUTTON\" = \"1\" ] && playerctl pause; playerctl metadata --format '󰎆 {{ title }}'; elif [ \"$status\" = \"Paused\" ]; then [ \"$BLOCK_BUTTON\" = \"1\" ] && playerctl play; playerctl metadata --format '󰏤 {{ title }}'; fi", 0, 1)\
+    X("", "tusituno=$(playerctl status 2>/dev/null); if [ \"$tusituno\" = \"Playing\" ]; then [ \"$BLOCK_BUTTON\" = \"1\" ] && playerctl pause; playerctl metadata --format '󰎆 {{ title }}'; elif [ \"$tusituno\" = \"Paused\" ]; then [ \"$BLOCK_BUTTON\" = \"1\" ] && playerctl play; playerctl metadata --format '󰏤 {{ title }}'; fi", 0, 1)\
     X("", "case $BLOCK_BUTTON in 1) pavucontrol >/dev/null 2>&1 & ;; 3) pamixer -t ;; esac; [ \"$(pamixer --get-mute)\" = \"true\" ] && echo '! !' || pamixer --get-volume", 0, 10)\
     X("", "s=$(cat /tmp/dt_st 2>/dev/null || echo 0); [ \"$BLOCK_BUTTON\" = \"1\" ] && yad --calendar --class='Yad' --undecorated --fixed --no-buttons --position=mouse; [ \"$BLOCK_BUTTON\" = \"3\" ] && s=$(((s+1)%3)) && echo $s > /tmp/dt_st; case $s in 0) date '+%B %d' ;; 1) date '+%d/%m' ;; 2) date '+%Y-%m-%d' ;; esac", 0, 3)\
     X("", "date '+%I:%M %p'", 60, 0)\
