@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ term
+ html-mode
+ html-div
  magit
  ruby-mode
  server-start
  server-force-delete
- c-mode
- align-regexp
- evil-mode
 )
 
 ;; ----- smex-data -----
@@ -57,4 +57,7 @@
  (start-kbd-macro . 1)
  (ruby-mode . 2)
  (magit . 1)
+ (html-div . 1)
+ (html-mode . 1)
+ (term . 2)
 )

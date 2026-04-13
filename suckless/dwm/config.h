@@ -287,14 +287,13 @@ static const Key        keys[] = {
 	{MODKEY | ShiftMask,               XK_F7,                                           spawn,                        SHCMD("status-timer cleanup")},
 	{MODKEY,                           XK_F11,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%;"
-           "/usr/bin/pkill -RTMIN+10 dwmblocks")},
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 	{MODKEY,                           XK_F10,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%;"
-           "/usr/bin/pkill -RTMIN+10 dwmblocks")},
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 	{MODKEY,                           XK_F12,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle;"
-           "/usr/bin/pkill -RTMIN+10 dwmblocks"
-	       )},
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 };
 
 /* button definitions */
