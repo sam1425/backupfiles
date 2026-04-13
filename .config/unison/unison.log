@@ -655,3 +655,98 @@ Permission denied [mkdir(/home/.unison..emacs.d.b99157b706e07af7d182afe42f4b33a5
 Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 10:19:43.24 on 05 Apr 2026, 0.006 s
 Synchronization incomplete at 10:19:43  (0 items transferred, 0 skipped, 1 failed)
   failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-13 at 17:25:52
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+12 items will be synced, 0 skipped
+205 KiB to be synced from local to archlinux
+15.6 MiB to be synced from archlinux to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 17:26:01.22 on 13 Apr 2026
+[BGN] Updating file c/Birthday_project/birthday.c from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Updating file c/slop/gitstatus from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Updating file c/slop/starshipslop.c from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/src/obs-multi-rtmp.cpp from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Updating file cpp/obs_plugin/multipleRTMP/src/push-widget.cpp from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Copying .zed from //archlinux//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Copying aifilesorter-1.7.3-1-x86_64.pkg.tar.zst from //archlinux//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Copying c/Birthday_project/centerbyenv.c from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Copying c/slop/' from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Copying cpp/lauriewired from /home/c0mplex/Documents/Programming to //archlinux//home/c0mplex/Documents/Programming
+[BGN] Copying cpp/obs_plugin/multipleRTMP/tags from //archlinux//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+[BGN] Copying python/seasons from //archlinux//home/c0mplex/Documents/Programming to /home/c0mplex/Documents/Programming
+Shortcut: copied /home/c0mplex/Documents/Programming/.zed/settings.json from local file /home/c0mplex/Documents/Programming/ruby/web/blog/vendor/.keep
+[END] Copying .zed
+[END] Updating file c/Birthday_project/birthday.c
+[END] Updating file c/slop/gitstatus
+[END] Updating file c/slop/starshipslop.c
+[END] Updating file cpp/obs_plugin/multipleRTMP/src/obs-multi-rtmp.cpp
+[END] Updating file cpp/obs_plugin/multipleRTMP/src/push-widget.cpp
+[END] Copying c/Birthday_project/centerbyenv.c
+[END] Copying c/slop/'
+[END] Copying aifilesorter-1.7.3-1-x86_64.pkg.tar.zst
+[END] Copying python/seasons
+[END] Copying cpp/obs_plugin/multipleRTMP/tags
+[END] Copying cpp/lauriewired
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 17:26:02.04 on 13 Apr 2026, 0.828 s
+Synchronization complete at 17:26:02  (12 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-13 at 17:26:20
+
+Roots:
+  /home/c0mplex/.scripts
+  ssh://laptop//home/c0mplex/.scripts
+
+
+20 items will be synced, 0 skipped
+43.9 KiB to be synced from local to archlinux
+239 B to be synced from archlinux to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 17:26:20.56 on 13 Apr 2026
+[BGN] Updating file apps from //archlinux//home/c0mplex/dotfiles/.scripts to /home/c0mplex/dotfiles/.scripts
+[BGN] Updating file performancemode.sh from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying Description.md from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/.gitattributes from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/LICENSE from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/README.md from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-command-menu from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-desktop-menu from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-i3-logout from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-kill-process from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-mansearch from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-menus from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-notes from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-open-file from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-places-menu from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-ssgen from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-theming from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-websearch from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/dmenu-websearch-sources from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[BGN] Copying tmp/dmenu-scripts/ssgen from /home/c0mplex/dotfiles/.scripts to //archlinux//home/c0mplex/dotfiles/.scripts
+[END] Updating file apps
+[END] Updating file performancemode.sh
+[END] Copying Description.md
+[END] Copying tmp/dmenu-scripts/.gitattributes
+[END] Copying tmp/dmenu-scripts/LICENSE
+[END] Copying tmp/dmenu-scripts/README.md
+[END] Copying tmp/dmenu-scripts/dmenu-command-menu
+[END] Copying tmp/dmenu-scripts/dmenu-desktop-menu
+[END] Copying tmp/dmenu-scripts/dmenu-i3-logout
+[END] Copying tmp/dmenu-scripts/dmenu-kill-process
+[END] Copying tmp/dmenu-scripts/dmenu-mansearch
+[END] Copying tmp/dmenu-scripts/dmenu-menus
+[END] Copying tmp/dmenu-scripts/dmenu-notes
+[END] Copying tmp/dmenu-scripts/dmenu-open-file
+[END] Copying tmp/dmenu-scripts/dmenu-places-menu
+[END] Copying tmp/dmenu-scripts/dmenu-ssgen
+[END] Copying tmp/dmenu-scripts/dmenu-theming
+[END] Copying tmp/dmenu-scripts/dmenu-websearch
+[END] Copying tmp/dmenu-scripts/dmenu-websearch-sources
+[END] Copying tmp/dmenu-scripts/ssgen
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 17:26:20.60 on 13 Apr 2026, 0.036 s
+Synchronization complete at 17:26:20  (20 items transferred, 0 skipped, 0 failed)
+Terminated!
