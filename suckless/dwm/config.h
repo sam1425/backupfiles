@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 #define CLICKABLE_BLOCKS 1
 /* appearance */
-static unsigned int             borderpx        = 0;            /* border pixel of windows */
+static unsigned int             borderpx        = 1;            /* border pixel of windows */
 static unsigned int             snap            = 32;           /* snap pixel */
 static const unsigned int       gappih          = 0;            /* horiz inner gap between windows */
 static const unsigned int       gappiv          = 0;            /* vert inner gap between windows */
@@ -11,7 +11,7 @@ static const unsigned int       gappoh          = 0;            /* horiz outer g
 static const unsigned int       gappov          = 0;            /* vert outer gap between windows and screen edge */
 static int                      smartgaps       = 0;            /* 1 means no outer gap when there is only one window */
 static const int                swallowfloating = 0;            /* 1 means swallow floating windows by default */
-static int                      showbar         = 0;            /* 0 means no bar */
+static int                      showbar         = 1;            /* 0 means no bar */
 static const int                showtitle       = 0;            /* 0 means no title */
 static const int                showtags        = 1;            /* 0 means no tags */
 static const int                showlayout      = 0;            /* 0 means no layout indicator */
@@ -33,23 +33,18 @@ static char                     selfgcolor[]            = "#141c21";
 static char                     selbordercolor[]        = "#289c93";
 static char                     selbgcolor[]            = "#b48ead";
 
-// Add your custom block colors here
-static char                     green[]                 = "#A3BE8C";
-static char                     red[]                   = "#BF616A";
-
 static char                     *colors[][3]            = {
-    /* fg               bg              border   */
-    [SchemeNorm]            = {normfgcolor,    normbgcolor,    normbordercolor},
-    [SchemeSel]             = {selbgcolor,     selbordercolor, selfgcolor     },
-    [SchemeStatus]          = {normfgcolor,    normbgcolor,    normbgcolor    },
-    [SchemeTagsSel]         = {selbordercolor, normbgcolor,    normbgcolor    },
-    [SchemeTagsNorm]        = {normfgcolor,    normbgcolor,    normbgcolor    },
-    [SchemeInfoSel]         = {normfgcolor,    normbgcolor,    normbgcolor    },
-    [SchemeInfoNorm]        = {normfgcolor,    normbgcolor,    normbgcolor    },
-    /* Status block indexes */
-    [7]                     = {green,          normbgcolor,    normbordercolor}, /* \x08 */
-    [8]                     = {red,            normbgcolor,    normbordercolor}, /* \x09 */
-};// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+	/*               fg           bg           border   */
+	[SchemeNorm]            = {normfgcolor, normbgcolor,    normbordercolor   },
+	[SchemeSel]             = {selbgcolor, selbordercolor, selfgcolor        },
+	[SchemeStatus]          = {normfgcolor, normbgcolor,    normbgcolor       },    /* status R */
+	[SchemeTagsSel]         = {selbordercolor, normbgcolor,    normbgcolor       }, /* tag L selected */
+	[SchemeTagsNorm]        = {normfgcolor, normbgcolor,    normbgcolor       },    /* tag L unselected */
+	[SchemeInfoSel]         = {normfgcolor, normbgcolor,    normbgcolor       },    /* info M selected */
+	[SchemeInfoNorm]        = {normfgcolor, normbgcolor,    normbgcolor       },    /* info M unselected */
+};
+
+// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 // static const char *tags[] = { "󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳", "󰎶", "󰎹", "󰎼" };
 // static const char *tags[] = {" I ", "I I", "III", "I V", "V", "V I", "VII", "VIII", "I X"};
 static const char               *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
@@ -59,34 +54,29 @@ static const Rule               rules[] = {
 	 * xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-	 */ /* class         instance        title      tags    mask  isfloating  isterminal  noswallow nofocus monitor */
+	 */ /* class         instance        title      tags    mask  isfloating  isterminal  noswallow monitor */
 	//terminal
-	{ NULL,          "pulsemixer",    NULL,                     0,                     1,         1,          1,    0,          -1         },
-	{"kitty",        NULL,            NULL,                     0,                     1,         1,          0,    0,          -1         },
-	{"st",           "basalt",        NULL,                     1 << 3,                0,         1,          0,    0,          -1         },
-	{"st",           "nchat",         NULL,                     1 << 4,                0,         1,          0,    0,          -1         },
-	{"st",           "floating",      NULL,                     0,                     1,         1,          0,    0,          -1         },
-	{NULL,           "xeyes",         NULL,                     0,                     1,         0,          1,    0,          -1         },
-	{"st",           "yazi",          NULL,                     0,                     1,         1,          0,    0,          -1         },
-	{"pavucontrol",  NULL,            NULL,                     0,                     1,         0,          0,    0,          -1         },
-	{"feh",          NULL,            NULL,                     0,                     1,         0,          0,    0,          -1         },
-	{"fzfmenu",      NULL,            "fzf",                    0,                     1,         1,          1,    0,          -1         },
-	{"Deskflow",     NULL,            NULL,                     1 << 10,               0,         0,          0,    0,          -1         },
-	{NULL,           "Deskflow",      NULL,                     1 << 10,               0,         0,          0,    0,          -1         },
-	{NULL,           NULL,            "Deskflow",               1 << 10,               0,         0,          0,    0,          -1         },
-	{NULL,           NULL,            "Event Tester",           0,                     0,         0,          1,    0,          -1         },
+	{ NULL,          "pulsemixer",    NULL,                     0,                     1,         1,          1,          -1         },
+	{"kitty",        NULL,            NULL,                     0,                     1,         1,          0,          -1         },
+	{"st",           "basalt",        NULL,                     1 << 3,                0,         1,          0,          -1         },
+	{"st",           "nchat",         NULL,                     1 << 4,                0,         1,          0,          -1         },
+	{"st",           "floating",      NULL,                     0,                     1,         1,          0,          -1         },
+	{"st",           "yazi",          NULL,                     0,                     1,         1,          0,          -1         },
+	{"pavucontrol",  NULL,            NULL,                     0,                     1,         0,          0,          -1         },
+	{"feh",          NULL,            NULL,                     0,                     1,         0,          0,          -1         },
+	{"fzfmenu",      NULL,            "fzf",                    0,                     1,         1,          1,          -1         },
+	{"Deskflow",     NULL,            NULL,                     1 << 10,               0,         0,          0,          -1         },
+	{NULL,           "Deskflow",      NULL,                     1 << 10,               0,         0,          0,          -1         },
+	{NULL,           NULL,            "Deskflow",               1 << 10,               0,         0,          0,          -1         },
+	{NULL,           NULL,            "Event Tester",           0,                     0,         0,          1,          -1         },
 	//apps
-	{NULL,           "sublime_text",  NULL,                     1 << 1,                0,         0,          1,    0,          -1         },
-	{"sublime_text", NULL,            "sublime_text",           1 << 1,                0,         -1,         0,    0,          -1         },
-	{"Emacs",        NULL,            NULL,                     1 << 1,                0,         0,          1,    0,          -1         },
-	{"firefox",      NULL,            NULL,                     1 << 3,                0,         0,          1,    0,          -1         },
-	{"librewolf",    NULL,            NULL,                     1 << 2,                0,         0,          1,    0,          -1         },
-	{"firefoxkiosk", NULL,            NULL,                     1 << 5,                0,         0,          1,    0,          -1         },
-	{"obsidian",     NULL,            NULL,                     1 << 3,                0,         0,          0,    0,          -1         },
-	{"discord",      NULL,            NULL,                     1 << 3,                0,         0,          0,    0,          -1         },
-	{"Spotify",      NULL,            NULL,                     1 << 4,                0,         0,          0,    0,          -1         },
-	{NULL,           NULL,            "quickshell",             ~0,                    1,         0,          1,    1,          -1         },
-	{NULL,           NULL,            "projectlauncher",        0,                     1,         0,          1,    0,          -1         },
+	{NULL,           "sublime_text",  NULL,                     1 << 1,                0,         0,          1,          -1         },
+	{"sublime_text", NULL,            "sublime_text",           1 << 1,                0,         -1,         0,          -1         },
+	{"Emacs",        NULL,            NULL,                     1 << 1,                0,         0,          1,          -1         },
+	{"firefox",      NULL,            NULL,                     1 << 2,                0,         0,          1,          -1         },
+	{"obsidian",     NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
+	{"discord",      NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
+	{"Spotify",      NULL,            NULL,                     1 << 4,                0,         0,          0,          -1         },
 };
 
 #include "vanitygaps.c"
@@ -145,22 +135,20 @@ static const Layout             layouts[]       = {
 static char             dmenumon[2]             = "0";
 static const char *dmenubash[] = {
     "sh", "-c",
-    "cmd=$(dmenu -h '22' < /dev/null) && [ -n \"$cmd\" ] && "
+    "cmd=$(dmenu < /dev/null) && [ -n \"$cmd\" ] && "
     "out=$(sh -c \". ~/.scripts/shellaliases; $cmd\" 2>&1) && "
     "[ -n \"$out\" ] && notify-send \"Output\" \"$out\"",
     NULL
 };
-
 static const char *i3dmenucmd[] = {
     "sh", "-c",
-    "j4-dmenu-desktop --dmenu=\"dmenu -b -fn 'Poppins:size=12' -nb '$1' -nf '$2' -sb '$3' -sf '$4'\"",
+    "j4-dmenu-desktop --dmenu=\"dmenu -i -b -fn 'Poppins:size=12' -nb '$1' -nf '$2' -sb '$3' -sf '$4'\"",
     "--", normbgcolor, normfgcolor, selbordercolor, selfgcolor,
     NULL
 };
-static const char       *dmenucmd[]             = {"dmenu_run", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor,  "-h", "22", NULL};
-static const char       *clipmenud[]            = {"clipmenu", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
+static const char       *dmenucmd[]             = {"dmenu_run", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
+static const char       *clipmenud[]            = {"clipmenu", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
 static const char       *termcmd[]              = {"st", NULL};
-// static const char       *tmuxcmd[]              = {"st", "-e", "tmux"};
 static const char       *termfloatingcmd[]      = {"st", "-n", "floating"};
 static const char       *kittyterm[]            = {"kitty", NULL};
 
@@ -194,8 +182,8 @@ static const Key        keys[] = {
 		MODKEY | ShiftMask, XK_i, incnmaster,{.i = +1}
 	},                                                                                                                                                              /* increase # of master windows */
 	{MODKEY | ControlMask,             XK_i,                                            incnmaster,                                {.i      = -1              }},   /* decrease # of master windows */
-	{MODKEY | ControlMask,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
-	{MODKEY| ControlMask,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},
+	{MODKEY,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
+	{MODKEY,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},
 	{MODKEY,                           XK_Tab,                                          view,                                      {0}},
 	{MODKEY,                           XK_0,                                            view,                                      {.ui     = ~0              }},
 	{MODKEY | ShiftMask,               XK_0,                                            tag,                                       {.ui     = ~0              }},
@@ -264,39 +252,39 @@ static const Key        keys[] = {
 	{MODKEY | ShiftMask,               XK_a,                                            spawn,                                     {.v      = (const char *[]){"dmenuvids", NULL}}},
 	{MODKEY | ControlMask,             XK_a,                                            spawn,                                     {.v      = (const char *[]){"dmenuaudioswitch", NULL}}},
 	{MODKEY | ShiftMask,               XK_d,                                            spawn,                                     {.v      = (const char *[]){"rip", NULL}}},
-	{MODKEY,                           XK_r,                                            spawn,                                     {.v      = (const char *[]){"$HOME/.scripts/system/record", NULL}}},
+	{MODKEY,                           XK_r,                                            spawn,                                     {.v      = (const char *[]){"rec", NULL}}},
 	{MODKEY | ShiftMask,               XK_grave,                                        spawn,                                     {.v      = (const char *[]){"define", NULL}}},
 	{MODKEY | ShiftMask,               XK_w,                                            spawn,                                     {.v      = (const char *[]){"wallpapermenu", NULL}}},
-	{MODKEY | ShiftMask,               XK_s,                                            spawn,                        SHCMD("$HOME/.scripts/bpscripts/images-photos-wallpapers/screenshot")},
-	{MODKEY | ShiftMask,               XK_z,                                            spawn,                        SHCMD("$HOME/Documents/Programming/c/graphics/Inspiration/boomer/boomer")},
-	{MODKEY | ShiftMask,               XK_F1,                                           spawn,                        SHCMD("$HOME/.scripts/bpscripts/images-photos-wallpapers/screenshot color")},
+	{MODKEY | ShiftMask,               XK_s,                                            spawn,                        SHCMD("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/screenshot")},
+	{MODKEY | ShiftMask,               XK_F1,                                           spawn,                        SHCMD("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/screenshot color")},
 	{MODKEY,                           XK_F2,                                           spawn,                                     {.v      = (const char *[]){"vb", NULL}}},
 	{MODKEY | ShiftMask,               XK_F2,                                           spawn,                                     {.v      = (const char *[]){"dmenutemp", NULL}}},
 	{MODKEY,                           XK_F3,                                           spawn,                                     {.v      = (const char *[]){"phototransfer", NULL}}},
-	{WINKEY,                           XK_a,                                            spawn,                        SHCMD("$HOME/.scripts/system/keyboardlayout")},
+	{WINKEY,                           XK_a,                                            spawn,                        SHCMD("/home/c0mplex/.scripts/system/keyboardlayout")},
 
 	/* Hardware keys */
-	{0,                                XF86XK_AudioRaiseVolume,                         spawn,
-	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%;"
-           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 	{0,                                XF86XK_AudioLowerVolume,                         spawn,
-	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%;"
-           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
+	 SHCMD("/usr/sbin/pactl set-sink-volume @DEFAULT_SINK@ -5%; /usr/bin/sleep 0.01;  "
+	       "/usr/bin/kill -44 "
+	       "$(/usr/bin/pidof dwmblocks)")},
 	{0,                                XF86XK_AudioMute,                                spawn,
-	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ toggle;"
-           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
-	{0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s 50+")},
-	{0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 50-")},
-	{MODKEY,                           XK_F2,                                           spawn,                        SHCMD("playerctl previous;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
-	{MODKEY,                           XK_F3,                                           spawn,                        SHCMD("playerctl play-pause;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
-	{MODKEY,                           XK_F4,                                           spawn,                        SHCMD("playerctl next;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
-	{0,                                XF86XK_AudioPlay,                                spawn,                        SHCMD("playerctl play-pause;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
-	{0,                                XF86XK_AudioNext,                                spawn,                        SHCMD("playerctl next;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
-	{0,                                XF86XK_AudioPrev,                                spawn,                        SHCMD("playerctl previous;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	 SHCMD("/usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle; /usr/bin/sleep 0.01; "
+	       "/usr/bin/kill -44 "
+	       "$(/usr/bin/pidof dwmblocks)")},
+	{0,                                XF86XK_AudioRaiseVolume,                         spawn,
+	 SHCMD("/usr/sbin/pactl set-sink-volume @DEFAULT_SINK@ +5%; /usr/bin/sleep 0.01;  "
+	       "/usr/bin/kill -44 "
+	       "$(/usr/bin/pidof dwmblocks)")},
+	{0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s +5%")},
+	{0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s -5%")},
+	{MODKEY,                           XK_F2,                                           spawn,                        SHCMD("playerctl previous kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{MODKEY,                           XK_F3,                                           spawn,                        SHCMD("playerctl play-pause kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{MODKEY,                           XK_F4,                                           spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{0,                                XF86XK_AudioPlay,                                spawn,                        SHCMD("playerctl play-pause;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{0,                                XF86XK_AudioNext,                                spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{0,                                XF86XK_AudioPrev,                                spawn,                        SHCMD("playerctl previous;/usr/bin/pkill -RTMIN+1 dwmblocks")},
 	{MODKEY,                           XK_BackSpace,                                    spawn,                        SHCMD("~/.config/i3/powermenu/powermenu.sh")},
-	{MODKEY,                           XK_F7,                                           spawn,                        SHCMD("xdotool key alt+3; xdg-open https://mail.google.com")},
 	{MODKEY | ShiftMask,               XK_F7,                                           spawn,                        SHCMD("status-timer cleanup")},
-	{MODKEY,                           XK_F8,                                           spawn,                        SHCMD("qalculate-gtk")},
 	{MODKEY,                           XK_F11,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%;"
            "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
@@ -306,8 +294,6 @@ static const Key        keys[] = {
 	{MODKEY,                           XK_F12,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle;"
            "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
-	/* {MODKEY,                           XK_x,                                            spawn,                                     SHCMD("~/.scripts/system/keybindgrabfix.sh")}, */
-	{MODKEY,                XK_b,                                            spawn,                                 SHCMD("notify-send hi hi")}
 };
 
 /* button definitions */
