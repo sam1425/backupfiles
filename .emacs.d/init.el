@@ -175,13 +175,13 @@
 (add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'rust-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
+;;(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
+;;(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'python-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'erlang-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
+;;(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
+;;(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
 :;(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
@@ -189,9 +189,17 @@
 
 ;;; display-line-numbers-mode
 (when (version<= "26.0.50" emacs-version)
+  (setq display-line-numbers-type 'relative)
   (setq-default display-line-numbers-width-start t)
   (setq-default display-line-numbers-grow-only t)
   (global-display-line-numbers-mode))
+
+;;; Toggle function
+(defun toggle-relative-numbers ()
+  (interactive)
+  (if (eq display-line-numbers 'relative)
+      (setq display-line-numbers t)
+    (setq display-line-numbers 'relative)))
 
 (add-hook 'text-scale-mode-hook
           (lambda ()
@@ -289,6 +297,11 @@
           (lambda ()
             (interactive)
             (company-mode 0)))
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-j") 'company-select-next)
+  (define-key company-active-map (kbd "C-k") 'company-select-previous))
+
 
 ;;; Typescript
 (rc/require 'typescript-mode)
