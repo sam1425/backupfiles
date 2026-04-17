@@ -23,6 +23,7 @@ unclutter idle 5 >/dev/null 2>&1 &
 # GUI Apps 
 pgrep -x firefox >/dev/null || firefox >/dev/null 2>&1 &
 pgrep -x emacs   >/dev/null || emacs >/dev/null 2>&1 &
+pgrep -x obsidian   >/dev/null || obsidian >/dev/null 2>&1 &
 
 # Terminal
 #pgrep -f "st -n basalt" >/dev/null || st -n basalt -e basalt &
