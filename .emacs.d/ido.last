@@ -2,6 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/c0mplex/Documents/Programming/c/easy-args/" . "includes/")
  ("/home/c0mplex/suckless/" . "dwm/")
  ("/home/c0mplex/.config/" . "zsh/")
  ("/home/c0mplex/Documents/Programming/ruby/oop/" . "bookproject/")
@@ -10,7 +11,7 @@
  ("/home/c0mplex/Documents/games/godot/" . "david-games/")
  ("/home/c0mplex/Documents/Programming/c/dwm/backup/" . "dmenu/")
  ("/home/c0mplex/Documents/Programming/c/dwm/" . "stwithpatches/")
- ("/home/c0mplex/Documents/Programming/c/" . "dwm/")
+ ("/home/c0mplex/Documents/Programming/c/" . "easy-args/")
  ("/home/c0mplex/git/" . "tsoding/")
  ("/home/c0mplex/Documents/Programming/go/" . "parse/")
  ("/home/c0mplex/Documents/Programming/" . "c/")
@@ -31,12 +32,15 @@
  ("/home/c0mplex/Documents/games/" . "godot/")
  ("/home/" . "c0mplex/")
  ("/" . "home/")
- ("/home/c0mplex/Documents/" . "Web/")
+ ("/home/c0mplex/Documents/" . "Programming/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/"
  "/home/c0mplex/.emacs.d/"
+ "/home/c0mplex/"
+ "/home/c0mplex/Documents/Programming/c/easy-args/includes/"
  "/home/c0mplex/Documents/Web/blog/"
  "/home/c0mplex/Documents/Programming/c/"
  "/home/c0mplex/dotfiles/"
@@ -55,7 +59,6 @@
  "/home/c0mplex/Documents/Programming/c/countup/"
  "/home/c0mplex/Documents/Programming/c/countdown/"
  "/home/c0mplex/git/tsoding/"
- "/home/c0mplex/"
  "/home/c0mplex/Documents/Programming/node/crashcourse/"
  "/home/c0mplex/Documents/Programming/cpp/"
  "/home/c0mplex/Documents/"
@@ -81,25 +84,41 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "dirvish-autoloads.el"
  "init.el"
+ ".zshrc"
+ "easyargs.h"
  "index.html"
  "metaballs.c"
  "README.md"
  "vimrc"
  "Description.md"
  "config.h"
- "aliases.zsh"
- "config"
- "fetch.sh"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/c0mplex/.emacs.d/" (27101 38007 538310 922000) "auto-saves/" "eln-cache/" "elpa/" "backup.emacs" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+ ("/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/" (27104 1964 356345 181000) "dirvish-fd.elc" "dirvish-ls.el" "dirvish-widgets.elc" "dirvish-subtree.elc" "dirvish-fd.el" "dirvish-emerge.elc" "dirvish-emerge.el" "dirvish-history.el" "dirvish-side.elc" "dirvish-quick-access.elc" "dirvish-peek.elc" "dirvish.elc" "dirvish-yank.el" "dirvish-vc.el" "dirvish.el" "dirvish-widgets.el" "dirvish-icons.el" "dirvish-extras.elc" "dirvish-narrow.elc" "dirvish-tramp.el" "dirvish-rsync.elc" "dirvish-pkg.el" "dirvish-collapse.el" "dirvish-extras.el" "dirvish-peek.el" "dirvish-collapse.elc" "../" "./" "dirvish-yank.elc" "dirvish-autoloads.el" "dirvish-tramp.elc" "dirvish-side.el" "dirvish-vc.elc" "dirvish-subtree.el" "dirvish-icons.elc" "dirvish-history.elc" "dirvish-quick-access.el" "dirvish-ls.elc" "dirvish-rsync.el" "dirvish-narrow.el")
+
+ ("/home/c0mplex/git/" (27095 51522 694574 350000) "arch_troubleshooting_guide.pdf" "dots/" "FF-ULTIMA/" "vimrc2" "vimrc" "zeit/" "neovim-config/" "../" "SilentSDDM/" "contents/" "./" "claude-code-leaked-source-main/" "tsoding/")
+
+ ("/home/c0mplex/" (27102 65125 814921 21000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" ".bib_history" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
+
+ ("/home/c0mplex/dotfiles/" (27095 51157 482771 12000) ".zshenv" ".gitmodules" ".scripts/" ".config/" ".tmux.conf" ".vim/" "README.md" ".gitconfig" "install" ".files/" ".Xdefaults" "LICENSE" ".gitignore" "../" ".stow-local-ignore" "./" "remove" ".Xresources" ".zshrc" "THEME.md" ".git/" "Description.md")
+
+ ("/home/c0mplex/dotfiles/.files/" (27102 48150 90004 123000) ".ssh/" ".local/" ".config/" "suckless/" "system/" ".emacs.rc/" ".emacs.snippets/" ".emacs.d/" ".gitignore" "../" ".dwm/" "./" ".emacs.local/" ".git/" ".emacs.custom.el")
+
+ ("/home/c0mplex/dotfiles/.files/.emacs.d/" (27101 40275 864909 970000) "auto-saves/" "init.elc" "eln-cache/" "elpa/" "backup.emacs" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+
+ ("/home/c0mplex/.emacs.d/" (27101 40275 864909 970000) "auto-saves/" "init.elc" "eln-cache/" "elpa/" "backup.emacs" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+
+ ("/home/c0mplex/Documents/Programming/c/easy-args/includes/" (27042 21672 235938 189000) "easyargs.h" "../" "./")
+
+ ("/home/c0mplex/Documents/Programming/c/easy-args/" (27042 21672 235938 189000) "examples/" "coverphoto.jpg" ".gitattributes" "README.md" "LICENSE" ".gitignore" "../" "./" "includes/" ".git/")
+
+ ("/home/c0mplex/Documents/Programming/" (27101 28026 39314 946000) "odin/" "tools/" ".zed/" "node/" "leetcode/" "go/" "c/" "aifilesorter-1.7.3-1-x86_64.pkg.tar.zst" "duilib license.txt" "church/" "rust/" "c#/" "cpp/" "../" "myownprogramminglanguage/" "wasm/" "./" "luaScripts/" "procesing/" "Programming/" "Description.md" "zig/" "python/" "ruby/" "jar/" "bash/")
 
  ("/home/c0mplex/Documents/" (27097 39420 606326 533000) "music/" "work/" "document.pdf" "tmp/" "firmaaqui.md" "bible/" "lau.md" "books/" "github-recovery-codes.txt" "Learning/" "apps/" "c/" "broadcast/" "Comprobante de Inscripción.pdf" "preload.txt" "broadcas/" "My Games/" "git.bak" "U/" "obsidian/" "../" "broadcast-20260411T004536Z-3-001.zip" "Terrariabackup/" "./" "Web/" "hacking/" "PDF RESULTADOS AC202437236128.pdf" "Preload.md" "celeste/" "Programming/" "orgmode" "Misc/" "games/")
-
- ("/home/c0mplex/" (27101 39540 671566 663000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" "hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBg45faxYNA-uHhm969FeA1UitO5A" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" ".bib_history" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
 
  ("/home/c0mplex/Documents/Web/blog/" (27079 8982 767367 321000) "main.css" "smartloading.js" "main.js" "src/" "autoloadimage.js" "majo/" "hex2rgb" ".gitignore" "gruv_dark/" "../" "./" "chatcard.html" "testjs/" "index.html" ".git/" "Description.md" "subpages/")
 
@@ -108,10 +127,6 @@
  ("/home/c0mplex/.dwm/" (27096 1871 344976 332000) "autostart.sh" "../" "./")
 
  ("/home/c0mplex/Documents/Programming/c/" (27094 59402 413690 612000) "c-squares/" "holamundo.c" "under.c" "SimpleFileEditor.c" "UI/" "char.c" "libs/" "dataStructures/" ".gitmodules" "new/" "a.out" "glyphcheck.c" "Birthday_project/" "switch.c" "_start.c" "Using#ifdef.c" "fizzbuzz.c" "temp/" "reminder.c" "bitwise/" "round/" "sdl_test/" "starship.c" "fprintf.c" "priorityalgorithm.c" "RandomTest/" "calculator/" "rusian_roulette" "fromstringtoint.c" "startail/" "te" "UsingDefinitions.c" "nob.h/" "loops/" "O(n)biblerandomizer.c" "base.h/" "lut.c" "mate.h-0.2.0/" "raylib/" "README.md" "build/" "cs50_stuff/" "func_r" "concentrate.c" "enum.c" "chess_timer.c" "emotions.log" "countdown/" "c_test/" "0x.c" "text-editor/" "Inspiration/" "metaballs" "typing_proyect/" "donut" "easy-args/" "slop/" "untiln.c" "../" "bible_random" "EventDrivenInput.c" "countup/" "uinttest.c" "printf_querks/" "./" "dontdothat.c" "simple_raylib_game/" "printa.c" "luajit.c" "overflow/" "emotion_logger.c" "imagegen/" "grid/" "cursor.c" "sleep.c" "HelloWithoutSTD.c" "random cli/" "ncurses/" "git-diagnostics-2026-04-07-1903.zip" "ask_primen.c" "token.c" ".git/" "Description.md" "texteditor.c" "addresses.c" "something" "metaballs.c")
-
- ("/home/c0mplex/Documents/Programming/" (27092 17733 694938 76000) "odin/" "tools/" ".zed/" "node/" "leetcode/" "go/" "c/" "aifilesorter-1.7.3-1-x86_64.pkg.tar.zst" "duilib license.txt" "church/" "rust/" "c#/" "cpp/" "../" "myownprogramminglanguage/" "wasm/" "./" "luaScripts/" "procesing/" "Programming/" "Description.md" "zig/" "python/" "ruby/" "jar/" "bash/")
-
- ("/home/c0mplex/dotfiles/" (27092 8263 47533 896000) ".zshenv" ".gitmodules" ".scripts/" ".config/" ".tmux.conf" ".vim/" "README.md" ".gitconfig" "install" ".files/" ".Xdefaults" "LICENSE" ".gitignore" "../" "./" "remove" ".Xresources" ".zshrc" "THEME.md" ".git/" "Description.md")
 
  ("/home/c0mplex/.vim/" (27092 4609 228660 605000) "autoload/" ".netrwhist" "vimrc" "plugged/" "../" "./" "filebackups/" "Description.md" "bundle/")
 
@@ -160,8 +175,6 @@
  ("/home/c0mplex/Documents/apps/" (27013 1723 114152 181000) "desktop-apps.txt" "pkglist.txt" "aur-all.txt" "windowsactivation.txt" "flatpak-apps.txt" "README.md" "desktop-app-names.txt" "pipx.txt" "../" "./" "backup/" ".git/" "pkglist-explicit.txt")
 
  ("/home/c0mplex/git/tsoding/" (27041 5958 99957 693000) "MANIFEST" "mpv.conf" ".sqliterc" "deprecated" "deploy.sh" ".gdbinit" ".screenlayout/" ".apvlvrc" ".tmux.conf" "i3/" "dotfiles/" "gf2_config.ini" ".emacs.rc/" "deploy.ps1" ".SciTEUser.properties" "README.md" ".gitconfig" ".i3status.conf" ".emacs" ".ghci" "DotFiles.psm1" ".vimrc" ".emacs.snippets/" ".markut" ".gitignore" "../" "settings.ini" "./" ".npmrc" "bin/" "MANIFEST.linux" ".emacs.local/" ".Xresources" ".rexim/" ".urxvt/" ".git/" ".emacs.custom.el" "Description.md" ".jmacsrc" ".nexrc")
-
- ("/home/c0mplex/git/" (27038 4295 103395 354000) "arch_troubleshooting_guide.pdf" "dots/" "vimrc2" "config.tsv" "highlightyank.vim" "vimrc" "zeit/" "neovim-config/" "fff/" "../" "strap.sh" "SilentSDDM/" "contents/" "./" "tsoding/")
 
  ("/home/c0mplex/Documents/Programming/node/" (27039 38887 270838 473000) "node/" ".gitignore" "../" "crashcourse/" "./" "user_input/" "svelte/" "first_program/")
 
