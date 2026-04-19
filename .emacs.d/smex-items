@@ -1,8 +1,8 @@
 
 ;; ----- smex-history -----
 (
+ evil-mode
  ranger
- ranger-go
  dired
  dirvish
  package-install
@@ -15,7 +15,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 24)
+ (evil-mode . 26)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
