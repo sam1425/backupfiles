@@ -2,6 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/c0mplex/.emacs.d/" . "auto-save-list/")
  ("/home/c0mplex/.scripts/bpscripts/" . "images-photos-wallpapers/")
  ("/home/c0mplex/.scripts/" . "bpscripts/")
  ("/home/c0mplex/Documents/Programming/c/easy-args/" . "includes/")
@@ -40,10 +41,10 @@
 ;; ----- ido-work-directory-list -----
 (
  "/home/c0mplex/.emacs.d/"
+ "/home/c0mplex/"
  "/home/c0mplex/Documents/Programming/c/graphics/"
  "/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/"
  "/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/"
- "/home/c0mplex/"
  "/home/c0mplex/Documents/Programming/c/easy-args/includes/"
  "/home/c0mplex/Documents/Web/blog/"
  "/home/c0mplex/Documents/Programming/c/"
@@ -89,6 +90,7 @@
 ;; ----- ido-work-file-list -----
 (
  "init.el"
+ ".emacs.custom.el"
  "glyphcheck.c"
  "screenshot"
  "dirvish-autoloads.el"
@@ -97,16 +99,53 @@
  "index.html"
  "metaballs.c"
  "README.md"
- "vimrc"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/c0mplex/dotfiles/.files/.emacs.d/" (27112 57506 490368 953000) "auto-saves/" "transient/" "init.elc" "eln-cache/" "elpa/" "backup.emacs" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+ ("/home/c0mplex/" (27113 6183 14817 164000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".nimble/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".m2/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".zoom/" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".python_history" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
 
- ("/home/c0mplex/.emacs.d/" (27112 57506 490368 953000) "auto-saves/" "transient/" "init.elc" "eln-cache/" "elpa/" "backup.emacs" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+ ("/home/c0mplex/dotfiles/.files/.emacs.d/" (27113 2335 79213 955000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
 
- ("/home/c0mplex/" (27111 64675 929684 564000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".nimble/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".m2/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".zoom/" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".python_history" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
+ ("/home/c0mplex/.emacs.d/auto-save-list/" (27113 2407 23635 909000) ".saves-153809-c0mplex~" ".saves-1127-c0mplex~" ".saves-4745-c0mplex~" ".saves-1363185-c0mplex~" ".saves-1118785-c0mplex~" ".saves-5579-c0mplex~" ".saves-1147147-c0mplex~" ".saves-43867-c0mplex~" ".saves-2534345-c0mplex~" ".saves-6266-c0mplex~" ".saves-3366-c0mplex~" ".saves-64108-c0mplex~" ".saves-1337-c0mplex~" ".saves-337602-c0mplex~" ".saves-16333-c0mplex~" ".saves-634975-c0mplex~" ".saves-6025-c0mplex~" ".saves-5407-c0mplex~" ".saves-724-c0mplex~" ".saves-5818-c0mplex~" ".saves-6448-c0mplex~" ".saves-1445024-c0mplex~" ".saves-6172-c0mplex~" ".saves-878426-c0mplex~" ".saves-6948-c0mplex~" ".saves-8862-c0mplex~" ".saves-3752-c0mplex~" ".saves-1877707-c0mplex~" ".saves-6083-c0mplex~" ".saves-5792-c0mplex~" ".saves-547189-c0mplex~" ".saves-6049-c0mplex~" ".saves-1549600-c0mplex~" ".saves-524283-c0mplex~" ".saves-4866-c0mplex~" ".saves-5060-c0mplex~" ".saves-6064-c0mplex~" ".saves-18140-c0mplex~" ".saves-83973-c0mplex~" ".saves-1842216-c0mplex~" ".saves-305898-c0mplex~" ".saves-2526312-c0mplex~" ".saves-1471376-c0mplex~" ".saves-75487-c0mplex~" ".saves-6308-c0mplex~" ".saves-695-c0mplex~" ".saves-99957-c0mplex~" ".saves-4976-c0mplex~" ".saves-4911-c0mplex~" ".saves-6034-c0mplex~" ".saves-153383-c0mplex~" ".saves-1658-c0mplex~" ".saves-124207-c0mplex~" ".saves-312578-c0mplex~" ".saves-5640-c0mplex~" ".saves-5453-c0mplex~" ".saves-1374408-c0mplex~" ".saves-4635-c0mplex~" ".saves-719-c0mplex~" ".saves-355460-c0mplex~" ".saves-39528-c0mplex~" ".saves-1124-c0mplex~" ".saves-57386-c0mplex~" ".saves-1694-c0mplex~" ".saves-7602-c0mplex~" ".saves-700-c0mplex~" ".saves-6037-c0mplex~" ".saves-3367-c0mplex~" "../" ".saves-737-c0mplex~" ".saves-695999-c0mplex~" ".saves-6688-c0mplex~" ".saves-2021148-c0mplex~" "./" ".saves-7082-c0mplex~" ".saves-31402-c0mplex~" ".saves-124102-c0mplex~" ".saves-6480-c0mplex~" ".saves-1655259-c0mplex~" ".saves-5004-c0mplex~" ".saves-6575-c0mplex~" ".saves-709-c0mplex~" ".saves-4749-c0mplex~" ".saves-797714-c0mplex~" ".saves-995856-c0mplex~" ".saves-4902-c0mplex~" ".saves-65505-c0mplex~" ".saves-6070-c0mplex~" ".saves-18941-c0mplex~" ".saves-5959-c0mplex~" ".saves-6463-c0mplex~" ".saves-5016-c0mplex~" ".saves-6697-c0mplex~" ".saves-1272646-c0mplex~" ".saves-124284-c0mplex~" ".saves-71900-c0mplex~" ".saves-388128-c0mplex~")
+
+ ("/home/c0mplex/Documents/broadcas/" (27097 39443 829142 747000) "../" "./")
+
+ ("/home/c0mplex/Documents/Web/blog/subpages/aboutme/" (27111 44337 304582 509000) "../" "./" "aboutme.html" "autotiling/")
+
+ ("/home/c0mplex/Documents/Web/" (27111 43972 236357 415000) "favicons/" "blog/" "feast_songs_project/" "borrow/" "images/" "sites for inspiration/" "frontends/" "favicon" "angiepage/" "Personal-Web/" "blogbackupreach/" "Calendario_Web_Accesible.pdf" "majo/" "native/" "PersonalWeb/" "../" "./" "Web/" "galery/" "chatcard.html" "sam1425/" "frameworks/" "testing/" "Server" "PreMiD.xpi")
+
+ ("/home/c0mplex/.dwm/" (27110 56976 203696 324000) "autostart.sh" "../" "./")
+
+ ("/home/c0mplex/.emacs.rc/" (27101 38049 758909 174000) "autocommit-rc.el" "misc-rc.el" "../" "org-mode-rc.el" "./" "rc.el")
+
+ ("/home/c0mplex/Documents/Programming/cpp/" (27097 23306 250239 656000) "libraries/" "a.out" "game.cpp" "aids/" "hi" "lettuce/" "countdown/" "practice/" "hello_world.cpp" "../" "./" "protobuf/" "organizer.cpp" "huffmanCoding.cpp" "black_hole/" "world.cpp" "birthdate_program.c" "struct.cpp" "lauriewired/" "obs_plugin/")
+
+ ("/home/c0mplex/git/tsoding/" (27091 59639 198971 475000) "MANIFEST" "mpv.conf" ".sqliterc" "deprecated" "deploy.sh" ".gdbinit" ".screenlayout/" ".apvlvrc" ".tmux.conf" "i3/" "dotfiles/" "gf2_config.ini" ".emacs.rc/" "deploy.ps1" ".SciTEUser.properties" "README.md" ".gitconfig" ".i3status.conf" ".emacs" ".ghci" "DotFiles.psm1" ".vimrc" ".emacs.snippets/" ".markut" ".gitignore" "../" "settings.ini" "./" ".npmrc" "bin/" "MANIFEST.linux" ".emacs.local/" ".Xresources" ".rexim/" ".urxvt/" ".git/" ".emacs.custom.el" "Description.md" ".jmacsrc" ".nexrc")
+
+ ("/home/c0mplex/Documents/Programming/ruby/" (27093 48142 118044 929000) "simplecli.rb" "web/" "fizzbuzz.rb" "oop/" "main.rb" "tuauelle.rb" "loops.rb" "functions.rb" "untilln.rb" "../" "./" "pizza.rb" "stdin.rb" "is_it_raining.rb" "visual/" "raylib.rb" "Description.md")
+
+ ("/home/c0mplex/.config/mango/" (27071 21028 983757 898000) "config.conf" "../" "./")
+
+ ("/home/c0mplex/Documents/games/godot/david-games/" (27105 9519 663901 133000) "test_scene.tscn" ".gitattributes" "character_body_2d.gd.uid" "double_jump_pickup.gd.uid" "collision_shape_2d.gd.uid" "Assets/" "ground enemy.tscn" ".gitignore" "flight_pickup.gd" "../" "flight_pickup.gd.uid" ".editorconfig" "project.godot" "./" "FirstGodotProject/" ".godot/" "scripts/" "double_jump_pickup.gd" ".git/" "player.gd" "collision_shape_2d.gd" "player.gd.uid" "character_body_2d.gd" "flying enemy.tscn")
+
+ ("/home/c0mplex/.config/zsh/" (27108 10753 255765 480000) "utility.zsh" "tmp/" "program-specific/" "keybinds.zsh" "specific/" "env.zsh" "theme.zsh" "prompt.zsh" "../" "./" "options.zsh" "Description.md" "aliases.zsh" "plugins.zsh")
+
+ ("/home/c0mplex/suckless/dwm/" (27111 64182 349821 508000) "swallow" "util.c" "Makefile" "dwm" "dwm.cfg" "drw.c" ".clang-format" "vanitygaps.c" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "LICENSE" "dwm.1" "dwm.c" "../" ".celangbak" "./" "util.o" "drw.o" "Description.md" "config.def.h" "dwm.png" "drw.h" "util.h")
+
+ ("/home/c0mplex/.vim/" (27109 36247 118272 457000) "autoload/" ".netrwhist" "vimrc" "plugged/" "../" "./" "filebackups/" "Description.md" "bundle/")
+
+ ("/home/c0mplex/Documents/Web/blog/" (27111 43972 236357 415000) "js/" "css/" "assets/" "dist/" "hex2rgb" ".gitignore" "404.html" "../" "./" "components/" "index.html" ".git/" "Description.md" "subpages/")
+
+ ("/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/" (27112 63303 515000 589000) "dirvish-fd.elc" "dirvish-ls.el" "dirvish-widgets.elc" "dirvish-subtree.elc" "dirvish-fd.el" "dirvish-emerge.elc" "dirvish-emerge.el" "dirvish-history.el" "dirvish-side.elc" "dirvish-quick-access.elc" "dirvish-peek.elc" "dirvish.elc" "dirvish-yank.el" "dirvish-vc.el" "dirvish.el" "dirvish-widgets.el" "dirvish-icons.el" "dirvish-extras.elc" "dirvish-narrow.elc" "dirvish-tramp.el" "dirvish-rsync.elc" "dirvish-pkg.el" "dirvish-collapse.el" "dirvish-extras.el" "dirvish-peek.el" "dirvish-collapse.elc" "../" "./" "dirvish-yank.elc" "dirvish-autoloads.el" "dirvish-tramp.elc" "dirvish-side.el" "dirvish-vc.elc" "dirvish-subtree.el" "dirvish-icons.elc" "dirvish-history.elc" "dirvish-quick-access.el" "dirvish-ls.elc" "dirvish-rsync.el" "dirvish-narrow.el")
+
+ ("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/" (27107 37578 321092 881000) "photomenu" "fzfub" "pixpicker.c" "imgmgk" "pixpicker" "random_wallpaper" "phototransfer" "fzfub-wallpapermenu" "fzfubrefresh" "wallpapermenu" "../" "screenshot" "minimal-screenshot" "./" "screeenshot_backup" "focusdetect.py" "imgcliphist")
+
+ ("/home/c0mplex/.emacs.d/" (27113 2335 79213 955000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+
+ ("/home/c0mplex/.gemini/" (27112 60960 907461 391000) "state.json" "installation_id" "tmp/" "oauth_creds.json" "google_accounts.json" "settings.json" "../" "./" "history/" "projects.json" "trustedFolders.json")
+
+ ("/home/c0mplex/.cht.sh/" (26801 45214 426381 994000) "../" "./" "history")
 
  ("/home/c0mplex/Documents/Programming/c/graphics/" (27108 57581 274558 809000) "UI/" "glyphcheck.c" "sdl_test/" "starship.c" "raylib/" "Inspiration/" "metaballs" "../" "./" "imagegen/" "metaballs.c")
 
@@ -116,8 +155,6 @@
 
  ("/home/c0mplex/Documents/" (27110 11840 924094 798000) "music/" "work/" "document.pdf" "tmp/" "firmaaqui.md" "smb.md" "bible/" "lau.md" "books/" "github-recovery-codes.txt" "Learning/" "apps/" "c/" "broadcast/" "Comprobante de Inscripción.pdf" "preload.txt" "broadcas/" "mentalist.md" "My Games/" "git.bak" "U/" "obsidian/" "../" "broadcast-20260411T004536Z-3-001.zip" "Terrariabackup/" "./" "Web/" "crochet.md" "hacking/" "PDF RESULTADOS AC202437236128.pdf" "Preload.md" "celeste/" "Programming/" "Passport.md" "orgmode" "Misc/" "games/")
 
- ("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/" (27107 35977 294347 95000) "photomenu" "fzfub" "imgmgk" "random_wallpaper" "phototransfer" "fzfub-wallpapermenu" "fzfubrefresh" "wallpapermenu" "../" "screenshot" "minimal-screenshot" "./" "screeenshot_backup" "focusdetect.py" "imgcliphist")
-
  ("/home/c0mplex/.scripts/bpscripts/audio-video/" (26939 24763 430998 587000) "editrec" "old-audioswitch" "../" "record" "./" "guitarrec" "audioswitch")
 
  ("/home/c0mplex/.scripts/bpscripts/" (27091 53083 384630 335000) "statusbar/" "audio-video/" "shortcuts-menus/" "README.md" "LICENSE" "../" "./" "shell/" "images-photos-wallpapers/")
@@ -125,8 +162,6 @@
  ("/home/c0mplex/.scripts/" (27101 28044 586069 381000) "prompt" "bpscripts/" "performancemode.sh" "tmp/" "apps" "system/" "README.md" "dictionary.csv" "../" "./" "bin/" "loginart/" "installdeps.sh" "search.sh" "shellaliases" "listscripts.sh" "shellart/" "Description.md" "python/" "laptop/" "scriptdeps" "installpackage")
 
  ("/home/c0mplex/dotfiles/" (27105 34120 196474 757000) ".zshenv" ".gitmodules" ".scripts/" ".config/" ".tmux.conf" ".vim/" "README.md" ".gitconfig" "install" ".files/" ".Xdefaults" "LICENSE" ".gitignore" "../" ".stow-local-ignore" "./" "remove" ".Xresources" ".zshrc" "THEME.md" ".git/" "Description.md")
-
- ("/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/" (27104 1964 356345 181000) "dirvish-fd.elc" "dirvish-ls.el" "dirvish-widgets.elc" "dirvish-subtree.elc" "dirvish-fd.el" "dirvish-emerge.elc" "dirvish-emerge.el" "dirvish-history.el" "dirvish-side.elc" "dirvish-quick-access.elc" "dirvish-peek.elc" "dirvish.elc" "dirvish-yank.el" "dirvish-vc.el" "dirvish.el" "dirvish-widgets.el" "dirvish-icons.el" "dirvish-extras.elc" "dirvish-narrow.elc" "dirvish-tramp.el" "dirvish-rsync.elc" "dirvish-pkg.el" "dirvish-collapse.el" "dirvish-extras.el" "dirvish-peek.el" "dirvish-collapse.elc" "../" "./" "dirvish-yank.elc" "dirvish-autoloads.el" "dirvish-tramp.elc" "dirvish-side.el" "dirvish-vc.elc" "dirvish-subtree.el" "dirvish-icons.elc" "dirvish-history.elc" "dirvish-quick-access.el" "dirvish-ls.elc" "dirvish-rsync.el" "dirvish-narrow.el")
 
  ("/home/c0mplex/git/" (27095 51522 694574 350000) "arch_troubleshooting_guide.pdf" "dots/" "FF-ULTIMA/" "vimrc2" "vimrc" "zeit/" "neovim-config/" "../" "SilentSDDM/" "contents/" "./" "claude-code-leaked-source-main/" "tsoding/")
 
@@ -136,29 +171,13 @@
 
  ("/home/c0mplex/Documents/Programming/c/easy-args/" (27042 21672 235938 189000) "examples/" "coverphoto.jpg" ".gitattributes" "README.md" "LICENSE" ".gitignore" "../" "./" "includes/" ".git/")
 
- ("/home/c0mplex/Documents/Web/blog/" (27079 8982 767367 321000) "main.css" "smartloading.js" "main.js" "src/" "autoloadimage.js" "majo/" "hex2rgb" ".gitignore" "gruv_dark/" "../" "./" "chatcard.html" "testjs/" "index.html" ".git/" "Description.md" "subpages/")
-
- ("/home/c0mplex/Documents/Web/" (27092 16878 645420 713000) "favicons/" "blog/" "feast_songs_project/" "borrow/" "images/" "sites for inspiration/" "frontends/" "favicon" "angiepage/" "Personal-Web/" "Calendario_Web_Accesible.pdf" "native/" "PersonalWeb/" "../" "./" "Web/" "galery/" "sam1425/" "frameworks/" "testing/" "Server" "PreMiD.xpi")
-
- ("/home/c0mplex/.dwm/" (27096 1871 344976 332000) "autostart.sh" "../" "./")
-
- ("/home/c0mplex/.vim/" (27092 4609 228660 605000) "autoload/" ".netrwhist" "vimrc" "plugged/" "../" "./" "filebackups/" "Description.md" "bundle/")
-
- ("/home/c0mplex/suckless/dwm/" (27083 8861 836422 789000) "swallow" "util.c" "Makefile" "dwm" "dwm.cfg" "drw.c" ".clang-format" "vanitygaps.c" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "LICENSE" "dwm.1" "dwm.c" "../" ".celangbak" "./" "util.o" "drw.o" "Description.md" "config.def.h" "dwm.png" "drw.h" "util.h")
-
  ("/home/c0mplex/suckless/" (27091 58871 472360 334000) "dwm/" "dmenu-flexipatch/" "tray/" ".gitignore" "dwmblocks-async/" "../" "./" ".git/" "stwithpatches/")
-
- ("/home/c0mplex/.config/zsh/" (27090 32691 815971 310000) "utility.zsh" "tmp/" "program-specific/" "keybinds.zsh" "specific/" "env.zsh" "theme.zsh" "prompt.zsh" "../" "./" "options.zsh" "Description.md" "aliases.zsh" "plugins.zsh")
 
  ("/home/c0mplex/.config/zathura/" (27056 46614 331874 195000) "../" "zathurarc" "./")
 
  ("/home/c0mplex/.config/" (27083 65226 691570 416000) "YouTube Music/" "mapeditor.org/" "xfce4/" "noisetorch/" "session/" "darktable/" "wal/" "jadx/" "zed/" "volumeicon/" "kritadisplayrc" "Vencord/" "unityhub/" "godot/" "trashrc" "picom/" "gtk-3.0/" "pavucontrol.ini" "Olympus/" "nvim/" "basalt/" "Electron/" "menus/" "partitionmanagerrc" "dolphinrc" "glib-2.0/" "vlc/" "neofetch/" "fontforge/" "lazygit/" "Kitware/" "termusic/" "libvirt/" "processing/" "aseprite/" "i3/" "go/" "kitty/" "ibus/" "spotifyd/" "github-copilot/" "spotify/" "REAPER/" "spicetify/" "gh-copilot/" "Antigravity/" "chromium/" "yazi/" "undertaker141/" "HKModInstaller/" "elinks/" "obs-studio/" "mpd/" "README.md" "ghidra/" "wireplumber/" "gtk-2.0/" "xsettingsd/" "pipewire/" "nchat/" "uncrustify/" "wireshark/" "mc/" "gconf/" "audacity/" "mpv/" "qutebrowser/" "StardewValley/" "QtProject.conf" "dunst/" "Moonlight Game Streaming Project/" "nautilus/" "Thunar/" "mons/" "zathura/" "nwg-look/" "nemo/" "discord/" "nnn/" "obsidian/" "GIMP/" "spotdl/" "google-chrome-for-testing/" "heroic/" "../" "atuin/" "calcure/" "inkscape/" "unity3d/" "arkrc" "pulse/" "tiled/" "glow/" "gh/" "unison/" "mimeapps.list" "./" "kritarc" "ytmdl/" "supertuxkart/" "mango/" "gtk-4.0/" "yay/" "fish/" "xmms2/" "zsh/" "spotify-tui/" "sublime-text/" "Ogmo/" "polybar/" "warp-terminal/" "fastfetch/" "qBittorrent/" "Kvantum/" "dmenu-extended/" "OpenRGB/" "fontconfig/" "Code/" "Postman/" "plank/" "YouTube Music for Desktop/" "dconf/" "NuGet/" "bootdev/" "starship/" "Deskflow/" "btop/" "Forager/" "libreoffice/" "Lönn/" "sheldon/" "drkonqirc" "audacious/" "librewolf/" "totem/" "systemd/" "easyeffects/")
 
  ("/home/c0mplex/.config/i3/" (27071 18988 510361 236000) ".i3status.conf" "powermenu/" "../" "./" "i3blocks.conf" "scripts/" "config")
-
- ("/home/c0mplex/.emacs.rc/" (27041 3898 318972 598000) "autocommit-rc.el" "misc-rc.el" "../" "org-mode-rc.el" "./" "rc.el")
-
- ("/home/c0mplex/Documents/Programming/cpp/" (27042 21447 273067 895000) "libraries/" "a.out" "game.cpp" "aids/" "hi" "lettuce/" "countdown/" "practice/" "hello_world.cpp" "../" "./" "protobuf/" "organizer.cpp" "huffmanCoding.cpp" "black_hole/" "world.cpp" "birthdate_program.c" "struct.cpp" "obs_plugin/")
 
  ("/home/c0mplex/Documents/Programming/node/crashcourse/" (27039 44334 400929 779000) "main.js" "#variables.ts#" "variables.ts" "'" "../" "./" "index.html")
 
@@ -170,13 +189,7 @@
 
  ("/home/c0mplex/Documents/Programming/c/dwm/stwithpatches/" (27060 11887 842017 219000) "rowcolumn_diacritics.sh" "hb.h" "Makefile" "rowcolumn-diacritics.txt" "icat-mini.sh" "st-vertcenter-20231003-eb3b894.diff" "config.def.h.orig" "graphics.o" "rowcolumn_diacritics_helpers.o" ".clang-format" "st.h.orig" "generate-rowcolumn-helpers.py" "hb.c" "x.c.orig" "st.h" "st" "config.mk" "khash.h" "config.h" "boxdraw_data.h" "st.c.orig" "README.md" "temp.h" "LICENSE" "st.1" "st.c" "rowcolumn_diacritics_helpers.c" "st.info" "../" "st.o" "kvec.h" "./" "arg.h" "boxdraw.c" "x.c" "README" "TODO" "graphics.h" "configold.h" "graphics.c" "win.h" ".git/" "boxdraw.o" "Description.md" "config.def.h" "x.o" "hb.o")
 
- ("/home/c0mplex/Documents/games/godot/david-games/" (27060 37017 344167 390000) "test_scene.tscn" ".gitattributes" "character_body_2d.gd.uid" "double_jump_pickup.gd.uid" "collision_shape_2d.gd.uid" "Assets/" "ground enemy.tscn" ".gitignore" "flight_pickup.gd" "../" "flight_pickup.gd.uid" ".editorconfig" "project.godot" "./" "FirstGodotProject/" ".godot/" "scripts/" "double_jump_pickup.gd" ".git/" "player.gd" "collision_shape_2d.gd" "player.gd.uid" "character_body_2d.gd" "flying enemy.tscn")
-
- ("/home/c0mplex/Documents/Programming/ruby/" (27060 45379 426536 336000) "simplecli.rb" "fizzbuzz.rb" "oop/" "main.rb" "tuauelle.rb" "loops.rb" "functions.rb" "../" "./" "stdin.rb" "is_it_raining.rb" "visual/" "raylib.rb" "Description.md")
-
  ("/home/c0mplex/Documents/games/godot/" (27036 62272 251984 512000) "godot-screenspace-projection/" "david-test/" "david-games/" "-projecto-banano/" "first-game-in-godot/" "hot_potatoe/" "shader-test/" "zelda-copy/" "../" "./" "godot-csharp-essentials/" "Description.md")
-
- ("/home/c0mplex/.config/mango/" (27050 6063 862359 514000) "config.conf" "../" "./")
 
  ("/home/c0mplex/Documents/Programming/ruby/oop/bookproject/" (27044 21310 92842 166000) "main.rb" "]" "../" "random.rb" "./" "library_data.json")
 
@@ -185,8 +198,6 @@
  ("/home/c0mplex/Documents/Programming/c/countdown/" (27042 22781 38024 297000) "a.out" ".c" "easyargs.h" "countdown.c" "../" "./")
 
  ("/home/c0mplex/Documents/apps/" (27013 1723 114152 181000) "desktop-apps.txt" "pkglist.txt" "aur-all.txt" "windowsactivation.txt" "flatpak-apps.txt" "README.md" "desktop-app-names.txt" "pipx.txt" "../" "./" "backup/" ".git/" "pkglist-explicit.txt")
-
- ("/home/c0mplex/git/tsoding/" (27041 5958 99957 693000) "MANIFEST" "mpv.conf" ".sqliterc" "deprecated" "deploy.sh" ".gdbinit" ".screenlayout/" ".apvlvrc" ".tmux.conf" "i3/" "dotfiles/" "gf2_config.ini" ".emacs.rc/" "deploy.ps1" ".SciTEUser.properties" "README.md" ".gitconfig" ".i3status.conf" ".emacs" ".ghci" "DotFiles.psm1" ".vimrc" ".emacs.snippets/" ".markut" ".gitignore" "../" "settings.ini" "./" ".npmrc" "bin/" "MANIFEST.linux" ".emacs.local/" ".Xresources" ".rexim/" ".urxvt/" ".git/" ".emacs.custom.el" "Description.md" ".jmacsrc" ".nexrc")
 
  ("/home/c0mplex/Documents/Programming/node/" (27039 38887 270838 473000) "node/" ".gitignore" "../" "crashcourse/" "./" "user_input/" "svelte/" "first_program/")
 
@@ -240,11 +251,7 @@
 
  ("/home/c0mplex/Documents/PROGRAMMING/go/" (26990 16539 592592 989000) "server.go" "pkg/" "test/" "../" "./" "hello/")
 
- ("/home/c0mplex/Documents/Web/blog/subpages/aboutme/" (26989 34978 782839 195000) "../" "./" "aboutme.html")
-
  ("/home/c0mplex/Documents/Web/blog/subpages/" (26977 28494 772531 155000) "aboutme/" "pics/" "fonts/" "../" "test.html" "feast_songs/" "./" "places.html" "carousel.css" "places.css")
-
- ("/home/c0mplex/Documents/broadcas/" (26989 4590 794268 370000) "../" "./" "Description.md")
 
  ("/home/c0mplex/Documents/PROGRAMMING/c/dwm/dwm/" (26988 64098 712936 0) "dwm-resizehere-20230824-e81f17d.diff" "dwm-resizecorners-6.5.diff" "swallow" "util.c" "Makefile" "dwm" "drw.c" "dwm.c.rej" "bread_dwm.png" "vanitygaps.c" "dwm-resizecorners-6.2.diff" "dwmblocks-statuscmd-b6b0be4.diff" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "dwm.c.orig" "LICENSE" "dwm-statuscmd-20210405-67d76bd.diff" "dwm.1" "dwm.c" "../" "./" "util.o" "drw.o" ".git/" "config.def.h" "dwm.png" "drw.h" "util.h")
 
