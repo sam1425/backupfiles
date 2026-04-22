@@ -3183,3 +3183,34 @@ Permission denied [mkdir(/home/.unison..emacs.d.55c97fc75b94527b3478e94a96f13250
 Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 09:28:06.38 on 19 Apr 2026, 0.006 s
 Synchronization incomplete at 09:28:06  (0 items transferred, 0 skipped, 1 failed)
   failed: 
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-19 at  9:33:31
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+
+4 items will be synced, 0 skipped
+0 B to be synced from local to archlinux
+0 B to be synced from archlinux to local
+Unison 2.53.8 (ocaml 5.4.0) started propagating changes at 09:33:32.33 on 19 Apr 2026
+[BGN] Deleting c/projects/Birthday_project/:wq from //archlinux//home/c0mplex/Documents/Programming
+[BGN] Deleting c/scratch/c_test/sys from //archlinux//home/c0mplex/Documents/Programming
+[BGN] Deleting c/scratch/git-diagnostics-2026-04-07-1903.zip from //archlinux//home/c0mplex/Documents/Programming
+[BGN] Deleting c/scratch/te from //archlinux//home/c0mplex/Documents/Programming
+[END] Deleting c/projects/Birthday_project/:wq
+[END] Deleting c/scratch/c_test/sys
+[END] Deleting c/scratch/git-diagnostics-2026-04-07-1903.zip
+[END] Deleting c/scratch/te
+Unison 2.53.8 (ocaml 5.4.0) finished propagating changes at 09:33:32.34 on 19 Apr 2026, 0.009 s
+Synchronization complete at 09:33:32  (4 items transferred, 0 skipped, 0 failed)
+Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-19 at  9:34:06
+
+Roots:
+  /home/c0mplex/.scripts
+  ssh://laptop//home/c0mplex/.scripts
+
+Terminated!

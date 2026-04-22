@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ magit-commit
+ magit
+ dirvish
+ dired
  evil-mode
  ranger
- dired
- dirvish
  package-install
- term
- html-mode
 )
 
 ;; ----- smex-data -----
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 4)
  (beginning-of-buffer . 1)
- (dired . 20)
+ (dired . 21)
  (c-mode . 6)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -56,11 +56,12 @@
  (org-mode . 2)
  (start-kbd-macro . 1)
  (ruby-mode . 2)
- (magit . 1)
+ (magit . 2)
  (html-div . 1)
  (html-mode . 1)
  (term . 3)
  (ranger . 3)
  (ranger-go . 2)
- (dirvish . 1)
+ (dirvish . 2)
+ (magit-commit . 2)
 )

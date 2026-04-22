@@ -256,6 +256,7 @@ static const Key        keys[] = {
 	{MODKEY | ShiftMask,               XK_grave,                                        spawn,                                     {.v      = (const char *[]){"define", NULL}}},
 	{MODKEY | ShiftMask,               XK_w,                                            spawn,                                     {.v      = (const char *[]){"wallpapermenu", NULL}}},
 	{MODKEY | ShiftMask,               XK_s,                                            spawn,                        SHCMD("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/screenshot")},
+	{MODKEY | ShiftMask,               XK_z,                                            spawn,                        SHCMD("/home/c0mplex/Documents/Programming/c/graphics/Inspiration/boomer/boomer")},
 	{MODKEY | ShiftMask,               XK_F1,                                           spawn,                        SHCMD("/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/screenshot color")},
 	{MODKEY,                           XK_F2,                                           spawn,                                     {.v      = (const char *[]){"vb", NULL}}},
 	{MODKEY | ShiftMask,               XK_F2,                                           spawn,                                     {.v      = (const char *[]){"dmenutemp", NULL}}},

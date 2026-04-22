@@ -11,7 +11,7 @@ feh --bg-scale --randomize ~/Pictures/wallpaper/
 #xorg config
 xset s noblank
 xset s off -dpms
-xset r rate 200 30
+xset r rate 200 300
 
 # Daemons 
 /home/c0mplex/Documents/Programming/c/dwm/dwmblocks-async/updatemusic.sh >/dev/null 2>&1 &
