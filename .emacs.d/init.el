@@ -26,10 +26,12 @@
 (add-to-list 'default-frame-alist '(background-color . "#111314"))
 
 (setq custom-file "~/.emacs.custom.el")
+(load-file custom-file)
+
 (add-to-list 'load-path "~/.emacs.local/")
 (load "~/.emacs.rc/rc.el")
 
-;;; Theme: Gruvbox
+(require 'server)
 (rc/require 'gruvbox-theme)
 (load-theme 'gruvbox-dark-hard t)
  (custom-theme-set-faces
@@ -78,6 +80,7 @@
 (setq default-directory "~/")
 
 (with-eval-after-load 'ido
+
   (define-key ido-common-completion-map (kbd "C-j") 'ido-next-match)
   (define-key ido-common-completion-map (kbd "C-k") 'ido-prev-match)
 
@@ -228,52 +231,6 @@
 ;; (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 ;; (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
-;;; dired
-(require 'dired)
-(require 'dired-x)
-
-;; Force folders first via Emacs's Lisp implementation of 'ls'
-(require 'ls-lisp)
-(setq ls-lisp-use-insert-directory-program nil)
-(setq ls-lisp-dirs-first t)
-
-;; Global defaults
-(setq-default dired-listing-switches "-alh")
-(setq dired-hide-details-hide-header-lines t)
-(setq dired-omit-files "^\\.")
-
-(defun my-dired-setup-hook ()
-  "High-priority setup for Dired buffers."
-  (interactive)
-  (dired-hide-details-mode 1)
-  (dired-omit-mode 1))
-
-;; Use depth 90 to ensure this runs after other hooks (like evil-collection)
-(add-hook 'dired-mode-hook #'my-dired-setup-hook 90)
-
-(with-eval-after-load 'dired
-  ;; Standard Emacs keys
-  (define-key dired-mode-map (kbd "(") #'dired-hide-details-mode)
-  (define-key dired-mode-map (kbd ")") #'dired-hide-details-mode)
-  (define-key dired-mode-map (kbd ".") #'dired-omit-mode)
-  (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file)
-
-  ;; Evil-compatible keys
-  (with-eval-after-load 'evil-collection
-    (evil-collection-define-key 'normal 'dired-mode-map
-      "(" 'dired-hide-details-mode
-      ")" 'dired-hide-details-mode
-      "." 'dired-omit-mode)))
-
-(global-set-key (kbd "C-c p d") #'projectile-dired)
-
-(use-package dired-subtree
-  :bind (:map dired-mode-map
-              ("TAB"   . dired-subtree-toggle)
-              ("<tab>" . dired-subtree-toggle)))
-
-(use-package dired-collapse
-  :hook (dired-mode . dired-collapse-mode))
 
 ;;; helm
 (rc/require 'helm 'helm-ls-git)
@@ -409,6 +366,8 @@
  'typescript-mode
  'rfc-mode
  'sml-mode
+ 'dirvish
+ 'nerd-icons
  ;;mine
  'evil
  'evil-goggles
@@ -465,6 +424,115 @@
   (define-key evil-normal-state-map [escape]      'my-evil-mc-escape))
 (setq compile-command "")
 
+;;; Dired
+(require 'dired)
+(require 'dired-x)
+;;(require 'dired+)
+;;(require 'dirvish)
+
+(require 'dired-rainbow)
+(with-eval-after-load 'dired-rainbow
+
+  ;; --- files ---
+  (dired-rainbow-define media "#d65d0e"        ; dark orange — warm/entertainment
+    ("mp3" "mp4" "mkv" "webm" "flac" "ogg" "wav" "avi" "mov" "wmv"))
+
+  (dired-rainbow-define image "#98971a"        ; muted green — natural/visual
+    ("jpg" "jpeg" "png" "gif" "svg" "webp" "bmp" "ico" "tiff"))
+
+  (dired-rainbow-define archive "#b16286"      ; muted purple — compressed/sealed
+    ("zip" "tar" "gz" "bz2" "xz" "zst" "7z" "rar" "deb" "rpm"))
+
+  (dired-rainbow-define document "#a89984"     ; warm gray — prose/text
+    ("pdf" "doc" "docx" "odt" "epub" "md" "rst" "txt" "org"))
+
+  ;; --- systems ---
+  (dired-rainbow-define prog-systems "#5fd7ff" ; bright orange — hot/metal
+    ("c" "h" "cpp" "hpp" "cc" "hh" "cxx" "hxx" "s" "asm"))
+
+  (dired-rainbow-define prog-rust "#cc241d"    ; dark red — close to Ruby but subdued
+    ("rs"))
+
+  (dired-rainbow-define prog-ruby "#fb4934"    ; bright red — Ruby's own
+    ("rb" "rbs" "rake" "gemspec"))
+
+  ;; --- managed/compiled ---
+  (dired-rainbow-define prog-jvm "#fabd2f"     ; bright yellow — enterprise/verbose
+    ("java" "class" "jar" "kt" "kts" "scala"))
+
+  (dired-rainbow-define prog-go "#8ec07c"      ; bright aqua — Go's clean aesthetic
+    ("go" "mod" "sum"))
+
+  ;; --- scripting ---
+  (dired-rainbow-define prog-scripted "#b8bb26" ; bright green — alive/dynamic
+    ("py" "pl" "lua" "sh" "bash" "zsh" "fish" "awk" "sed"))
+
+  ;; --- web ---
+  (dired-rainbow-define prog-web "#83a598"     ; bright blue — calm/frontend
+    ("html" "htm" "css" "scss" "sass" "less"
+     "js" "mjs" "cjs" "ts" "tsx" "jsx" "vue" "svelte"))
+
+  ;; --- lisp family ---
+  (dired-rainbow-define prog-lisp "#d3869b"    ; bright purple — lisp is special
+    ("el" "elc" "lisp" "clj" "cljs" "cljc" "scm" "rkt" "hy"))
+
+  ;; --- functional ---
+  (dired-rainbow-define prog-functional "#689d6a" ; muted aqua — cool/mathematical
+    ("hs" "lhs" "ml" "mli" "fs" "fsx" "elm" "ex" "exs" "erl" "hrl"))
+
+  ;; --- config/data ---
+  (dired-rainbow-define prog-config "#d79921"  ; yellow — needs attention
+    ("json" "jsonc" "toml" "yaml" "yml" "ini" "cfg" "conf" "env" "nix" "lock"))
+
+  (dired-rainbow-define prog-data "#458588"    ; blue — structured/deep
+    ("csv" "tsv" "sql" "db" "sqlite" "parquet"))
+
+  ;; --- build infrastructure ---
+  (dired-rainbow-define prog-build "#928374"   ; gray — plumbing
+    ("Makefile" "makefile" "GNUmakefile" "CMakeLists.txt"
+     "Dockerfile" "docker-compose.yml" "Cargo.toml"
+     "package.json" "go.mod" "build.gradle" "pom.xml" "meson.build"))
+
+  (dired-rainbow-define-chmod executable "#b8bb26" "-.*x.*"))
+
+(setq dired-omit-files "^\\.[^.].*")
+(setq dired-listing-switches "-lAhvG --group-directories-first")
+
+(add-hook 'dired-mode-hook
+          (lambda ()
+            ;(message "HOOK WORKED")
+            (dired-hide-details-mode 1)
+            (dired-omit-mode 1)))
+
+(with-eval-after-load 'dired
+  (set-face-attribute 'dired-directory nil
+                      :foreground "#328374"
+                      :weight 'bold)
+
+  (set-face-attribute 'dired-symlink nil
+                      :foreground "#e5e5e5"
+                      :slant 'italic)
+
+  (set-face-attribute 'dired-ignored nil
+                      :foreground "#626262")
+  ;keybinds
+  (define-key dired-mode-map (kbd "l") #'dired-find-file)
+  (define-key dired-mode-map (kbd "h") #'dired-up-directory)
+  (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
+  (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "q") #'quit-window)
+  (evil-define-key 'normal dired-mode-map
+    (kbd "h") #'dired-up-directory
+    (kbd "l") #'dired-find-file
+    (kbd "C-h") #'dired-hide-details-mode
+    (kbd "C-.") #'dired-omit-mode
+    (kbd "q") #'quit-window)
+  )
+
+(global-set-key (kbd "C-c p d") #'projectile-dired)
+
+
 (defun my/title-case-buffer ()
   "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
   (interactive)
@@ -496,5 +564,3 @@ compilation-error-regexp-alist-alist
  '(line-number ((t (:height 1.0))))
  '(line-number-current-line ((t (:height 1.0))))
  )
-
-(load-file custom-file)

@@ -2,3 +2,57 @@
 *.saves-*
 *.uuid
 *.last
+
+# ── Compiled / byte-compiled ─────────────────────────────────────────────────
+*.elc
+*.eln
+
+# ── Custom file (machine-specific, auto-written by Emacs) ────────────────────
+.emacs.custom.el
+custom.el
+
+# ── Backups & auto-saves ──────────────────────────────────────────────────────
+*~
+\#*\#
+.\#*
+auto-save-list/
+filebackups/
+auto-saves/
+
+# ── Native comp cache ─────────────────────────────────────────────────────────
+eln-cache/
+
+# ── Package dirs (managed by rc/require / package.el / straight etc.) ────────
+elpa/
+straight/
+.cask/
+
+# ── Transient / session state ─────────────────────────────────────────────────
+transient/
+recentf
+recentf-save.el
+places
+savehist
+saveplace
+bookmarks
+tramp
+ido.last
+smex-items
+projectile-bookmarks.eld
+mc-lists.el
+company-statistics-cache.el
+
+# ── LSP / eglot workspace state ───────────────────────────────────────────────
+.cache/
+workspace.el
+
+# ── Org roam / org persist ────────────────────────────────────────────────────
+org-persist/
+org-id-locations
+
+# ── Dirvish / image cache ─────────────────────────────────────────────────────
+dirvish/
+
+# ── OS noise ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  dired
- evil-mode
- ranger
- package-delete
- dired-hide-details-mode
+ eval-buffer
+ deer
+ dired-omit-mode
  package-install
- magit-commit
+ evil-mode
+ dired-hide-details-mode
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 28)
+ (evil-mode . 41)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
@@ -23,10 +23,10 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
- (eval-buffer . 1)
+ (eval-buffer . 37)
  (list-tags . 1)
- (list-packages . 3)
- (package-install . 13)
+ (list-packages . 4)
+ (package-install . 15)
  (ido-exit-minibuffer . 1)
  (evil-first-non-blank . 1)
  (evil-yank-line . 1)
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 4)
  (beginning-of-buffer . 1)
- (dired . 29)
+ (dired . 131)
  (c-mode . 6)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -60,10 +60,30 @@
  (html-div . 1)
  (html-mode . 1)
  (term . 3)
- (ranger . 4)
- (ranger-go . 2)
- (dirvish . 2)
+ (ranger . 10)
+ (ranger-go . 3)
+ (dirvish . 12)
  (magit-commit . 2)
- (dired-hide-details-mode . 3)
+ (dired-hide-details-mode . 11)
  (package-delete . 1)
+ (deer . 7)
+ (dirvish-yank-menu . 1)
+ (dirvish-fd . 1)
+ (dirvish-layout-toggle . 3)
+ (dirvish-override-dired-mode . 12)
+ (quit-window . 1)
+ (scala-mode:goto-start-of-code . 1)
+ (dired-up-directory . 1)
+ (dirvish-subtree-up . 3)
+ (dirvish-directory-view-mode . 1)
+ (dirvish-dwim . 3)
+ (re-builder . 1)
+ (top-level . 1)
+ (vc-find-file-hook . 1)
+ (replace-regexp . 1)
+ (dired-omit-mode . 10)
+ (toggle-debug-on-error . 1)
+ (view-echo-area-messages . 1)
+ (diredp-quit-window-kill . 1)
+ (toggle-mode-line . 2)
 )
