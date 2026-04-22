@@ -229,60 +229,51 @@
 ;; (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
 ;;; dired
+(require 'dired)
 (require 'dired-x)
 
-(setq dired-listing-switches
-      "-alh --group-directories-first --time-style=long-iso")
-(setq-default dired-dwim-target t)
-(setq dired-mouse-drag-files t)
-(setq dired-auto-revert-buffer t)
-(setq dired-recursive-copies 'always)
-(setq dired-recursive-deletes 'top)
-(setq dired-isearch-filenames 'dwim)
-(setq dired-kill-when-opening-new-dired-buffer t) ; don't litter buffers
+;; Force folders first via Emacs's Lisp implementation of 'ls'
+(require 'ls-lisp)
+(setq ls-lisp-use-insert-directory-program nil)
+(setq ls-lisp-dirs-first t)
 
-;; Omit dotfiles (toggled with C-x M-o)
-(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+;; Global defaults
+(setq-default dired-listing-switches "-alh")
+(setq dired-hide-details-hide-header-lines t)
+(setq dired-omit-files "^\\.")
 
-(add-hook 'dired-mode-hook #'dired-hide-details-mode)
-(add-hook 'dired-mode-hook #'dired-omit-mode)
+(defun my-dired-setup-hook ()
+  "High-priority setup for Dired buffers."
+  (interactive)
+  (dired-hide-details-mode 1)
+  (dired-omit-mode 1))
 
+;; Use depth 90 to ensure this runs after other hooks (like evil-collection)
+(add-hook 'dired-mode-hook #'my-dired-setup-hook 90)
 
-(put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file)
-  (define-key dired-mode-map (kbd "^")
-    (lambda () (interactive) (find-alternate-file "..")))
-
+  ;; Standard Emacs keys
   (define-key dired-mode-map (kbd "(") #'dired-hide-details-mode)
+  (define-key dired-mode-map (kbd ")") #'dired-hide-details-mode)
+  (define-key dired-mode-map (kbd ".") #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file)
 
-  (define-key dired-mode-map (kbd ".") #'dired-omit-mode))
+  ;; Evil-compatible keys
+  (with-eval-after-load 'evil-collection
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "(" 'dired-hide-details-mode
+      ")" 'dired-hide-details-mode
+      "." 'dired-omit-mode)))
 
 (global-set-key (kbd "C-c p d") #'projectile-dired)
-
-
-(use-package dired-preview
-  :hook (dired-mode . dired-preview-mode))
 
 (use-package dired-subtree
   :bind (:map dired-mode-map
               ("TAB"   . dired-subtree-toggle)
-              ("<tab>" . dired-subtree-toggle)
-              ("C-TAB" . dired-subtree-cycle)))
+              ("<tab>" . dired-subtree-toggle)))
 
 (use-package dired-collapse
   :hook (dired-mode . dired-collapse-mode))
-
-;;(use-package nerd-icons-dired
-;;:hook (dired-mode . nerd-icons-dired-mode))
-
-(use-package dired-rainbow
-  :config
-  (dired-rainbow-define-chmod executable-unix "#98be65" "-.*x.*")
-  (dired-rainbow-define media        "#c678dd" ("mp4" "mkv" "mp3" "flac" "opus"
-                                                "jpg" "jpeg" "png" "gif" "svg" "webp"))
-  (dired-rainbow-define archive      "#da8548" ("zip" "tar" "gz" "xz" "zst" "bz2"))
-  (dired-rainbow-define document     "#51afef" ("pdf" "epub" "docx" "odt")))
 
 ;;; helm
 (rc/require 'helm 'helm-ls-git)

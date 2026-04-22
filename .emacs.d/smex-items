@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- magit-commit
- magit
- dirvish
  dired
  evil-mode
  ranger
+ package-delete
+ dired-hide-details-mode
  package-install
+ magit-commit
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 26)
+ (evil-mode . 28)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
@@ -26,7 +26,7 @@
  (eval-buffer . 1)
  (list-tags . 1)
  (list-packages . 3)
- (package-install . 12)
+ (package-install . 13)
  (ido-exit-minibuffer . 1)
  (evil-first-non-blank . 1)
  (evil-yank-line . 1)
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 4)
  (beginning-of-buffer . 1)
- (dired . 21)
+ (dired . 29)
  (c-mode . 6)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -60,8 +60,10 @@
  (html-div . 1)
  (html-mode . 1)
  (term . 3)
- (ranger . 3)
+ (ranger . 4)
  (ranger-go . 2)
  (dirvish . 2)
  (magit-commit . 2)
+ (dired-hide-details-mode . 3)
+ (package-delete . 1)
 )
