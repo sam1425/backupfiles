@@ -1,821 +1,3 @@
-<<<<<<< HEAD
-;; -*- lexical-binding: t; -*-
-
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
-(defun rc/get-default-font ()
-  (cond
-   ((eq system-type 'gnu/linux) "MonaspiceKr Nerd Font-12")
-   ;;((eq system-type 'gnu/linux) "Iosevka-20")
-   ;;;((eq system-type 'gnu/linux) "Comic Shanns Mono-20")
-   ))
-;; (add-to-list 'default-frame-alist '(background-color . "#111314"))
-
-(setq custom-file "~/.emacs.custom.el")
-(add-to-list 'load-path "~/.emacs.local/")
-(load "~/.emacs.rc/rc.el")
-(load "~/.emacs.rc/misc-rc.el")
-(load "~/.emacs.rc/org-mode-rc.el")
-;;;(load "~/.emacs.rc/autocommit-rc.el")
-(load custom-file t)
-
-;;; Appearance
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox-dark-hard t)
-  (custom-theme-set-faces
-   'gruvbox-dark-hard
-   `(default ((t (:background "#111314"))))
-   `(line-number ((t (:foreground "#665c54" :background "#111314"))))
-   `(line-number-current-line ((t (:foreground "#ebdbb2" :background "#111314" :weight bold))))
-   `(mode-line ((t (:foreground "#ebdbb2" :background "#1d2021" :box nil))))
-   `(mode-line-inactive ((t (:foreground "#928374" :background "#111314" :box nil))))))
-
-(defun my-top-padding ()
-  "Create a visual gap at the top of the window."
-  (setq-default header-line-format " ")
-  (set-face-attribute 'header-line nil
-                      :background (face-background 'default nil t)
-                      :foreground (face-background 'default nil t)
-                      :height 200 ;; Adjust this number for more/less padding
-                      :underline nil
-                      :overline nil
-                      :box nil))
-;; Run after the theme loads to prevent 'Invalid face' errors
-(add-hook 'window-setup-hook #'my-top-padding)
-
-(add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq use-dialog-box nil
-      window-combination-resize nil
-      even-window-sizes nil
-      window-resize-pixelwise t
-      frame-resize-pixelwise t
-      indent-tabs-mode nil
-      tab-width 4)
-
-(setq display-buffer-alist
-      '(
-        ("\\*\\(Help\\|compilation\\|Process List\\|Messages\\)\\*"
-         (display-buffer-reuse-window display-buffer-same-window))
-        ("\\` \\*.*\\'"
-         (display-buffer-no-window))))
-;;config
-(setq backup-directory-alist
-      `(("." . "~/.emacs.d/filebackups/")))
-
-(setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/auto-saves/" t)))
-
-;;; Completion via ido
-(use-package smex
-  :ensure t
-  :bind (("M-x" . smex)
-         ("C-c C-c M-x" . execute-extended-command)))
-
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-mode 1)
-  (ido-everywhere 1)
-  (ido-ubiquitous-mode 1))
-
-(setq default-directory "~/")
-
-(add-hook 'ido-setup-hook
-  (lambda ()
-    (define-key ido-file-completion-map (kbd "C-o") 'ido-enter-dired)
-    (define-key ido-completion-map (kbd "C-h") nil)
-    (define-key ido-completion-map (kbd "C-l") nil)
-    (define-key ido-completion-map (kbd "M-h") nil)
-    (define-key ido-completion-map (kbd "M-l") nil)
-    (define-key ido-completion-map (kbd "C-l") 'ido-next-match)
-    (define-key ido-completion-map (kbd "C-h") 'ido-prev-match)
-    (define-key ido-completion-map (kbd "M-l") 'ido-next-match)
-    (define-key ido-completion-map (kbd "M-h") 'ido-prev-match)
-    (define-key ido-completion-map (kbd "C-j") 'ido-exit-minibuffer)
-    (define-key ido-completion-map (kbd "C-k") 'ido-delete-backward-updir)
-    (define-key ido-completion-map (kbd "<escape>") 'keyboard-escape-quit)))
-
-;;; c-mode
-(setq-default c-basic-offset 4
-              c-default-style '((java-mode . "java")
-                                (awk-mode . "awk")
-                                (other . "bsd")))
-(defun sam/c-expand-braces-on-enter ()
-  "Expand {} pairs cleanly on Enter, specific to c-mode."
-  (interactive)
-  (if (and (eq (char-before) ?{)
-           (eq (char-after) ?}))
-      (progn
-        (c-context-line-break)
-        (save-excursion
-          (c-context-line-break)))
-    (c-context-line-break)))
-
-(add-hook 'c-mode-hook (lambda ()
-                         (interactive)
-                         (c-toggle-comment-style -1)
-                         (local-set-key (kbd "RET") 'sam/c-expand-braces-on-enter)))
-
-;;; Paredit
-(use-package paredit
-  :ensure t
-  :init
-  (defun rc/turn-on-paredit ()
-    (interactive)
-    (paredit-mode 1))
-  :hook ((emacs-lisp-mode . rc/turn-on-paredit)
-         (clojure-mode . rc/turn-on-paredit)
-         (lisp-mode . rc/turn-on-paredit)
-         (common-lisp-mode . rc/turn-on-paredit)
-         (scheme-mode . rc/turn-on-paredit)
-         (racket-mode . rc/turn-on-paredit))
-  :config
-  (rc/turn-on-paredit))
-
-;;; Emacs lisp
-(add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-c C-j")
-                            (quote eval-print-last-sexp))))
-(add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
-
-;;; Haskell mode
-(use-package haskell-mode
-  :ensure t
-  :custom
-  (haskell-process-type 'cabal-new-repl)
-  (haskell-process-log t)
-  :hook ((haskell-mode . haskell-indent-mode)
-         (haskell-mode . interactive-haskell-mode)
-         (haskell-mode . haskell-doc-mode)))
-
-;;; Local Packages (loaded directly from ~/.emacs.local/)
-(require 'revo-mode)
-(require 'basm-mode)
-(require 'fasm-mode)
-(add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
-(require 'porth-mode)
-(require 'noq-mode)
-(require 'jai-mode)
-(require 'simpc-mode)
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(add-to-list 'auto-mode-alist '("\\.[b]\\'" . simpc-mode))
-(require 'umka-mode)
-(require 'c3-mode)
-(require 'gdscript-mode)
-(require 'elixir-mode)
-(require 'google-c-style)
-
-(add-hook 'cider-repl-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-l") 'cider-repl-clear-buffer)))
-
-;; Whitespace mode
-(defun rc/set-up-whitespace-handling ()
-  (interactive)
-  (whitespace-mode 0)
-  (add-to-list 'write-file-functions 'delete-trailing-whitespace))
-
-;;(add-hook 'tuareg-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c++-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c-mode-hook 'rc/set-up-whitespace-handling 'google-make-newline-indent)
-(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling 'google-set-c-style)
-(add-hook 'emacs-lisp-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'rust-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'python-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'erlang-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'porth-mode-hook 'rc/set-up-whitespace-handling)
-
-;;; display-line-numbers-mode
-(when (version<= "26.0.50" emacs-version)
-  (setq display-line-numbers-type 'relative)
-  (setq-default display-line-numbers-width-start t)
-  (setq-default display-line-numbers-grow-only t)
-  (global-display-line-numbers-mode))
-
-;;; Toggle function
-(defun toggle-relative-numbers ()
-  (interactive)
-  (if (eq display-line-numbers 'relative)
-      (setq display-line-numbers t)
-    (setq display-line-numbers 'relative)))
-
-(add-hook 'text-scale-mode-hook
-          (lambda ()
-            (let ((step (expt text-scale-mode-step text-scale-mode-amount)))
-              (set-face-attribute 'line-number nil :height step)
-              (set-face-attribute 'line-number-current-line nil :height step))))
-
-;;; Magit
-(use-package magit
-  :ensure t
-  :bind (("C-c m s" . magit-status)
-         ("C-c m l" . magit-log))
-  :custom
-  (magit-auto-revert-mode nil))
-
-;;; Word-wrap
-(defun rc/enable-word-wrap ()
-  (interactive)
-  (toggle-word-wrap 1))
-
-(add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
-
-;;; tramp
-;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
-(setq tramp-auto-save-directory "/tmp")
-
-;;; Eldoc mode
-(defun rc/turn-on-eldoc-mode ()
-  (interactive)
-  (eldoc-mode 1))
-
-(add-hook 'emacs-lisp-mode-hook 'rc/turn-on-eldoc-mode)
-
-;;; Company
-(use-package company
-  :ensure t
-  :config
-  (global-company-mode)
-  (add-hook 'tuareg-mode-hook
-            (lambda ()
-              (interactive)
-              (company-mode 0)))
-  (define-key company-active-map (kbd "C-j") 'company-select-next)
-  (define-key company-active-map (kbd "C-k") 'company-select-previous))
-
-;;; Typescript & Tide
-(use-package typescript-mode
-  :ensure t
-  :mode ("\\.mts\\'" . typescript-mode))
-
-(use-package tide
-  :ensure t
-  :after typescript-mode
-  :init
-  (defun rc/turn-on-tide-and-flycheck ()  ;Flycheck is a dependency of tide
-    (interactive)
-    (tide-setup)
-    (flycheck-mode 1))
-  :hook (typescript-mode . rc/turn-on-tide-and-flycheck))
-
-;;; Move Text
-(use-package move-text
-  :ensure t)
-
-;;; Packages loaded via rc/require (internally calls use-package :ensure t)
-(rc/require
- 'scala-mode
- 'd-mode
- 'yaml-mode
- 'glsl-mode
- 'tuareg
- 'lua-mode
- 'less-css-mode
- 'graphviz-dot-mode
- 'clojure-mode
- 'cmake-mode
- 'rust-mode
- 'nim-mode
- 'jinja2-mode
- 'markdown-mode
- 'purescript-mode
- 'nix-mode
- 'dockerfile-mode
- 'toml-mode
- 'nginx-mode
- 'kotlin-mode
- 'go-mode
- 'php-mode
- 'racket-mode
- 'qml-mode
- 'ag
- 'elpy
- 'rfc-mode
- 'sml-mode
- 'dirvish
- 'nerd-icons
- )
-
-(defun astyle-buffer (&optional justify)
-  (interactive)
-  (let ((saved-line-number (line-number-at-pos)))
-    (shell-command-on-region
-     (point-min)
-     (point-max)
-     "astyle --style=kr"
-     nil
-     t)
-    (goto-line saved-line-number)))
-
-(add-hook 'simpc-mode-hook
-          (lambda ()
-            (interactive)
-            (setq-local fill-paragraph-function 'astyle-buffer)))
-
-;;; Evil Mode and Extensions
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil)
-  (setq evil-undo-system 'undo-redo)
-  (setq select-enable-clipboard t)
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1)
-
-  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
-  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
-  (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
-  (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
-  (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
-  (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
-  (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
-  (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
-  (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
-  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
-  (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block))
-
-(use-package evil-leader
-  :ensure t
-  :after evil
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    ;; files
-    "ff" 'find-file
-    "fs" 'save-buffer
-    ;; buffers
-    "bb" 'switch-to-buffer
-    "bk" 'kill-buffer
-    "bd" 'kill-current-buffer
-    ;; magit
-    "ms" 'magit-status
-    "ml" 'magit-log
-    ;; dired
-    "dd" 'dired
-    ;; compile
-    "cc" 'compile
-    ;; misc
-    ";" 'smex
-    "w" 'save-buffer))
-
-(use-package evil-collection
-  :ensure t
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package evil-surround
-  :ensure t
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-
-(use-package evil-visualstar
-  :ensure t
-  :after evil
-  :config
-  (global-evil-visualstar-mode 1))
-
-(use-package evil-matchit
-  :ensure t
-  :after evil
-  :config
-  (global-evil-matchit-mode 1))
-
-(use-package evil-goggles
-  :ensure t
-  :after evil
-  :config
-  (evil-goggles-mode))
-
-(use-package evil-replace-with-register
-  :ensure t
-  :after evil
-  :config
-  (evil-replace-with-register-install))
-
-(use-package evil-multiedit
-  :ensure t
-  :after evil
-  :config
-  (evil-define-key '(normal visual) evil-multiedit-mode-map
-    (kbd "C-a") #'evil-multiedit-match-all
-    (kbd "C-n") #'evil-multiedit-match-and-next
-    (kbd "C-S-n") #'evil-multiedit-match-and-prev
-    (kbd "*")   #'evil-multiedit-next
-    (kbd "#")   #'evil-multiedit-prev
-    (kbd "<escape>") #'evil-multiedit-abort))
-
-(use-package evil-mc
-  :ensure t
-  :after evil
-  :config
-  (global-evil-mc-mode 1)
-  (evil-define-key '(normal visual) evil-mc-key-map
-    (kbd "<escape>") #'my/escape-or-mc-undo))
-
-(use-package evil-textobj-anyblock
-  :ensure t
-  :after evil)
-
-(electric-pair-mode 1)
-(load "~/.emacs.d/targets.el/targets.el")
-(setq targets-seek-functions t)
-(targets-setup)
-
-(defun my/escape-or-mc-undo ()
-  (interactive)
-  (if (evil-mc-has-cursors-p)
-      (progn
-        (evil-mc-undo-all-cursors)
-        (evil-ex-nohighlight)
-        (keyboard-quit))
-    (evil-force-normal-state)))
-
-;;; Dired and Dired Rainbow
-(use-package dired
-  :ensure nil
-  :config
-  (set-face-attribute 'dired-directory nil
-                      :foreground "#328374"
-                      :weight 'bold)
-  (set-face-attribute 'dired-symlink nil
-                      :foreground "#e5e5e5"
-                      :slant 'italic)
-  (set-face-attribute 'dired-ignored nil
-                      :foreground "#626262")
-  ;; dired keybinds
-  (evil-define-key 'normal dired-mode-map
-    ;; navigation
-    (kbd "h")   #'dired-up-directory
-    (kbd "l")   #'dired-find-file
-    ;; selection
-    (kbd "SPC") #'dired-mark               ; mark/unmark single file
-    (kbd "v")   #'dired-mark               ; also on v like visual
-    (kbd "V")   #'dired-unmark-all-marks   ; clear all marks
-    (kbd "u")   #'dired-undo               ; unmark under cursor
-    ;; file ops — yazi style
-    (kbd "x")   #'my/dired-cut
-    (kbd "y")   #'dired-do-copy            ; yank/copy
-    (kbd "p")   #'my/dired-paste
-    (kbd "d")   #'dired-do-delete          ; delete marked or file at point
-    (kbd "r")   #'wdired-change-to-wdired-mode
-    (kbd "R")   #'dired-do-rename          ; alias
-    ;; toggles
-    (kbd "C-h") #'dired-hide-details-mode
-    (kbd "C-.") #'dired-omit-mode
-    (kbd "q")   #'quit-window
-    ;; refresh
-    (kbd "gr")  #'revert-buffer))
-
-(use-package dired-rainbow
-  :ensure t
-  :after dired
-  :config
-  ;; --- media & assets ---
-  (dired-rainbow-define media "#d65d0e"
-    ("mp3" "mp4" "mkv" "webm" "flac" "ogg" "wav" "avi" "mov" "wmv"))
-
-  (dired-rainbow-define image "#98971a"
-    ("jpg" "jpeg" "png" "gif" "svg" "webp" "bmp" "ico" "tiff"))
-
-  (dired-rainbow-define archive "#b16286"
-    ("zip" "tar" "gz" "bz2" "xz" "zst" "7z" "rar" "deb" "rpm"))
-
-  (dired-rainbow-define document "#a89984"
-    ("pdf" "doc" "docx" "odt" "epub" "md" "rst" "txt" "org"))
-
-  ;; --- config / data ---
-  (dired-rainbow-define prog-config "#d79921"
-    ("json" "jsonc" "toml" "yaml" "yml" "ini" "cfg" "conf" "env" "nix" "lock"))
-
-  (dired-rainbow-define prog-data "#458588"
-    ("csv" "tsv" "sql" "db" "sqlite" "parquet"))
-
-  ;; --- C family --- bright blue, cold/metal
-  (dired-rainbow-define prog-c "#83a598"
-    ("c" "h"))
-
-  (dired-rainbow-define prog-cpp "#458588"
-    ("cpp" "hpp" "cc" "hh" "cxx" "hxx"))
-
-  ;; C# — purple, distinct from C/C++
-  (dired-rainbow-define prog-csharp "#d3869b"
-    ("cs" "csproj" "sln"))
-
-  ;; --- systems low-level ---
-  (dired-rainbow-define prog-asm "#928374"
-    ("s" "asm" "nasm"))
-
-  ;; Rust — canonical rust/orange-red
-  (dired-rainbow-define prog-rust "#e78a4e"
-    ("rs"))
-
-  ;; Zig — canonical yellow
-  (dired-rainbow-define prog-zig "#fabd2f"
-    ("zig" "zon"))
-
-  ;; Odin — muted teal, young systems lang
-  (dired-rainbow-define prog-odin "#689d6a"
-    ("odin"))
-
-  ;; Hare — warm gray, minimal
-  (dired-rainbow-define prog-hare "#a89984"
-    ("ha"))
-
-  ;; Jai — warm orange, Jonathan Blow vibes
-  (dired-rainbow-define prog-jai "#d65d0e"
-    ("jai"))
-
-  ;; C3 — sibling of C, slightly distinct blue
-  (dired-rainbow-define prog-c3 "#7daea3"
-    ("c3"))
-
-  ;; Nim — gold/yellow, canonical nim color
-  (dired-rainbow-define prog-nim "#fabd2f"
-    ("nim" "nims" "nimble"))
-
-  ;; WASM / LLVM IR
-  (dired-rainbow-define prog-wasm "#8ec07c"
-    ("wasm" "wat" "ll" "bc"))
-
-  ;; --- JVM family ---
-  ;; Java — canonical duke red/orange
-  (dired-rainbow-define prog-java "#e78a4e"
-    ("java" "class" "jar"))
-
-  ;; Scala — canonical red
-  (dired-rainbow-define prog-scala "#cc241d"
-    ("scala" "sc"))
-
-  ;; Kotlin — canonical purple
-  (dired-rainbow-define prog-kotlin "#b16286"
-    ("kt" "kts"))
-
-  ;; Clojure — canonical green
-  (dired-rainbow-define prog-clojure "#98971a"
-    ("clj" "cljs" "cljc" "edn"))
-
-  ;; --- scripting ---
-  ;; Python — canonical blue/yellow, go with blue
-  (dired-rainbow-define prog-python "#83a598"
-    ("py" "pyi" "pyc"))
-
-  ;; Ruby — canonical red
-  (dired-rainbow-define prog-ruby "#fb4934"
-    ("rb" "rbs" "rake" "gemspec"))
-
-  ;; Lua — canonical blue
-  (dired-rainbow-define prog-lua "#458588"
-    ("lua"))
-
-  ;; Shell
-  (dired-rainbow-define prog-shell "#b8bb26"
-    ("sh" "bash" "zsh" "fish" "awk" "sed"))
-
-  ;; Tcl — muted, old school
-  (dired-rainbow-define prog-tcl "#928374"
-    ("tcl" "tk"))
-
-  ;; CoffeeScript — warm brown, legacy
-  (dired-rainbow-define prog-coffee "#d79921"
-    ("coffee"))
-
-  ;; --- web ---
-  (dired-rainbow-define prog-web "#fabd2f"
-    ("html" "htm" "css" "scss" "sass" "less"
-     "js" "mjs" "cjs" "ts" "tsx" "jsx" "vue" "svelte"))
-
-  ;; --- Go --- canonical cyan/teal
-  (dired-rainbow-define prog-go "#8ec07c"
-    ("go"))
-
-  ;; --- functional ---
-  ;; Haskell — canonical purple
-  (dired-rainbow-define prog-haskell "#d3869b"
-    ("hs" "lhs"))
-
-  ;; OCaml — canonical orange
-  (dired-rainbow-define prog-ocaml "#e78a4e"
-    ("ml" "mli" "mll" "mly"))
-
-  ;; Elixir — canonical purple
-  (dired-rainbow-define prog-elixir "#b16286"
-    ("ex" "exs"))
-
-  ;; Erlang — canonical red, same family as Elixir
-  (dired-rainbow-define prog-erlang "#cc241d"
-    ("erl" "hrl"))
-
-  ;; F# — canonical blue
-  (dired-rainbow-define prog-fsharp "#83a598"
-    ("fs" "fsx" "fsi"))
-
-  ;; Elm — canonical teal/blue-green
-  (dired-rainbow-define prog-elm "#689d6a"
-    ("elm"))
-
-  ;; ReasonML — same family as OCaml
-  (dired-rainbow-define prog-reason "#e78a4e"
-    ("re" "rei" "res" "resi"))
-
-  ;; Gleam — canonical pink
-  (dired-rainbow-define prog-gleam "#d3869b"
-    ("gleam"))
-
-  ;; Dart — canonical blue
-  (dired-rainbow-define prog-dart "#83a598"
-    ("dart"))
-
-  ;; --- lisp family ---
-  (dired-rainbow-define prog-lisp "#d3869b"
-    ("el" "elc" "lisp" "scm" "rkt" "hy"))
-
-  ;; Common Lisp distinct shade
-  (dired-rainbow-define prog-commonlisp "#b16286"
-    ("asd" "fasl"))
-
-  ;;  Forth / esoteric — warm gray
-  (dired-rainbow-define prog-esoteric "#928374"
-    ("forth" "fth" "4th" "fs"))
-
-  ;; D — canonical red
-  (dired-rainbow-define prog-d "#cc241d"
-    ("d" "di"))
-
-  ;; Processing — canonical blue (based on IDE)
-  (dired-rainbow-define prog-processing "#458588"
-    ("pde"))
-
-  ;; --- build infra ---
-  (dired-rainbow-define prog-build "#928374"
-    ("mk" "cmake"))
-
-  (dired-rainbow-define-chmod executable "#fabd2f" "-.*x.*"))
-
-(setq dired-omit-files "^\\.[^.].*")
-(setq dired-listing-switches "-lAhvG --group-directories-first")
-(setq dired-kill-when-opening-new-dired-buffer t)
-
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (dired-hide-details-mode 1)
-            (dired-omit-mode 1)))
-
-(defvar my/dired-cut-files nil
-  "Files marked for cut (move) in dired.")
-
-(defun my/dired-cut ()
-  "Mark files for cut (move)."
-  (interactive)
-  (setq my/dired-cut-files (dired-get-marked-files))
-  (message "Cut %d file(s)" (length my/dired-cut-files)))
-
-(defun my/dired-paste ()
-  "Paste (move or copy) files into current directory."
-  (interactive)
-  (if my/dired-cut-files
-      (progn
-        (dolist (file my/dired-cut-files)
-          (dired-rename-file file (expand-file-name
-                                   (file-name-nondirectory file)
-                                   (dired-current-directory)) nil))
-        (setq my/dired-cut-files nil)
-        (revert-buffer)
-        (message "Pasted files"))
-    (dired-do-copy)))
-
-(with-eval-after-load 'wdired
-  (setq wdired-allow-to-change-permissions t)
-  (evil-define-key 'normal wdired-mode-map
-    (kbd "ZZ")    #'wdired-finish-edit
-    (kbd "q")     #'wdired-finish-edit
-    [escape]      #'wdired-abort-changes))
-
-(defun my/title-case-buffer ()
-  "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "\\<\\(\\w\\)\\(\\w*\\)\\>" nil t)
-      (replace-match (concat (upcase (match-string 1))
-                             (downcase (match-string 2)))))))
-
-(evil-ex-define-cmd "Uppercasefile" 'my/title-case-buffer)
-
-(defun toggle-mode-line ()
-  (interactive)
-  (setq mode-line-format
-        (if mode-line-format nil (default-value 'mode-line-format)))
-  (redraw-display))
-
-(global-set-key (kbd "<f6>") 'toggle-mode-line)
-
-(defun my/compile-toggle-comint ()
-  (interactive)
-  (if (derived-mode-p 'comint-mode)
-      (compilation-mode)
-    (comint-mode)))
-
-;; Compile config
-(defvar my/compile-commands
-  '((c-mode           . "gcc -Wall -Wextra -O2 %f -o %b")
-    (simpc-mode       . "gcc -Wall -Wextra %f -o %b")
-    (c++-mode         . "g++ -Wall -Wextra -std=c++20 %f -o %b")
-    (emacs-lisp-mode  . "eval-buffer")
-    (rust-mode        . "cargo build")
-    (go-mode          . "go build %f")
-    (python-mode      . "python3 %f")
-    (ruby-mode        . "ruby %f")
-    (sh-mode          . "bash %f")))
-
-(defun my/compile-default-command ()
-  "Return a compile command derived from major mode, falling back to compile-command."
-  (or (when-let ((tmpl (alist-get major-mode my/compile-commands)))
-        (if buffer-file-name
-            (let* ((file (file-name-nondirectory buffer-file-name))
-                   (base (file-name-sans-extension file)))
-              (string-replace "%f" file (string-replace "%b" base tmpl)))
-          tmpl)) ; If no file exists, just return the raw template string
-      compile-command))
-
-(defun my/compile ()
-  "Run compile, defaulting to a mode-derived command on first use."
-  (interactive)
-  (unless (local-variable-p 'compile-command)
-    (setq-local compile-command (my/compile-default-command)))
-  (compile (read-shell-command "Command: " compile-command)))
-
-;;; Built-in Compilation Package
-(use-package compile
-  :ensure nil
-  :config
-  (define-key compilation-mode-map (kbd "C-t") 'my/compile-toggle-comint)
-  (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit))
-
-(let ((map minibuffer-local-map))
-  (define-key map (kbd "<escape>") 'keyboard-escape-quit)
-  (define-key map (kbd "C-k") 'previous-history-element)
-  (define-key map (kbd "C-j") 'next-history-element))
-
-;; Org Mode
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (C      . t)
-   (ruby   . t)))
-
-;; (setq org-babel-default-header-args:python
-;;       '((:results . "output")))
-
-(defun my/org-backtick-expand ()
-  (interactive)
-  (if (and (derived-mode-p 'org-mode)
-           (looking-back "^```\\([[:alnum:]-]*\\)" (line-beginning-position)))
-      (let ((lang (match-string 1)))
-        (delete-region (line-beginning-position) (point))
-        (insert "#+BEGIN_SRC " lang "\n\n#+END_SRC")
-        (forward-line -1))
-    (org-return t)))
-
-(with-eval-after-load 'org
-  (evil-define-key 'insert org-mode-map (kbd "RET") #'my/org-backtick-expand))
-
-(setq eglot-ignored-server-capabilities '(:diagnosticProvider))
-
-;; pascalik.pas(24,44) Error: Can't evaluate constant expression
-;compilation-error-regexp-alist-alist
-
-
-(add-to-list 'compilation-error-regexp-alist
-             '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"
-               1 2 (4) (5)))
-
-(custom-set-faces
- '(line-number ((t (:height 1.0))))
- '(line-number-current-line ((t (:height 1.0)))))
-||||||| (empty tree)
-=======
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -844,10 +26,12 @@
 (add-to-list 'default-frame-alist '(background-color . "#111314"))
 
 (setq custom-file "~/.emacs.custom.el")
+(load-file custom-file)
+
 (add-to-list 'load-path "~/.emacs.local/")
 (load "~/.emacs.rc/rc.el")
 
-;;; Theme: Gruvbox
+(require 'server)
 (rc/require 'gruvbox-theme)
 (load-theme 'gruvbox-dark-hard t)
  (custom-theme-set-faces
@@ -896,6 +80,7 @@
 (setq default-directory "~/")
 
 (with-eval-after-load 'ido
+
   (define-key ido-common-completion-map (kbd "C-j") 'ido-next-match)
   (define-key ido-common-completion-map (kbd "C-k") 'ido-prev-match)
 
@@ -1046,52 +231,6 @@
 ;; (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 ;; (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
-;;; dired
-(require 'dired)
-(require 'dired-x)
-
-;; Force folders first via Emacs's Lisp implementation of 'ls'
-(require 'ls-lisp)
-(setq ls-lisp-use-insert-directory-program nil)
-(setq ls-lisp-dirs-first t)
-
-;; Global defaults
-(setq-default dired-listing-switches "-alh")
-(setq dired-hide-details-hide-header-lines t)
-(setq dired-omit-files "^\\.")
-
-(defun my-dired-setup-hook ()
-  "High-priority setup for Dired buffers."
-  (interactive)
-  (dired-hide-details-mode 1)
-  (dired-omit-mode 1))
-
-;; Use depth 90 to ensure this runs after other hooks (like evil-collection)
-(add-hook 'dired-mode-hook #'my-dired-setup-hook 90)
-
-(with-eval-after-load 'dired
-  ;; Standard Emacs keys
-  (define-key dired-mode-map (kbd "(") #'dired-hide-details-mode)
-  (define-key dired-mode-map (kbd ")") #'dired-hide-details-mode)
-  (define-key dired-mode-map (kbd ".") #'dired-omit-mode)
-  (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file)
-
-  ;; Evil-compatible keys
-  (with-eval-after-load 'evil-collection
-    (evil-collection-define-key 'normal 'dired-mode-map
-      "(" 'dired-hide-details-mode
-      ")" 'dired-hide-details-mode
-      "." 'dired-omit-mode)))
-
-(global-set-key (kbd "C-c p d") #'projectile-dired)
-
-(use-package dired-subtree
-  :bind (:map dired-mode-map
-              ("TAB"   . dired-subtree-toggle)
-              ("<tab>" . dired-subtree-toggle)))
-
-(use-package dired-collapse
-  :hook (dired-mode . dired-collapse-mode))
 
 ;;; helm
 (rc/require 'helm 'helm-ls-git)
@@ -1227,6 +366,8 @@
  'typescript-mode
  'rfc-mode
  'sml-mode
+ 'dirvish
+ 'nerd-icons
  ;;mine
  'evil
  'evil-goggles
@@ -1283,6 +424,115 @@
   (define-key evil-normal-state-map [escape]      'my-evil-mc-escape))
 (setq compile-command "")
 
+;;; Dired
+(require 'dired)
+(require 'dired-x)
+;;(require 'dired+)
+;;(require 'dirvish)
+
+(require 'dired-rainbow)
+(with-eval-after-load 'dired-rainbow
+
+  ;; --- files ---
+  (dired-rainbow-define media "#d65d0e"        ; dark orange — warm/entertainment
+    ("mp3" "mp4" "mkv" "webm" "flac" "ogg" "wav" "avi" "mov" "wmv"))
+
+  (dired-rainbow-define image "#98971a"        ; muted green — natural/visual
+    ("jpg" "jpeg" "png" "gif" "svg" "webp" "bmp" "ico" "tiff"))
+
+  (dired-rainbow-define archive "#b16286"      ; muted purple — compressed/sealed
+    ("zip" "tar" "gz" "bz2" "xz" "zst" "7z" "rar" "deb" "rpm"))
+
+  (dired-rainbow-define document "#a89984"     ; warm gray — prose/text
+    ("pdf" "doc" "docx" "odt" "epub" "md" "rst" "txt" "org"))
+
+  ;; --- systems ---
+  (dired-rainbow-define prog-systems "#5fd7ff" ; bright orange — hot/metal
+    ("c" "h" "cpp" "hpp" "cc" "hh" "cxx" "hxx" "s" "asm"))
+
+  (dired-rainbow-define prog-rust "#cc241d"    ; dark red — close to Ruby but subdued
+    ("rs"))
+
+  (dired-rainbow-define prog-ruby "#fb4934"    ; bright red — Ruby's own
+    ("rb" "rbs" "rake" "gemspec"))
+
+  ;; --- managed/compiled ---
+  (dired-rainbow-define prog-jvm "#fabd2f"     ; bright yellow — enterprise/verbose
+    ("java" "class" "jar" "kt" "kts" "scala"))
+
+  (dired-rainbow-define prog-go "#8ec07c"      ; bright aqua — Go's clean aesthetic
+    ("go" "mod" "sum"))
+
+  ;; --- scripting ---
+  (dired-rainbow-define prog-scripted "#b8bb26" ; bright green — alive/dynamic
+    ("py" "pl" "lua" "sh" "bash" "zsh" "fish" "awk" "sed"))
+
+  ;; --- web ---
+  (dired-rainbow-define prog-web "#83a598"     ; bright blue — calm/frontend
+    ("html" "htm" "css" "scss" "sass" "less"
+     "js" "mjs" "cjs" "ts" "tsx" "jsx" "vue" "svelte"))
+
+  ;; --- lisp family ---
+  (dired-rainbow-define prog-lisp "#d3869b"    ; bright purple — lisp is special
+    ("el" "elc" "lisp" "clj" "cljs" "cljc" "scm" "rkt" "hy"))
+
+  ;; --- functional ---
+  (dired-rainbow-define prog-functional "#689d6a" ; muted aqua — cool/mathematical
+    ("hs" "lhs" "ml" "mli" "fs" "fsx" "elm" "ex" "exs" "erl" "hrl"))
+
+  ;; --- config/data ---
+  (dired-rainbow-define prog-config "#d79921"  ; yellow — needs attention
+    ("json" "jsonc" "toml" "yaml" "yml" "ini" "cfg" "conf" "env" "nix" "lock"))
+
+  (dired-rainbow-define prog-data "#458588"    ; blue — structured/deep
+    ("csv" "tsv" "sql" "db" "sqlite" "parquet"))
+
+  ;; --- build infrastructure ---
+  (dired-rainbow-define prog-build "#928374"   ; gray — plumbing
+    ("Makefile" "makefile" "GNUmakefile" "CMakeLists.txt"
+     "Dockerfile" "docker-compose.yml" "Cargo.toml"
+     "package.json" "go.mod" "build.gradle" "pom.xml" "meson.build"))
+
+  (dired-rainbow-define-chmod executable "#b8bb26" "-.*x.*"))
+
+(setq dired-omit-files "^\\.[^.].*")
+(setq dired-listing-switches "-lAhvG --group-directories-first")
+
+(add-hook 'dired-mode-hook
+          (lambda ()
+            ;(message "HOOK WORKED")
+            (dired-hide-details-mode 1)
+            (dired-omit-mode 1)))
+
+(with-eval-after-load 'dired
+  (set-face-attribute 'dired-directory nil
+                      :foreground "#328374"
+                      :weight 'bold)
+
+  (set-face-attribute 'dired-symlink nil
+                      :foreground "#e5e5e5"
+                      :slant 'italic)
+
+  (set-face-attribute 'dired-ignored nil
+                      :foreground "#626262")
+  ;keybinds
+  (define-key dired-mode-map (kbd "l") #'dired-find-file)
+  (define-key dired-mode-map (kbd "h") #'dired-up-directory)
+  (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
+  (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "q") #'quit-window)
+  (evil-define-key 'normal dired-mode-map
+    (kbd "h") #'dired-up-directory
+    (kbd "l") #'dired-find-file
+    (kbd "C-h") #'dired-hide-details-mode
+    (kbd "C-.") #'dired-omit-mode
+    (kbd "q") #'quit-window)
+  )
+
+(global-set-key (kbd "C-c p d") #'projectile-dired)
+
+
 (defun my/title-case-buffer ()
   "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
   (interactive)
@@ -1314,6 +564,3 @@ compilation-error-regexp-alist-alist
  '(line-number ((t (:height 1.0))))
  '(line-number-current-line ((t (:height 1.0))))
  )
-
-(load-file custom-file)
->>>>>>> 3fe26ac (adding configs)
