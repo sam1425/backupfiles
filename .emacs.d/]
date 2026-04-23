@@ -544,6 +544,7 @@
   ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
   ;; (define-key dired-mode-map (kbd "q") #'quit-window)
   (evil-define-key 'normal dired-mode-map
+    (kbd "l") #'dired-find-file
     ;; navigation
     (kbd "h")   #'dired-up-directory
     (kbd "l")   #'dired-find-file

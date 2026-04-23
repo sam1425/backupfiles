@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- dired
+ toggle-mode-line
  eval-buffer
+ evil-mode
+ smex
+ dired
  deer
  dired-omit-mode
- package-install
- evil-mode
- dired-hide-details-mode
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 41)
+ (evil-mode . 43)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
@@ -23,7 +23,7 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
- (eval-buffer . 37)
+ (eval-buffer . 47)
  (list-tags . 1)
  (list-packages . 4)
  (package-install . 15)
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 4)
  (beginning-of-buffer . 1)
- (dired . 131)
+ (dired . 133)
  (c-mode . 6)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -48,7 +48,7 @@
  (find-library . 15)
  (gruvbox-screenshot . 1)
  (byte-compile-file . 4)
- (smex . 1)
+ (smex . 19)
  (helm-M-x . 1)
  (helm-mode . 2)
  (helm-find . 1)
@@ -85,5 +85,5 @@
  (toggle-debug-on-error . 1)
  (view-echo-area-messages . 1)
  (diredp-quit-window-kill . 1)
- (toggle-mode-line . 2)
+ (toggle-mode-line . 9)
 )
