@@ -32,6 +32,7 @@
 (load "~/.emacs.rc/rc.el")
 
 (require 'server)
+
 (rc/require 'gruvbox-theme)
 (load-theme 'gruvbox-dark-hard t)
  (custom-theme-set-faces
@@ -79,19 +80,15 @@
 
 (setq default-directory "~/")
 
-(with-eval-after-load 'ido
-
-  (define-key ido-common-completion-map (kbd "C-j") 'ido-next-match)
-  (define-key ido-common-completion-map (kbd "C-k") 'ido-prev-match)
-
-  (define-key ido-file-completion-map (kbd "C-l") 'ido-exit-minibuffer)
-  (define-key ido-file-completion-map (kbd "C-h") 'ido-delete-backward-updir)
-
-  (define-key minibuffer-local-map (kbd "C-j") 'next-line)
-  (define-key minibuffer-local-map (kbd "C-k") 'previous-line)
-
-  (define-key ido-completion-map (kbd "<escape>") 'keyboard-escape-quit)
-  (define-key ido-common-completion-map (kbd "<escape>") 'keyboard-escape-quit))
+(add-hook 'ido-setup-hook
+  (lambda ()
+    (define-key ido-completion-map (kbd "C-h") nil)
+    (define-key ido-completion-map (kbd "C-l") nil)
+    (define-key ido-completion-map (kbd "C-l") 'ido-next-match)
+    (define-key ido-completion-map (kbd "C-h") 'ido-prev-match)
+    (define-key ido-completion-map (kbd "C-j") 'ido-exit-minibuffer)
+    (define-key ido-completion-map (kbd "C-k") 'ido-delete-backward-updir)
+    (define-key ido-completion-map (kbd "<escape>") 'keyboard-escape-quit)))
 
 ;; (with-eval-after-load 'smex
 ;;   (define-key minibuffer-local-map (kbd "C-h") 'ido-prev-match)
@@ -186,7 +183,7 @@
 ;;(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
-:;(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
+;;(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'porth-mode-hook 'rc/set-up-whitespace-handling)
 
@@ -497,12 +494,35 @@
 
 (setq dired-omit-files "^\\.[^.].*")
 (setq dired-listing-switches "-lAhvG --group-directories-first")
+(setq dired-kill-when-opening-new-dired-buffer t)
 
 (add-hook 'dired-mode-hook
           (lambda ()
             ;(message "HOOK WORKED")
             (dired-hide-details-mode 1)
             (dired-omit-mode 1)))
+(defvar my/dired-cut-files nil
+  "Files marked for cut (move) in dired.")
+
+(defun my/dired-cut ()
+  "Mark files for cut (move)."
+  (interactive)
+  (setq my/dired-cut-files (dired-get-marked-files))
+  (message "Cut %d file(s)" (length my/dired-cut-files)))
+
+(defun my/dired-paste ()
+  "Paste (move or copy) files into current directory."
+  (interactive)
+  (if my/dired-cut-files
+      (progn
+        (dolist (file my/dired-cut-files)
+          (dired-rename-file file (expand-file-name
+                                   (file-name-nondirectory file)
+                                   (dired-current-directory)) nil))
+        (setq my/dired-cut-files nil)
+        (revert-buffer)
+        (message "Pasted files"))
+    (dired-do-copy)))
 
 (with-eval-after-load 'dired
   (set-face-attribute 'dired-directory nil
@@ -516,21 +536,38 @@
   (set-face-attribute 'dired-ignored nil
                       :foreground "#626262")
   ;keybinds
-  (define-key dired-mode-map (kbd "l") #'dired-find-file)
-  (define-key dired-mode-map (kbd "h") #'dired-up-directory)
-  (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
-  (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
-  (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
-  (define-key dired-mode-map (kbd "q") #'quit-window)
+  ;;emacs keybindins
+  ;; (define-key dired-mode-map (kbd "l") #'dired-find-file)
+  ;; (define-key dired-mode-map (kbd "h") #'dired-up-directory)
+  ;; (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
+  ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
+  ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
+  ;; (define-key dired-mode-map (kbd "q") #'quit-window)
   (evil-define-key 'normal dired-mode-map
-    (kbd "h") #'dired-up-directory
-    (kbd "l") #'dired-find-file
+    ;; navigation
+    (kbd "h")   #'dired-up-directory
+    (kbd "l")   #'dired-find-file
+    ;; selection
+    (kbd "SPC") #'dired-mark               ; mark/unmark single file
+    (kbd "v")   #'dired-mark               ; also on v like visual
+    (kbd "V")   #'dired-unmark-all-marks   ; clear all marks
+    (kbd "u")   #'dired-unmark             ; unmark under cursor
+    ;; file ops — yazi style
+    (kbd "x")   #'my/dired-cut
+    (kbd "y")   #'dired-do-copy            ; yank/copy
+    (kbd "p")   #'my/dired-paste
+    (kbd "d")   #'dired-do-delete          ; delete marked or file at point
+    (kbd "r")   #'dired-do-rename          ; rename
+    (kbd "R")   #'dired-do-rename          ; alias
+    ;; toggles
     (kbd "C-h") #'dired-hide-details-mode
     (kbd "C-.") #'dired-omit-mode
-    (kbd "q") #'quit-window)
+    (kbd "q")   #'quit-window
+    ;; refresh
+    (kbd "gr")  #'revert-buffer)
   )
 
-(global-set-key (kbd "C-c p d") #'projectile-dired)
+;(global-set-key (kbd "C-c p d") #'projectile-dired)
 
 
 (defun my/title-case-buffer ()
@@ -551,10 +588,10 @@
         (if mode-line-format nil (default-value 'mode-line-format)))
   (redraw-display))
 
-(global-set-key (kbd "<f8>") 'toggle-mode-line)
+;(global-set-key (kbd "<f8>") 'toggle-mode-line)
 
 ;; pascalik.pas(24,44) Error: Can't evaluate constant expression
-compilation-error-regexp-alist-alist
+;compilation-error-regexp-alist-alist
 
 (add-to-list 'compilation-error-regexp-alist
              '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"

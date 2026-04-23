@@ -3214,3 +3214,81 @@ Roots:
   ssh://laptop//home/c0mplex/.scripts
 
 Terminated!
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-22 at 21:21:47
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Internal error: On-disk archives are not identical.
+
+This can happen when both machines have the same hostname.
+It can also happen when one copy of Unison has been compiled with
+OCaml version 3 and one with OCaml version 4.
+
+If this is not the case and you get this message repeatedly, please:
+  a) Send a bug report to unison-users@seas.upenn.edu (you may need
+     to join the group before you will be allowed to post).
+     For information, see https://github.com/bcpierce00/unison/wiki
+  b) Move the archive files on each machine to some other directory
+     (in case they may be useful for debugging).
+     The archive files on this machine are in the directory
+       /home/c0mplex/.config/unison
+     and have names of the form
+       arXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+     where the X's are hexadecimal numbers.
+  c) Run unison again to synchronize from scratch.
+
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-22 at 21:22:01
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Internal error: On-disk archives are not identical.
+
+This can happen when both machines have the same hostname.
+It can also happen when one copy of Unison has been compiled with
+OCaml version 3 and one with OCaml version 4.
+
+If this is not the case and you get this message repeatedly, please:
+  a) Send a bug report to unison-users@seas.upenn.edu (you may need
+     to join the group before you will be allowed to post).
+     For information, see https://github.com/bcpierce00/unison/wiki
+  b) Move the archive files on each machine to some other directory
+     (in case they may be useful for debugging).
+     The archive files on this machine are in the directory
+       /home/c0mplex/.config/unison
+     and have names of the form
+       arXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+     where the X's are hexadecimal numbers.
+  c) Run unison again to synchronize from scratch.
+
+
+Unison 2.53.8 (ocaml 5.4.0) log started at 2026-04-22 at 21:26:12
+
+Roots:
+  /home/c0mplex/Documents/Programming
+  ssh://laptop//home/c0mplex/Documents/Programming
+
+Error: Internal error: On-disk archives are not identical.
+
+This can happen when both machines have the same hostname.
+It can also happen when one copy of Unison has been compiled with
+OCaml version 3 and one with OCaml version 4.
+
+If this is not the case and you get this message repeatedly, please:
+  a) Send a bug report to unison-users@seas.upenn.edu (you may need
+     to join the group before you will be allowed to post).
+     For information, see https://github.com/bcpierce00/unison/wiki
+  b) Move the archive files on each machine to some other directory
+     (in case they may be useful for debugging).
+     The archive files on this machine are in the directory
+       /home/c0mplex/.config/unison
+     and have names of the form
+       arXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+     where the X's are hexadecimal numbers.
+  c) Run unison again to synchronize from scratch.
+
