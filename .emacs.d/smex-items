@@ -2,12 +2,27 @@
 ;; ----- smex-history -----
 (
  eval-buffer
+<<<<<<< HEAD
  project-dired
  move-text-up
  eval-expression
  dired
  package-delete
  cd
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+ evil-mode
+ smex
+ dired
+ deer
+ dired-omit-mode
+=======
+ evil-mode
+ compile
+ eval-expression
+ c-mode
+ helm-mode
+ project-dired
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
 )
 
 ;; ----- smex-data -----
@@ -15,7 +30,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 43)
+ (evil-mode . 56)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
@@ -23,7 +38,13 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
+<<<<<<< HEAD
  (eval-buffer . 65)
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+ (eval-buffer . 47)
+=======
+ (eval-buffer . 94)
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
  (list-tags . 1)
  (list-packages . 4)
  (package-install . 15)
@@ -36,10 +57,18 @@
  (evil-collection-init . 1)
  (list-fontsets . 1)
  (evil-visual-state . 1)
- (compile . 4)
+ (compile . 8)
  (beginning-of-buffer . 1)
+<<<<<<< HEAD
  (dired . 138)
  (c-mode . 6)
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+ (dired . 133)
+ (c-mode . 6)
+=======
+ (dired . 138)
+ (c-mode . 8)
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
  (set-fringe-style . 1)
@@ -50,7 +79,7 @@
  (byte-compile-file . 4)
  (smex . 19)
  (helm-M-x . 1)
- (helm-mode . 2)
+ (helm-mode . 3)
  (helm-find . 1)
  (helm-info-ido . 1)
  (org-mode . 2)
@@ -85,9 +114,19 @@
  (toggle-debug-on-error . 1)
  (view-echo-area-messages . 1)
  (diredp-quit-window-kill . 1)
+<<<<<<< HEAD
  (toggle-mode-line . 9)
  (cd . 1)
  (eval-expression . 2)
  (move-text-up . 1)
  (project-dired . 2)
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+ (toggle-mode-line . 9)
+=======
+ (toggle-mode-line . 11)
+ (cd . 1)
+ (eval-expression . 3)
+ (move-text-up . 1)
+ (project-dired . 2)
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
 )

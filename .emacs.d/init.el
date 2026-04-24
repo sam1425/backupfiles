@@ -82,6 +82,7 @@
 
 (add-hook 'ido-setup-hook
   (lambda ()
+    (define-key ido-file-completion-map (kbd "C-o") 'ido-enter-dired)
     (define-key ido-completion-map (kbd "C-h") nil)
     (define-key ido-completion-map (kbd "C-l") nil)
     (define-key ido-completion-map (kbd "M-h") nil)
@@ -234,26 +235,26 @@
 
 
 ;;; helm
-(rc/require 'helm 'helm-ls-git)
+;; (rc/require 'helm 'helm-ls-git)
 
-(setq helm-ff-transformer-show-only-basename nil)
+;; (setq helm-ff-transformer-show-only-basename nil)
 
-(global-set-key (kbd "C-c h t") 'helm-cmd-t)
-(global-set-key (kbd "C-c h g g") 'helm-git-grep)
-(global-set-key (kbd "C-c h g l") 'helm-ls-git-ls)
-(global-set-key (kbd "C-c h f") 'helm-find)
-(global-set-key (kbd "C-c h a") 'helm-org-agenda-files-headings)
-(global-set-key (kbd "C-c h r") 'helm-recentf)
+;; (global-set-key (kbd "C-c h t") 'helm-cmd-t)
+;; (global-set-key (kbd "C-c h g g") 'helm-git-grep)
+;; (global-set-key (kbd "C-c h g l") 'helm-ls-git-ls)
+;; (global-set-key (kbd "C-c h f") 'helm-find)
+;; (global-set-key (kbd "C-c h a") 'helm-org-agenda-files-headings)
+;; (global-set-key (kbd "C-c h r") 'helm-recentf)
 
 
 ;;; yasnippet
-(rc/require 'yasnippet)
+;; (rc/require 'yasnippet)
 
-(require 'yasnippet)
-(setq yas/triggers-in-field nil)
-(setq yas-snippet-dirs '("~/.emacs.snippets/"))
+;; (require 'yasnippet)
+;; (setq yas/triggers-in-field nil)
+;; (setq yas-snippet-dirs '("~/.emacs.snippets/"))
 
-(yas-global-mode 1)
+;; (yas-global-mode 1)
 
 ;;; word-wrap
 (defun rc/enable-word-wrap ()
@@ -394,9 +395,17 @@
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
+<<<<<<< HEAD
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
 
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+=======
+(setq evil-undo-system 'undo-redo)
+(setq select-enable-clipboard t)
+(setq evil-collection-setup-minibuffer t)
+
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
 (evil-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
@@ -414,17 +423,28 @@
   (keyboard-quit))
 
 (with-eval-after-load 'evil
+<<<<<<< HEAD
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'compile)
   ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+  (define-key evil-motion-state-map (kbd "C-b")   'compile)
+  (define-key evil-normal-state-map (kbd "C-r")   'undo)
+=======
+  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
+  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+  (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
+  ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
   (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
   (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
   (define-key evil-normal-state-map (kbd "C-n")   'evil-mc-make-and-goto-next-match)
   (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
-  (define-key evil-normal-state-map [escape]      'my-evil-mc-escape))
+  ;(define-key evil-normal-state-map [escape]      'my-evil-mc-escape)
+  )
 (setq compile-command "")
 
 (rc/require 'evil-leader)
@@ -574,6 +594,18 @@
   (set-face-attribute 'dired-ignored nil
                       :foreground "#626262")
   ;keybinds
+<<<<<<< HEAD
+||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
+  ;;emacs keybindins
+  ;; (define-key dired-mode-map (kbd "l") #'dired-find-file)
+  ;; (define-key dired-mode-map (kbd "h") #'dired-up-directory)
+  ;; (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
+  ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
+  ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
+  ;; (define-key dired-mode-map (kbd "q") #'quit-window)
+=======
+
+>>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
   (evil-define-key 'normal dired-mode-map
     ;; navigation
     (kbd "h")   #'dired-up-directory
@@ -619,7 +651,18 @@
         (if mode-line-format nil (default-value 'mode-line-format)))
   (redraw-display))
 
-;(global-set-key (kbd "<f8>") 'toggle-mode-line)
+(global-set-key (kbd "<f8>") 'toggle-mode-line)
+
+;; Compile config
+(with-eval-after-load 'compile
+  (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit))
+
+(defun my/compile (command &optional comint)
+  (interactive
+   (list (read-string "Command: " compile-command)))
+  (compile command comint))
+
+
 
 ;; pascalik.pas(24,44) Error: Can't evaluate constant expression
 ;compilation-error-regexp-alist-alist
