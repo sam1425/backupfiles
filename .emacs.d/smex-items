@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- magit-commit
- magit-status
- magit-am
- magit
- dired
  eval-buffer
+ evil-multiedit-abort
+ evil-mc-undo-all-cursors
  evil-mode
+ evil-mc-make-and-goto-next-match
+ evil-multiedit-next
+ evil-multiedit-match-and-next
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (visual-line-mode . 1)
  (whitespace-mode . 5)
  (evil-ex . 1)
- (evil-mode . 56)
+ (evil-mode . 73)
  (server-start . 26)
  (server-force-delete . 4)
  (strokes-help . 1)
@@ -23,10 +23,10 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
- (eval-buffer . 94)
+ (eval-buffer . 280)
  (list-tags . 1)
- (list-packages . 4)
- (package-install . 15)
+ (list-packages . 5)
+ (package-install . 16)
  (ido-exit-minibuffer . 1)
  (evil-first-non-blank . 1)
  (evil-yank-line . 1)
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 8)
  (beginning-of-buffer . 1)
- (dired . 139)
+ (dired . 140)
  (c-mode . 8)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -92,4 +92,15 @@
  (project-dired . 2)
  (magit-am . 1)
  (magit-status . 2)
+ (evil-multiedit-abort . 11)
+ (evil-multiedit-ex-match . 2)
+ (evil-multiedit-restore . 3)
+ (iedit--quit . 1)
+ (evil-multiedit-match-symbol-and-next . 32)
+ (evil-multiedit-match-and-next . 106)
+ (evil-mc-undo-all-cursors . 13)
+ (evil-mc-make-and-goto-next-match . 16)
+ (xdb . 3)
+ (eval-region . 3)
+ (evil-multiedit-next . 6)
 )
