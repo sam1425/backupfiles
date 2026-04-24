@@ -285,7 +285,9 @@ static const Key        keys[] = {
 	{0,                                XF86XK_AudioNext,                                spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
 	{0,                                XF86XK_AudioPrev,                                spawn,                        SHCMD("playerctl previous;/usr/bin/pkill -RTMIN+1 dwmblocks")},
 	{MODKEY,                           XK_BackSpace,                                    spawn,                        SHCMD("~/.config/i3/powermenu/powermenu.sh")},
+	{MODKEY,                           XK_F7,                                           spawn,                        SHCMD("xdotool key alt+3; xdg-open https://mail.google.com")},
 	{MODKEY | ShiftMask,               XK_F7,                                           spawn,                        SHCMD("status-timer cleanup")},
+	{MODKEY,                           XK_F8,                                           spawn,                        SHCMD("qalculate-gtk")},
 	{MODKEY,                           XK_F11,                                          spawn,
 	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%;"
            "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
