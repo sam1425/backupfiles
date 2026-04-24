@@ -44,6 +44,7 @@
 (
  "/home/c0mplex/.emacs.d/"
  "/home/c0mplex/"
+ "/home/c0mplex/Documents/Translate/"
  "/home/c0mplex/Documents/Programming/c/graphics/"
  "/home/c0mplex/.scripts/bpscripts/images-photos-wallpapers/"
  "/home/c0mplex/.emacs.d/elpa/dirvish-20250504.807/"
@@ -92,26 +93,32 @@
 ;; ----- ido-work-file-list -----
 (
  "init.el"
- "early-init.el"
  ".emacs.custom.el"
+ "traduccion_trinidad.md"
+ "original_trinity.md"
+ "early-init.el"
  "glyphcheck.c"
  "screenshot"
  "dirvish-autoloads.el"
  ".zshrc"
  "easyargs.h"
- "index.html"
- "metaballs.c"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/c0mplex/dotfiles/.files/.emacs.d/" (27114 56515 680553 268000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+ ("/home/c0mplex/dotfiles/.files/.emacs.d/" (27115 42362 717328 737000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" ".mc-lists.el" "smex-items" "init.el" "filebackups/" "Description.md")
 
- ("/home/c0mplex/" (27114 61544 996786 437000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".nimble/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".m2/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".zoom/" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".python_history" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" "Pictures/" "Downloads/" "Games/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
+ ("/home/c0mplex/.emacs.d/" (27115 42362 717328 737000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" ".mc-lists.el" "smex-items" "init.el" "filebackups/" "Description.md")
 
- ("/home/c0mplex/.emacs.d/" (27114 56515 680553 268000) "auto-saves/" "transient/" "eln-cache/" "elpa/" "ido.last" "../" "early-init.el" ".stow-local-ignore" "auto-save-list/" "tramp" "./" "smex-items" "init.el" "filebackups/" "Description.md")
+ ("/home/c0mplex/" (27115 42345 330348 383000) ".ICEauthority" ".magicavoxel/" ".gtkrc-2.0" ".zcompdump.c0mplex.185476" ".ssh/" ".sqliterc" "Music/" ".steampid" ".cowsay/" ".nimble/" ".mozilla/" ".tmux.conf.bak" ".local/" ".zshenv" ".claude.json" "tmp/" ".scripts/" ".config/" ".mono/" ".cht.sh/" ".kivy/" "suckless/" ".dotnet/" ".winemonogame/" ".apvlvrc" ".tmux.conf" ".copilot/" ".zprofile" ".fceux/" ".rustup/" ".Xauthority" ".vscode/" ".state" ".anydesk/" ".android/" ".vim/" "dotfiles/" ".cache/" ".steam/" ".emacs.rc/" ".repoconfig/" "Videos/" ".java/" ".icons/" ".pki/" ".jc141rc" ".gitconfig" ".parallel/" ".irb_history" ".ghci" ".claude/" ".swt/" ".npm/" ".var/" "notes/" ".Xdefaults" ".omnisharp/" ".emacs.snippets/" ".markut" ".fehbg" ".bun/" ".emacs.d/" "db/" ".bash_history" ".bashrc" ".steampath" ".templateengine/" ".bundle/" "../" ".vcpkg/" ".m2/" ".sonic-pi/" ".dwm/" "Documents/" "./" ".zoom/" ".aws/" ".ServiceHub/" ".spicetify/" ".npmrc" ".nuget/" "bin/" ".cargo/" ".unison/" ".profile" ".john/" ".emacs.local/" ".wget-hsts" ".Xresources" ".python_history" ".rnd" ".leetcode/" ".conda/" ".viminfo" ".wine/" ".zshrc" ".node_repl_history" "Desktop/" ".repo_.gitconfig.json" "Pictures/" "Downloads/" "Games/" "thunderbird/" ".gksu.lock" ".gnupg/" ".xinitrc" ".terminfo/" ".emacs.custom.el" ".thunderbird/" ".jmacsrc" ".gradle/" ".eclipse/" ".zcompdump" ".nexrc" ".luarocks/" "Zomboid/" ".gemini/" "git/")
 
- ("/home/c0mplex/Documents/" (27114 14052 979954 537000) "music/" "work/" "document.pdf" "tmp/" "firmaaqui.md" "smb.md" "bible/" "lau.md" "books/" "github-recovery-codes.txt" "Learning/" "apps/" "c/" "broadcast/" "Comprobante de Inscripción.pdf" "preload.txt" "broadcas/" "mentalist.md" "My Games/" "git.bak" "U/" "obsidian/" "../" "broadcast-20260411T004536Z-3-001.zip" "Terrariabackup/" "./" "Web/" "crochet.md" "hacking/" "PDF RESULTADOS AC202437236128.pdf" "Preload.md" "celeste/" "Programming/" "Passport.md" "orgmode" "Misc/" "games/")
+ ("/home/c0mplex/Documents/" (27115 36764 480329 563000) "music/" "work/" "document.pdf" "tmp/" "firmaaqui.md" "smb.md" "bible/" "lau.md" "books/" "github-recovery-codes.txt" "Learning/" "apps/" "c/" "broadcast/" "Comprobante de Inscripción.pdf" "preload.txt" "Translate/" "broadcas/" "mentalist.md" "My Games/" "git.bak" "U/" "obsidian/" "../" "broadcast-20260411T004536Z-3-001.zip" "Terrariabackup/" "./" "Web/" "crochet.md" "hacking/" "PDF RESULTADOS AC202437236128.pdf" "Preload.md" "celeste/" "Programming/" "Passport.md" "orgmode" "Misc/" "games/")
+
+ ("/home/c0mplex/Documents/Translate/" (27115 30751 632270 908000) "original_trinity.md" "../" "./" "traduccion_trinidad.md")
+
+ ("/home/c0mplex/dotfiles/.files/" (27114 57371 92125 179000) ".ssh/" ".local/" ".config/" "suckless/" "system/" ".emacs.rc/" ".emacs.snippets/" ".emacs.d/" ".gitignore" "../" ".dwm/" "./" ".emacs.local/" ".git/" ".emacs.custom.el")
+
+ ("/home/c0mplex/dotfiles/.files/suckless/dwm/" (27114 51410 821072 600000) "swallow" "util.c" "Makefile" "dwm" "dwm.cfg" "drw.c" ".clang-format" "vanitygaps.c" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "LICENSE" "dwm.1" "dwm.c" "../" ".celangbak" "./" "util.o" "drw.o" "Description.md" "config.def.h" "dwm.png" "drw.h" "util.h")
 
  ("/home/c0mplex/Documents/Programming/go/" (27114 12979 995707 228000) "range.go" "parse/" "server.go" "iterate" "iterate.go" "pkg/" "tui/" "test/" "files/" "../" "go.mod" "./" "hello/" "go.sum" "D.md" "server")
 
@@ -119,11 +126,7 @@
 
  ("/home/c0mplex/dotfiles/.files/suckless/st/" (27105 41519 16053 204000) "rowcolumn_diacritics.sh" "hb.h" "Makefile" "rowcolumn-diacritics.txt" "icat-mini.sh" "graphics.o" "rowcolumn_diacritics_helpers.o" ".clang-format" "generate-rowcolumn-helpers.py" "hb.c" "st.h" "st" "config.mk" "khash.h" "config.h" "boxdraw_data.h" "README.md" "temp.h" "LICENSE" "st.1" "st.c" "rowcolumn_diacritics_helpers.c" "st.info" "../" "st.o" "kvec.h" "./" "arg.h" "boxdraw.c" "x.c" "README" "TODO" "graphics.h" "configold.h" "graphics.c" "win.h" "boxdraw.o" "Description.md" "config.def.h" "x.o" "hb.o")
 
- ("/home/c0mplex/dotfiles/.files/suckless/dwm/" (27111 64182 349821 508000) "swallow" "util.c" "Makefile" "dwm" "dwm.cfg" "drw.c" ".clang-format" "vanitygaps.c" "config.mk" "config.h" "transient.c" "README.md" "dwm.o" "LICENSE" "dwm.1" "dwm.c" "../" ".celangbak" "./" "util.o" "drw.o" "Description.md" "config.def.h" "dwm.png" "drw.h" "util.h")
-
  ("/home/c0mplex/dotfiles/.files/suckless/" (27092 19677 998255 470000) "dwm/" "dmenu-flexipatch/" "st/" "tray/" ".gitignore" "dwmblocks-async/" "../" "./")
-
- ("/home/c0mplex/dotfiles/.files/" (27113 7325 858758 853000) ".ssh/" ".local/" ".config/" "suckless/" "system/" ".emacs.rc/" ".emacs.snippets/" ".emacs.d/" ".gitignore" "../" ".dwm/" "./" ".emacs.local/" ".git/" ".emacs.custom.el")
 
  ("/home/c0mplex/.emacs.d/auto-save-list/" (27113 10318 266771 145000) ".saves-153809-c0mplex~" ".saves-1127-c0mplex~" ".saves-4745-c0mplex~" ".saves-1363185-c0mplex~" ".saves-1118785-c0mplex~" ".saves-5579-c0mplex~" ".saves-1147147-c0mplex~" ".saves-43867-c0mplex~" ".saves-2534345-c0mplex~" ".saves-6266-c0mplex~" ".saves-3366-c0mplex~" ".saves-64108-c0mplex~" ".saves-1337-c0mplex~" ".saves-337602-c0mplex~" ".saves-16333-c0mplex~" ".saves-634975-c0mplex~" ".saves-6025-c0mplex~" ".saves-5407-c0mplex~" ".saves-724-c0mplex~" ".saves-5818-c0mplex~" ".saves-6448-c0mplex~" ".saves-1445024-c0mplex~" ".saves-6172-c0mplex~" ".saves-878426-c0mplex~" ".saves-6948-c0mplex~" ".saves-8862-c0mplex~" ".saves-3752-c0mplex~" ".saves-1877707-c0mplex~" ".saves-112075-c0mplex~" ".saves-6083-c0mplex~" ".saves-5792-c0mplex~" ".saves-547189-c0mplex~" ".saves-6049-c0mplex~" ".saves-1549600-c0mplex~" ".saves-524283-c0mplex~" ".saves-4866-c0mplex~" ".saves-5060-c0mplex~" ".saves-6064-c0mplex~" ".saves-18140-c0mplex~" ".saves-83973-c0mplex~" ".saves-1842216-c0mplex~" ".saves-305898-c0mplex~" ".saves-2526312-c0mplex~" ".saves-1471376-c0mplex~" ".saves-75487-c0mplex~" ".saves-6308-c0mplex~" ".saves-695-c0mplex~" ".saves-99957-c0mplex~" ".saves-4976-c0mplex~" ".saves-4911-c0mplex~" ".saves-6034-c0mplex~" ".saves-153383-c0mplex~" ".saves-1658-c0mplex~" ".saves-124207-c0mplex~" ".saves-312578-c0mplex~" ".saves-5640-c0mplex~" ".saves-5453-c0mplex~" ".saves-1374408-c0mplex~" ".saves-4635-c0mplex~" ".saves-719-c0mplex~" ".saves-355460-c0mplex~" ".saves-39528-c0mplex~" ".saves-1124-c0mplex~" ".saves-57386-c0mplex~" ".saves-1694-c0mplex~" ".saves-7602-c0mplex~" ".saves-700-c0mplex~" ".saves-6037-c0mplex~" ".saves-3367-c0mplex~" "../" ".saves-737-c0mplex~" ".saves-695999-c0mplex~" ".saves-6688-c0mplex~" ".saves-2021148-c0mplex~" "./" ".saves-7082-c0mplex~" ".saves-31402-c0mplex~" ".saves-124102-c0mplex~" ".saves-6480-c0mplex~" ".saves-1655259-c0mplex~" ".saves-5004-c0mplex~" ".saves-6575-c0mplex~" ".saves-709-c0mplex~" ".saves-4749-c0mplex~" ".saves-797714-c0mplex~" ".saves-995856-c0mplex~" ".saves-4902-c0mplex~" ".saves-65505-c0mplex~" ".saves-6070-c0mplex~" ".saves-18941-c0mplex~" ".saves-5959-c0mplex~" ".saves-6463-c0mplex~" ".saves-5016-c0mplex~" ".saves-6697-c0mplex~" ".saves-1272646-c0mplex~" ".saves-124284-c0mplex~" ".saves-71900-c0mplex~" ".saves-388128-c0mplex~")
 

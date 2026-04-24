@@ -78,6 +78,7 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+
 (setq default-directory "~/")
 
 (add-hook 'ido-setup-hook
@@ -133,7 +134,7 @@
 (add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
 
 ;;; uxntal-mode
-(rc/require 'uxntal-mode)
+;;(rc/require 'uxntal-mode)
 
 ;;; Haskell mode
 ;;(rc/require 'haskell-mode)
@@ -223,7 +224,7 @@
 (global-set-key (kbd "C-c m s") 'magit-status)
 (global-set-key (kbd "C-c m l") 'magit-log)
 
-;;; multiple cursors
+;; multiple cursors
 ;;;(rc/require 'multiple-cursors)
 
 ;;;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -373,6 +374,7 @@
  'evil
  'evil-goggles
  'evil-collection
+ 'evil-multiedit
  'compile
  )
 
@@ -403,41 +405,71 @@
 (setq evil-collection-setup-minibuffer t)
 
 (evil-mode 1)
+(global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-(evil-define-key 'emacs 'global (kbd "M-SPC") #'execute-extended-command)
-
-(global-evil-mc-mode 1)
-(defun my-evil-mc-escape ()
+(defun my/escape-or-mc-undo ()
   (interactive)
-  (evil-mc-undo-all-cursors)
-  (evil-ex-nohighlight)
-  (keyboard-quit))
+  (if (evil-mc-has-cursors-p)
+      (progn
+        (evil-mc-undo-all-cursors)
+        (evil-ex-nohighlight)
+        (keyboard-quit))
+    (evil-force-normal-state)))
 
 (with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
-  (define-key evil-motion-state-map (kbd "C-b")   'compile)
-  ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
-  (define-key evil-motion-state-map (kbd "C-b")   'compile)
-  (define-key evil-normal-state-map (kbd "C-r")   'undo)
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
-  ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
   (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
   (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
-  (define-key evil-normal-state-map (kbd "C-n")   'evil-mc-make-and-goto-next-match)
   (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
-  ;(define-key evil-normal-state-map [escape]      'my-evil-mc-escape)
+  ;;multicursors
+  (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
+
   )
-(setq compile-command "")
+
+;; evil-multiedit
+(require 'evil-multiedit)
+;(evil-multiedit-default-keybinds)
+(with-eval-after-load 'evil-multiedit
+   (evil-define-key '(normal visual) evil-multiedit-mode-map
+    (kbd "C-a") #'evil-multiedit-match-all
+    (kbd "C-n") #'evil-multiedit-match-and-next
+    (kbd "C-S-n") #'evil-multiedit-match-and-prev
+    (kbd "*")   #'evil-multiedit-next
+    (kbd "#")   #'evil-multiedit-prev
+    (kbd "<escape>") #'evil-multiedit-abort
+    ))
+
+;; evil-mc
+;; (evil-define-key '(normal visual) 'global
+;;   "gzm" #'evil-mc-make-all-cursors
+;;   "gzu" #'evil-mc-undo-all-cursors
+;;   "gzz" #'+evil/mc-toggle-cursors
+;;   "gzc" #'+evil/mc-make-cursor-here
+;;   "gzn" #'evil-mc-make-and-goto-next-cursor
+;;   "gzp" #'evil-mc-make-and-goto-prev-cursor
+;;   "gzN" #'evil-mc-make-and-goto-last-cursor
+;;   "gzP" #'evil-mc-make-and-goto-first-cursor)
+(with-eval-after-load 'evil-mc
+   (evil-define-key '(normal visual) evil-mc-key-map
+    ;(kbd "C-n") #'evil-mc-make-and-goto-next-cursor
+    ;(kbd "C-n") #'evil-mc-make-and-goto-last-cursor
+    ;(kbd "C-n") #'evil-mc-make-and-goto-next-match
+    ;(kbd "C-N") #'evil-mc-make-and-goto-first-cursor
+    (kbd "<escape>") #'my/escape-or-mc-undo
+    )
+ )
+
 
 (rc/require 'evil-leader)
 (global-evil-leader-mode)
@@ -542,6 +574,7 @@
             ;(message "HOOK WORKED")
             (dired-hide-details-mode 1)
             (dired-omit-mode 1)))
+
 (defvar my/dired-cut-files nil
   "Files marked for cut (move) in dired.")
 
@@ -572,7 +605,6 @@
     (kbd "q")     #'wdired-finish-edit
     [escape]      #'wdired-abort-changes))
 
-;; in your dired evil-define-key block
 
 (with-eval-after-load 'dired
   (set-face-attribute 'dired-directory nil
@@ -593,7 +625,8 @@
   ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
   ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
   ;; (define-key dired-mode-map (kbd "q") #'quit-window)
-
+  ;; (evil-define-key 'emacs 'global (kbd "M-SPC") #'execute-extended-command)
+  ;; (global-set-key (kbd "C-c p d") #'projectile-dired)
   (evil-define-key 'normal dired-mode-map
     ;; navigation
     (kbd "h")   #'dired-up-directory
@@ -619,7 +652,6 @@
     (kbd "gr")  #'revert-buffer)
   )
 
-;(global-set-key (kbd "C-c p d") #'projectile-dired)
 
 (defun my/title-case-buffer ()
   "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
@@ -630,7 +662,6 @@
       (replace-match (concat (upcase (match-string 1))
                              (downcase (match-string 2)))))))
 
-;; Map it to a Vim-style Ex command
 (evil-ex-define-cmd "Uppercasefile" 'my/title-case-buffer)
 
 (defun toggle-mode-line ()
@@ -639,10 +670,17 @@
         (if mode-line-format nil (default-value 'mode-line-format)))
   (redraw-display))
 
-(global-set-key (kbd "<f8>") 'toggle-mode-line)
+(global-set-key (kbd "<f6>") 'toggle-mode-line)
+
+(defun my/compile-toggle-comint ()
+  (interactive)
+  (if (derived-mode-p 'comint-mode)
+      (compilation-mode)
+    (comint-mode)))
 
 ;; Compile config
 (with-eval-after-load 'compile
+  (define-key compilation-mode-map (kbd "C-t") 'my/compile-toggle-comint)
   (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit))
 
 (defun my/compile (command &optional comint)
