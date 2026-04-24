@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- toggle-mode-line
  eval-buffer
- evil-mode
- smex
+ project-dired
+ move-text-up
+ eval-expression
  dired
- deer
- dired-omit-mode
+ package-delete
+ cd
 )
 
 ;; ----- smex-data -----
@@ -23,7 +23,7 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
- (eval-buffer . 47)
+ (eval-buffer . 65)
  (list-tags . 1)
  (list-packages . 4)
  (package-install . 15)
@@ -38,7 +38,7 @@
  (evil-visual-state . 1)
  (compile . 4)
  (beginning-of-buffer . 1)
- (dired . 133)
+ (dired . 138)
  (c-mode . 6)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
@@ -65,7 +65,7 @@
  (dirvish . 12)
  (magit-commit . 2)
  (dired-hide-details-mode . 11)
- (package-delete . 1)
+ (package-delete . 2)
  (deer . 7)
  (dirvish-yank-menu . 1)
  (dirvish-fd . 1)
@@ -86,4 +86,8 @@
  (view-echo-area-messages . 1)
  (diredp-quit-window-kill . 1)
  (toggle-mode-line . 9)
+ (cd . 1)
+ (eval-expression . 2)
+ (move-text-up . 1)
+ (project-dired . 2)
 )
