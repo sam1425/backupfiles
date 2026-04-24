@@ -182,8 +182,8 @@ static const Key        keys[] = {
 		MODKEY | ShiftMask, XK_i, incnmaster,{.i = +1}
 	},                                                                                                                                                              /* increase # of master windows */
 	{MODKEY | ControlMask,             XK_i,                                            incnmaster,                                {.i      = -1              }},   /* decrease # of master windows */
-	{MODKEY,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
-	{MODKEY,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},
+	/*{MODKEY,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
+	{MODKEY,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},*/
 	{MODKEY,                           XK_Tab,                                          view,                                      {0}},
 	{MODKEY,                           XK_0,                                            view,                                      {.ui     = ~0              }},
 	{MODKEY | ShiftMask,               XK_0,                                            tag,                                       {.ui     = ~0              }},
