@@ -1,2 +1,3 @@
-((magit-commit nil)
+((magit-commit
+  ("--all"))
  (magit-stash nil))
