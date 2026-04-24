@@ -84,8 +84,12 @@
   (lambda ()
     (define-key ido-completion-map (kbd "C-h") nil)
     (define-key ido-completion-map (kbd "C-l") nil)
+    (define-key ido-completion-map (kbd "M-h") nil)
+    (define-key ido-completion-map (kbd "M-l") nil)
     (define-key ido-completion-map (kbd "C-l") 'ido-next-match)
     (define-key ido-completion-map (kbd "C-h") 'ido-prev-match)
+    (define-key ido-completion-map (kbd "M-l") 'ido-next-match)
+    (define-key ido-completion-map (kbd "M-h") 'ido-prev-match)
     (define-key ido-completion-map (kbd "C-j") 'ido-exit-minibuffer)
     (define-key ido-completion-map (kbd "C-k") 'ido-delete-backward-updir)
     (define-key ido-completion-map (kbd "<escape>") 'keyboard-escape-quit)))
@@ -259,9 +263,9 @@
 (add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
 
 ;;; nxml
-(add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.ant\\'" . nxml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ant\\'" . nxml-mode))
 
 ;;; tramp
 ;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
@@ -289,6 +293,7 @@
           (lambda ()
             (interactive)
             (company-mode 0)))
+
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-j") 'company-select-next)
@@ -325,8 +330,6 @@
 
 ;;; Move Text
 (rc/require 'move-text)
-(global-set-key (kbd "M-p") 'move-text-up)
-(global-set-key (kbd "M-n") 'move-text-down)
 
 ;;; Ebisp
 ;;;(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
@@ -382,7 +385,6 @@
      nil
      t)
     (goto-line saved-line-number)))
-
 (add-hook 'simpc-mode-hook
           (lambda ()
             (interactive)
@@ -392,13 +394,17 @@
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
+(setq evil-undo-system 'undo-redo)
+(setq select-enable-clipboard t)
+
 (evil-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
-(evil-define-key 'emacs 'global (kbd "M-SPC") #'execute-extended-command)
-(setq select-enable-clipboard t)
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+
+(evil-define-key 'emacs 'global (kbd "M-SPC") #'execute-extended-command)
 
 (global-evil-mc-mode 1)
 (defun my-evil-mc-escape ()
@@ -408,18 +414,41 @@
   (keyboard-quit))
 
 (with-eval-after-load 'evil
+  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
+  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'compile)
-  (define-key evil-normal-state-map (kbd "C-r")   'undo)
+  ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
   (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
   (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
-  ;(define-key evil-normal-state-map (kbd "C-S-V") 'evil-paste-after)
-  ;(define-key evil-insert-state-map (kbd "C-S-C") 'yank)
   (define-key evil-normal-state-map (kbd "C-n")   'evil-mc-make-and-goto-next-match)
   (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
   (define-key evil-normal-state-map [escape]      'my-evil-mc-escape))
 (setq compile-command "")
+
+(rc/require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader "<SPC>")
+
+(evil-leader/set-key
+  ;; files
+  "ff" 'find-file
+  "fs" 'save-buffer
+  ;; buffers
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
+  "bd" 'kill-current-buffer
+  ;; magit
+  "ms" 'magit-status
+  "ml" 'magit-log
+  ;; dired
+  "dd" 'dired
+  ;; compile
+  "cc" 'compile
+  ;; misc
+  ";" 'smex
+  "w" 'save-buffer)
 
 ;;; Dired
 (require 'dired)
@@ -524,6 +553,15 @@
         (message "Pasted files"))
     (dired-do-copy)))
 
+(with-eval-after-load 'wdired
+  (setq wdired-allow-to-change-permissions t)
+  (evil-define-key 'normal wdired-mode-map
+    (kbd "ZZ")    #'wdired-finish-edit
+    (kbd "q")     #'wdired-finish-edit
+    [escape]      #'wdired-abort-changes))
+
+;; in your dired evil-define-key block
+
 (with-eval-after-load 'dired
   (set-face-attribute 'dired-directory nil
                       :foreground "#328374"
@@ -536,13 +574,6 @@
   (set-face-attribute 'dired-ignored nil
                       :foreground "#626262")
   ;keybinds
-  ;;emacs keybindins
-  ;; (define-key dired-mode-map (kbd "l") #'dired-find-file)
-  ;; (define-key dired-mode-map (kbd "h") #'dired-up-directory)
-  ;; (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
-  ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
-  ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
-  ;; (define-key dired-mode-map (kbd "q") #'quit-window)
   (evil-define-key 'normal dired-mode-map
     ;; navigation
     (kbd "h")   #'dired-up-directory
@@ -551,13 +582,14 @@
     (kbd "SPC") #'dired-mark               ; mark/unmark single file
     (kbd "v")   #'dired-mark               ; also on v like visual
     (kbd "V")   #'dired-unmark-all-marks   ; clear all marks
-    (kbd "u")   #'dired-unmark             ; unmark under cursor
+    (kbd "u")   #'dired-undo               ; unmark under cursor
     ;; file ops — yazi style
     (kbd "x")   #'my/dired-cut
     (kbd "y")   #'dired-do-copy            ; yank/copy
     (kbd "p")   #'my/dired-paste
     (kbd "d")   #'dired-do-delete          ; delete marked or file at point
-    (kbd "r")   #'dired-do-rename          ; rename
+    (kbd "r")   #'wdired-change-to-wdired-mode
+    ;(kbd "r")   #'dired-do-rename          ; rename
     (kbd "R")   #'dired-do-rename          ; alias
     ;; toggles
     (kbd "C-h") #'dired-hide-details-mode
@@ -568,7 +600,6 @@
   )
 
 ;(global-set-key (kbd "C-c p d") #'projectile-dired)
-
 
 (defun my/title-case-buffer ()
   "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
