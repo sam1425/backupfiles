@@ -586,8 +586,6 @@
   (set-face-attribute 'dired-ignored nil
                       :foreground "#626262")
   ;keybinds
-<<<<<<< HEAD
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
   ;;emacs keybindins
   ;; (define-key dired-mode-map (kbd "l") #'dired-find-file)
   ;; (define-key dired-mode-map (kbd "h") #'dired-up-directory)
@@ -595,9 +593,7 @@
   ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
   ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
   ;; (define-key dired-mode-map (kbd "q") #'quit-window)
-=======
 
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
   (evil-define-key 'normal dired-mode-map
     ;; navigation
     (kbd "h")   #'dired-up-directory
