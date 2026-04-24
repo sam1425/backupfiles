@@ -395,17 +395,13 @@
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
-<<<<<<< HEAD
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
 
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
-=======
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
 (setq evil-collection-setup-minibuffer t)
 
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
 (evil-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
@@ -423,20 +419,16 @@
   (keyboard-quit))
 
 (with-eval-after-load 'evil
-<<<<<<< HEAD
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'compile)
   ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
   (define-key evil-motion-state-map (kbd "C-b")   'compile)
   (define-key evil-normal-state-map (kbd "C-r")   'undo)
-=======
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
   ;(define-key evil-normal-state-map (kbd "C-r")   'evil-redo)
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
   (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
   (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
   (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))

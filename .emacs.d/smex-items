@@ -1,28 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ magit-commit
+ magit-status
+ magit-am
+ magit
+ dired
  eval-buffer
-<<<<<<< HEAD
- project-dired
- move-text-up
- eval-expression
- dired
- package-delete
- cd
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
  evil-mode
- smex
- dired
- deer
- dired-omit-mode
-=======
- evil-mode
- compile
- eval-expression
- c-mode
- helm-mode
- project-dired
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
 )
 
 ;; ----- smex-data -----
@@ -38,13 +23,7 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
-<<<<<<< HEAD
- (eval-buffer . 65)
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
- (eval-buffer . 47)
-=======
  (eval-buffer . 94)
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
  (list-tags . 1)
  (list-packages . 4)
  (package-install . 15)
@@ -59,16 +38,8 @@
  (evil-visual-state . 1)
  (compile . 8)
  (beginning-of-buffer . 1)
-<<<<<<< HEAD
- (dired . 138)
- (c-mode . 6)
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
- (dired . 133)
- (c-mode . 6)
-=======
- (dired . 138)
+ (dired . 139)
  (c-mode . 8)
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
  (set-fringe-style . 1)
@@ -85,14 +56,14 @@
  (org-mode . 2)
  (start-kbd-macro . 1)
  (ruby-mode . 2)
- (magit . 2)
+ (magit . 3)
  (html-div . 1)
  (html-mode . 1)
  (term . 3)
  (ranger . 10)
  (ranger-go . 3)
  (dirvish . 12)
- (magit-commit . 2)
+ (magit-commit . 4)
  (dired-hide-details-mode . 11)
  (package-delete . 2)
  (deer . 7)
@@ -114,19 +85,11 @@
  (toggle-debug-on-error . 1)
  (view-echo-area-messages . 1)
  (diredp-quit-window-kill . 1)
-<<<<<<< HEAD
- (toggle-mode-line . 9)
- (cd . 1)
- (eval-expression . 2)
- (move-text-up . 1)
- (project-dired . 2)
-||||||| parent of d5845e8 (adding plugins and cusotmizing evil keybinds)
- (toggle-mode-line . 9)
-=======
  (toggle-mode-line . 11)
  (cd . 1)
  (eval-expression . 3)
  (move-text-up . 1)
  (project-dired . 2)
->>>>>>> d5845e8 (adding plugins and cusotmizing evil keybinds)
+ (magit-am . 1)
+ (magit-status . 2)
 )
