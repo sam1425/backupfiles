@@ -375,6 +375,8 @@
  'evil-goggles
  'evil-collection
  'evil-multiedit
+ 'evil-surround
+ 'evil-visualstar
  'compile
  )
 
@@ -402,9 +404,11 @@
 
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
-(setq evil-collection-setup-minibuffer t)
+;(setq evil-collection-setup-minibuffer t)
 
 (evil-mode 1)
+(global-evil-surround-mode 1)
+(global-evil-visualstar-mode 1)
 (global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)

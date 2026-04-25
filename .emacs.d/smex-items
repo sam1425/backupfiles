@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ c-mode
+ simpc-mode
  eval-buffer
+ dired
  evil-multiedit-abort
  evil-mc-undo-all-cursors
  evil-mode
- evil-mc-make-and-goto-next-match
- evil-multiedit-next
- evil-multiedit-match-and-next
 )
 
 ;; ----- smex-data -----
@@ -23,7 +23,7 @@
  (highlight-indentation-mode . 1)
  (describe-variable . 1)
  (fringe-mode . 1)
- (eval-buffer . 280)
+ (eval-buffer . 283)
  (list-tags . 1)
  (list-packages . 5)
  (package-install . 16)
@@ -38,8 +38,8 @@
  (evil-visual-state . 1)
  (compile . 8)
  (beginning-of-buffer . 1)
- (dired . 140)
- (c-mode . 8)
+ (dired . 141)
+ (c-mode . 9)
  (package-refresh-contents . 3)
  (my-evil-mc-escape . 1)
  (set-fringe-style . 1)
@@ -103,4 +103,5 @@
  (xdb . 3)
  (eval-region . 3)
  (evil-multiedit-next . 6)
+ (simpc-mode . 1)
 )

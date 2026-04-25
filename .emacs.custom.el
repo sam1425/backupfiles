@@ -7,10 +7,11 @@
  '(package-selected-packages
    '(ag clojure-mode cmake-mode d-mode dash-functional dired-rainbow
         diredfl dirvish dockerfile-mode elpy evil-collection
-        evil-goggles evil-leader evil-mc evil-multiedit gdscript-mode
-        gdshader-mode go-mode graphviz-dot-mode gruber-darker-theme
-        gruvbox-theme haskell-mode helm-ls-git ido-completing-read+
-        jinja2-mode kotlin-mode lua-mode magit markdown-mode move-text
+        evil-goggles evil-leader evil-mc evil-multiedit evil-surround
+        evil-visualstar gdscript-mode gdshader-mode go-mode
+        graphviz-dot-mode gruber-darker-theme gruvbox-theme
+        haskell-mode helm-ls-git ido-completing-read+ jinja2-mode
+        kotlin-mode lua-mode magit markdown-mode move-text
         multiple-cursors nerd-icons nginx-mode nim-mode nix-mode
         org-cliplink paredit php-mode powershell proof-general
         purescript-mode qml-mode racket-mode ranger rfc-mode rust-mode
