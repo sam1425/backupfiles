@@ -96,7 +96,7 @@
 (push '(vertical-scroll-bars) default-frame-alist)
 ;;(push '(mode-line-format . nil) default-frame-alist)
 
-;(setq-default mode-line-format nil)
+(setq-default mode-line-format nil)
 
 (show-paren-mode 0)
 ;;(tool-bar-mode 0)
