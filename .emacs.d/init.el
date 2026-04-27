@@ -336,6 +336,7 @@
 ;;; Ebisp
 ;;;(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
 
+(setq evil-want-keybinding nil)
 ;;; Packages that don't require configuration
 (rc/require
  'scala-mode
@@ -396,7 +397,6 @@
             (setq-local fill-paragraph-function 'astyle-buffer)))
 
 ;;evil
-(setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
 (setq evil-undo-system 'undo-redo)
