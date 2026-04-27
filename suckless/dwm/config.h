@@ -276,8 +276,8 @@ static const Key        keys[] = {
 	 SHCMD("/usr/sbin/pactl set-sink-volume @DEFAULT_SINK@ +5%; /usr/bin/sleep 0.01;  "
 	       "/usr/bin/kill -44 "
 	       "$(/usr/bin/pidof dwmblocks)")},
-	{0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s +5%")},
-	{0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s -5%")},
+	{0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s 50+")},
+	{0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 50-")},
 	{MODKEY,                           XK_F2,                                           spawn,                        SHCMD("playerctl previous kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
 	{MODKEY,                           XK_F3,                                           spawn,                        SHCMD("playerctl play-pause kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
 	{MODKEY,                           XK_F4,                                           spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
