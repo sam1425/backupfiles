@@ -1,0 +1,11 @@
+[Unit]
+Description=Mango autostart
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/c0mplex/.config/mango/autostart.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
