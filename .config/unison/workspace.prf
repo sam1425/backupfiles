@@ -1,5 +1,5 @@
 root = /home/c0mplex/Documents/Programming
-root = ssh://laptop//home/c0mplex/Documents/Programming
+root = ssh://home//home/c0mplex/Documents/Programming
 
 # repeat = watch
 repeat = 60
