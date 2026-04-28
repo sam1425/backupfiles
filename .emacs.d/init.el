@@ -426,8 +426,13 @@
     (evil-force-normal-state)))
 
 (with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
-  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+  (dolist (map (list evil-normal-state-map
+                     evil-insert-state-map
+                     evil-motion-state-map))
+    (define-key map (kbd "j")  #'ignore)
+    (define-key map (kbd "k") #'ignore)
+    (define-key map (kbd "l")    #'ignore)
+    (define-key map (kbd "h")  #'ignore))
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
