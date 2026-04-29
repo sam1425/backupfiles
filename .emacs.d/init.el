@@ -427,8 +427,7 @@
 
 (with-eval-after-load 'evil
   (dolist (map (list evil-normal-state-map
-                     evil-insert-state-map
-                     evil-motion-state-map))
+                     ))
     (define-key map (kbd "j")  #'ignore)
     (define-key map (kbd "k") #'ignore)
     (define-key map (kbd "l")    #'ignore)
