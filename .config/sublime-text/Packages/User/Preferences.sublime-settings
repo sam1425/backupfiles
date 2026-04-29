@@ -2,16 +2,16 @@
 // and are overridden in turn by syntax-specific settings.
 {
 	"ignored_packages": [
+		"LSP",
 		"Vintage",
 	],
 	"clipboard": "unnamedplus",
 	"theme": "Default Dark.sublime-theme",
 	"color_scheme": "gruvbox (Dark) (Hard).sublime-color-scheme",
 	"font_face": "MonaspiceKr Nerd Font Mono",
+	"delete_trailing_whitespace_on_save": true,
 	"neovintageous_build_version": 13200,
-	"vintageous_auto_commands": [
-	    { "pattern": "*", "command": "set relativenumber", }
-	],
+	"neovintageous_rc": ["~/.neovintageousrc"],
 	"font_size": 12,
 	"overlay_scroll_bars": "disabled",
 
@@ -34,7 +34,12 @@
 	"vintage_use_clipboard": true,
 	"vintageous_use_sys_clipboard": true,
 	"vintage_ctrl_keys": true,
-	"vintageous_use_ctrl_keys": false,
+	"vintageous_use_ctrl_keys": true,
+	"vintageous_handle_keys": {
+		"i_<C-n>": false,
+		"i_<C-p>": false,
+		"<C-p>": false
+	},
 	"index_files": true,
 	"update_check": false,
 	"auto_match_enabled": false,
