@@ -61,6 +61,9 @@ static const Rule               rules[] = {
 	{"st",           "basalt",        NULL,                     1 << 3,                0,         1,          0,          -1         },
 	{"st",           "nchat",         NULL,                     1 << 4,                0,         1,          0,          -1         },
 	{"st",           "floating",      NULL,                     0,                     1,         1,          0,          -1         },
+	// {"xeyes",        "xeyes",         NULL,                     0,                     1,         0,          0,          -1         },
+	{NULL,        "xeyes",            NULL,                  0,                     1,         0,          1,          -1         },
+	// {"Xeyes",        "xeyes",         "xeyes",                  0,                     1,         0,          0,          -1         },
 	{"st",           "yazi",          NULL,                     0,                     1,         1,          0,          -1         },
 	{"pavucontrol",  NULL,            NULL,                     0,                     1,         0,          0,          -1         },
 	{"feh",          NULL,            NULL,                     0,                     1,         0,          0,          -1         },
@@ -82,7 +85,7 @@ static const Rule               rules[] = {
 #include "vanitygaps.c"
 
 /* layout(s) */
-static const float              mfact           = 0.55; /* factor of master area size [0.05..0.95] */
+static const float              mfact           = 5.0; /* factor of master area size [0.05..0.95] */
 static const int                nmaster         = 1;    /* number of clients in master area */
 static const int                resizehints     = 0;    /* 1 means respect size hints in tiled resizals */
 static const int                lockfullscreen  = 0;    /* 1 will force focus on the fullscreen window */
@@ -149,6 +152,7 @@ static const char *i3dmenucmd[] = {
 static const char       *dmenucmd[]             = {"dmenu_run", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
 static const char       *clipmenud[]            = {"clipmenu", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
 static const char       *termcmd[]              = {"st", NULL};
+// static const char       *tmuxcmd[]              = {"st", "-e", "tmux"};
 static const char       *termfloatingcmd[]      = {"st", "-n", "floating"};
 static const char       *kittyterm[]            = {"kitty", NULL};
 
@@ -182,8 +186,8 @@ static const Key        keys[] = {
 		MODKEY | ShiftMask, XK_i, incnmaster,{.i = +1}
 	},                                                                                                                                                              /* increase # of master windows */
 	{MODKEY | ControlMask,             XK_i,                                            incnmaster,                                {.i      = -1              }},   /* decrease # of master windows */
-	/*{MODKEY,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
-	{MODKEY,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},*/
+	{MODKEY | ControlMask,                           XK_k,                                            setmfact,                                  {.f      = -0.05           }},
+	{MODKEY| ControlMask,                           XK_j,                                            setmfact,                                  {.f      = +0.05           }},
 	{MODKEY,                           XK_Tab,                                          view,                                      {0}},
 	{MODKEY,                           XK_0,                                            view,                                      {.ui     = ~0              }},
 	{MODKEY | ShiftMask,               XK_0,                                            tag,                                       {.ui     = ~0              }},

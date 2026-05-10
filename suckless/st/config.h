@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "MonaspiceKr Nerd Font:style=Regular:size=12:antialias=true:hinting=false";
-static char *font2 = "MonaspiceKr Nerd Font:size=12:antialias=true:hinting=false";
+static char *font = "MonaspiceKr Nerd Font:style=Regular:pixelsize=16:antialias=true:hinting=false";
+static char *font2 = "MonaspiceKr Nerd Font:pixelsize=16:antialias=true:hinting=false";
 static int borderpx = 50;
 
 /* How to align the content in the window when the size of the terminal
