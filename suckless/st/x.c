@@ -1767,10 +1767,10 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 		if (y == 0)
 			xclear(winx, 0, winx + width, win.vborderpx);
 		if (winy + win.ch >= win.vborderpx + win.th)
-			xclear(winx, winy + win.ch, winx + width, win.h);
+			xclear(winx, winy + win.ch, winx + width, win.h +1);
 
 		/* Clean up the region we want to draw to. */
-		XftDrawRect(xw.draw, bg, winx, winy + 0.5f, width, win.ch);
+		XftDrawRect(xw.draw, bg, winx, winy , width, win.ch);
 	}
 
 	if (!(dmode & DRAW_FG))

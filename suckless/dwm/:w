@@ -61,9 +61,6 @@ static const Rule               rules[] = {
 	{"st",           "basalt",        NULL,                     1 << 3,                0,         1,          0,          -1         },
 	{"st",           "nchat",         NULL,                     1 << 4,                0,         1,          0,          -1         },
 	{"st",           "floating",      NULL,                     0,                     1,         1,          0,          -1         },
-	// {"xeyes",        "xeyes",         NULL,                     0,                     1,         0,          0,          -1         },
-	{NULL,        "xeyes",            NULL,                  0,                     1,         0,          1,          -1         },
-	// {"Xeyes",        "xeyes",         "xeyes",                  0,                     1,         0,          0,          -1         },
 	{"st",           "yazi",          NULL,                     0,                     1,         1,          0,          -1         },
 	{"pavucontrol",  NULL,            NULL,                     0,                     1,         0,          0,          -1         },
 	{"feh",          NULL,            NULL,                     0,                     1,         0,          0,          -1         },
@@ -85,7 +82,7 @@ static const Rule               rules[] = {
 #include "vanitygaps.c"
 
 /* layout(s) */
-static const float              mfact           = 5.0; /* factor of master area size [0.05..0.95] */
+static const float              mfact           = 0.55; /* factor of master area size [0.05..0.95] */
 static const int                nmaster         = 1;    /* number of clients in master area */
 static const int                resizehints     = 0;    /* 1 means respect size hints in tiled resizals */
 static const int                lockfullscreen  = 0;    /* 1 will force focus on the fullscreen window */
