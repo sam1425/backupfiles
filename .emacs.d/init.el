@@ -378,6 +378,8 @@
  'evil-multiedit
  'evil-surround
  'evil-visualstar
+ ;;'evil-args
+ 'evil-textobj-anyblock
  'compile
  )
 
@@ -396,7 +398,14 @@
             (interactive)
             (setq-local fill-paragraph-function 'astyle-buffer)))
 
+(add-to-list 'load-path "~/.emacs.d/targets.el")
+(require 'targets)
+;; (setq targets-user-text-objects '((comma "," nil separator)))
+(setq targets-seek-functions
+      (list #'targets-seek-backward #'targets-seek-forward))
+(targets-setup t)
 ;;evil
+
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
 (setq evil-undo-system 'undo-redo)
@@ -412,6 +421,7 @@
 (global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
+;; (setq evil-args-delimiters '(","))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -442,7 +452,21 @@
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
   ;;multicursors
   (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
+  ;; arguments
+  ;; (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+  ;; (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
 
+  ;; bind evil-forward/backward-args
+  ;; (define-key evil-normal-state-map "L" 'evil-forward-arg)
+  ;; (define-key evil-normal-state-map "H" 'evil-backward-arg)
+  ;; (define-key evil-motion-state-map "L" 'evil-forward-arg)
+  ;; (define-key evil-motion-state-map "H" 'evil-backward-arg)
+
+  ;; ;; bind evil-jump-out-args
+  ;; (define-key evil-normal-state-map "K" 'evil-jump-out-args)
+  ;; textobj
+  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
+  (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block)
   )
 
 ;; evil-multiedit
