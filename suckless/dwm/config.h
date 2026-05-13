@@ -85,7 +85,7 @@ static const Rule               rules[] = {
 #include "vanitygaps.c"
 
 /* layout(s) */
-static const float              mfact           = 5.0; /* factor of master area size [0.05..0.95] */
+static const float              mfact           = 0.55; /* factor of master area size [0.05..0.95] */
 static const int                nmaster         = 1;    /* number of clients in master area */
 static const int                resizehints     = 0;    /* 1 means respect size hints in tiled resizals */
 static const int                lockfullscreen  = 0;    /* 1 will force focus on the fullscreen window */
@@ -268,26 +268,23 @@ static const Key        keys[] = {
 	{WINKEY,                           XK_a,                                            spawn,                        SHCMD("/home/c0mplex/.scripts/system/keyboardlayout")},
 
 	/* Hardware keys */
-	{0,                                XF86XK_AudioLowerVolume,                         spawn,
-	 SHCMD("/usr/sbin/pactl set-sink-volume @DEFAULT_SINK@ -5%; /usr/bin/sleep 0.01;  "
-	       "/usr/bin/kill -44 "
-	       "$(/usr/bin/pidof dwmblocks)")},
-	{0,                                XF86XK_AudioMute,                                spawn,
-	 SHCMD("/usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle; /usr/bin/sleep 0.01; "
-	       "/usr/bin/kill -44 "
-	       "$(/usr/bin/pidof dwmblocks)")},
 	{0,                                XF86XK_AudioRaiseVolume,                         spawn,
-	 SHCMD("/usr/sbin/pactl set-sink-volume @DEFAULT_SINK@ +5%; /usr/bin/sleep 0.01;  "
-	       "/usr/bin/kill -44 "
-	       "$(/usr/bin/pidof dwmblocks)")},
+	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%;"
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
+	{0,                                XF86XK_AudioLowerVolume,                         spawn,
+	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%;"
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
+	{0,                                XF86XK_AudioMute,                                spawn,
+	 SHCMD("/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ toggle;"
+           "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 	{0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s 50+")},
 	{0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 50-")},
-	{MODKEY,                           XK_F2,                                           spawn,                        SHCMD("playerctl previous kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
-	{MODKEY,                           XK_F3,                                           spawn,                        SHCMD("playerctl play-pause kill;/usr/bin/pkill -RTMIN+1 dwmblocks")},
-	{MODKEY,                           XK_F4,                                           spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
-	{0,                                XF86XK_AudioPlay,                                spawn,                        SHCMD("playerctl play-pause;/usr/bin/pkill -RTMIN+1 dwmblocks")},
-	{0,                                XF86XK_AudioNext,                                spawn,                        SHCMD("playerctl next;/usr/bin/pkill -RTMIN+1 dwmblocks")},
-	{0,                                XF86XK_AudioPrev,                                spawn,                        SHCMD("playerctl previous;/usr/bin/pkill -RTMIN+1 dwmblocks")},
+	{MODKEY,                           XK_F2,                                           spawn,                        SHCMD("playerctl previous;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	{MODKEY,                           XK_F3,                                           spawn,                        SHCMD("playerctl play-pause;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	{MODKEY,                           XK_F4,                                           spawn,                        SHCMD("playerctl next;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	{0,                                XF86XK_AudioPlay,                                spawn,                        SHCMD("playerctl play-pause;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	{0,                                XF86XK_AudioNext,                                spawn,                        SHCMD("playerctl next;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
+	{0,                                XF86XK_AudioPrev,                                spawn,                        SHCMD("playerctl previous;/usr/bin/kill -35 $(</tmp/dwmblocks.pid)")},
 	{MODKEY,                           XK_BackSpace,                                    spawn,                        SHCMD("~/.config/i3/powermenu/powermenu.sh")},
 	{MODKEY,                           XK_F7,                                           spawn,                        SHCMD("xdotool key alt+3; xdg-open https://mail.google.com")},
 	{MODKEY | ShiftMask,               XK_F7,                                           spawn,                        SHCMD("status-timer cleanup")},
