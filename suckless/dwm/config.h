@@ -138,19 +138,19 @@ static const Layout             layouts[]       = {
 static char             dmenumon[2]             = "0";
 static const char *dmenubash[] = {
     "sh", "-c",
-    "cmd=$(dmenu < /dev/null) && [ -n \"$cmd\" ] && "
+    "cmd=$(dmenu -h '22' < /dev/null) && [ -n \"$cmd\" ] && "
     "out=$(sh -c \". ~/.scripts/shellaliases; $cmd\" 2>&1) && "
     "[ -n \"$out\" ] && notify-send \"Output\" \"$out\"",
     NULL
 };
 static const char *i3dmenucmd[] = {
     "sh", "-c",
-    "j4-dmenu-desktop --dmenu=\"dmenu -i -b -fn 'Poppins:size=12' -nb '$1' -nf '$2' -sb '$3' -sf '$4'\"",
+    "j4-dmenu-desktop --dmenu=\"dmenu -b -fn 'Poppins:size=12' -nb '$1' -nf '$2' -sb '$3' -sf '$4'\"",
     "--", normbgcolor, normfgcolor, selbordercolor, selfgcolor,
     NULL
 };
-static const char       *dmenucmd[]             = {"dmenu_run", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
-static const char       *clipmenud[]            = {"clipmenu", "-i", "-b", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
+static const char       *dmenucmd[]             = {"dmenu_run", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor,  "-h", "22", NULL};
+static const char       *clipmenud[]            = {"clipmenu", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL};
 static const char       *termcmd[]              = {"st", NULL};
 // static const char       *tmuxcmd[]              = {"st", "-e", "tmux"};
 static const char       *termfloatingcmd[]      = {"st", "-n", "floating"};
