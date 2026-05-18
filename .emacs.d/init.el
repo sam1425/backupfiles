@@ -28,8 +28,16 @@
 (setq custom-file "~/.emacs.custom.el")
 (load-file custom-file)
 
+(setq evil-want-keybinding nil)
 (add-to-list 'load-path "~/.emacs.local/")
 (load "~/.emacs.rc/rc.el")
+(load "~/.emacs.d/targets.el/targets.el")
+;; (require 'targets)
+;; ;; (setq targets-user-text-objects '((comma "," nil separator)))
+;; (setq targets-seek-functions)
+      ;; (list #'targets-seek-backward #'targets-seek-forward))
+(targets-setup t)
+
 
 (require 'server)
 
@@ -336,7 +344,6 @@
 ;;; Ebisp
 ;;;(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
 
-(setq evil-want-keybinding nil)
 ;;; Packages that don't require configuration
 (rc/require
  'scala-mode
@@ -379,7 +386,9 @@
  'evil-surround
  'evil-visualstar
  ;;'evil-args
+ ;;'evil-indent-plus
  'evil-textobj-anyblock
+ 'evil-replace-with-register
  'compile
  )
 
@@ -398,29 +407,20 @@
             (interactive)
             (setq-local fill-paragraph-function 'astyle-buffer)))
 
-(add-to-list 'load-path "~/.emacs.d/targets.el")
-(require 'targets)
-;; (setq targets-user-text-objects '((comma "," nil separator)))
-(setq targets-seek-functions
-      (list #'targets-seek-backward #'targets-seek-forward))
-(targets-setup t)
-;;evil
-
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
-
-(setq evil-undo-system 'undo-redo)
-(setq select-enable-clipboard t)
 ;(setq evil-collection-setup-minibuffer t)
 
+;;evil
 (evil-mode 1)
 (global-evil-surround-mode 1)
 (global-evil-visualstar-mode 1)
 (global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
+(evil-replace-with-register-install)
 ;; (setq evil-args-delimiters '(","))
 
 (setq-default indent-tabs-mode nil)
@@ -442,6 +442,7 @@
     (define-key map (kbd "k") #'ignore)
     (define-key map (kbd "l")    #'ignore)
     (define-key map (kbd "h")  #'ignore))
+
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
