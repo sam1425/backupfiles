@@ -28,8 +28,16 @@
 (setq custom-file "~/.emacs.custom.el")
 (load-file custom-file)
 
+(setq evil-want-keybinding nil)
 (add-to-list 'load-path "~/.emacs.local/")
 (load "~/.emacs.rc/rc.el")
+(load "~/.emacs.d/targets.el/targets.el")
+;; (require 'targets)
+;; ;; (setq targets-user-text-objects '((comma "," nil separator)))
+;; (setq targets-seek-functions)
+      ;; (list #'targets-seek-backward #'targets-seek-forward))
+(targets-setup t)
+
 
 (require 'server)
 
@@ -336,7 +344,6 @@
 ;;; Ebisp
 ;;;(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
 
-(setq evil-want-keybinding nil)
 ;;; Packages that don't require configuration
 (rc/require
  'scala-mode
@@ -378,6 +385,10 @@
  'evil-multiedit
  'evil-surround
  'evil-visualstar
+ ;;'evil-args
+ ;;'evil-indent-plus
+ 'evil-textobj-anyblock
+ 'evil-replace-with-register
  'compile
  )
 
@@ -396,22 +407,21 @@
             (interactive)
             (setq-local fill-paragraph-function 'astyle-buffer)))
 
-;;evil
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
-
-(setq evil-undo-system 'undo-redo)
-(setq select-enable-clipboard t)
 ;(setq evil-collection-setup-minibuffer t)
 
+;;evil
 (evil-mode 1)
 (global-evil-surround-mode 1)
 (global-evil-visualstar-mode 1)
 (global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
+(evil-replace-with-register-install)
+;; (setq evil-args-delimiters '(","))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -427,12 +437,12 @@
 
 (with-eval-after-load 'evil
   (dolist (map (list evil-normal-state-map
-                     evil-insert-state-map
-                     evil-motion-state-map))
+                     ))
     (define-key map (kbd "j")  #'ignore)
     (define-key map (kbd "k") #'ignore)
     (define-key map (kbd "l")    #'ignore)
     (define-key map (kbd "h")  #'ignore))
+
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
@@ -443,7 +453,21 @@
   (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
   ;;multicursors
   (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
+  ;; arguments
+  ;; (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+  ;; (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
 
+  ;; bind evil-forward/backward-args
+  ;; (define-key evil-normal-state-map "L" 'evil-forward-arg)
+  ;; (define-key evil-normal-state-map "H" 'evil-backward-arg)
+  ;; (define-key evil-motion-state-map "L" 'evil-forward-arg)
+  ;; (define-key evil-motion-state-map "H" 'evil-backward-arg)
+
+  ;; ;; bind evil-jump-out-args
+  ;; (define-key evil-normal-state-map "K" 'evil-jump-out-args)
+  ;; textobj
+  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
+  (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block)
   )
 
 ;; evil-multiedit
