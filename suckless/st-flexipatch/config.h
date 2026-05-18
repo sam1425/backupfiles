@@ -644,7 +644,7 @@ static Key key[] = {
 	/* { XK_Return,        Mod1Mask,       "\033\r",        0,    0}, */
 	/* { XK_Return,        XK_ANY_MOD,     "\r",            0,    0}, */
 
-    { XK_BackSpace,     ShiftMask,      "\033[13;6u",    0,    0},
+    { XK_BackSpace,     ShiftMask,      "\025",    0,    0},
     { XK_Return,        ControlMask,    "\026\n",        0,    0},
 
 	{ XK_Insert,        ShiftMask,      "\033[4l",      -1,    0},
