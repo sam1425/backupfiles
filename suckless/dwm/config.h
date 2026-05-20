@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 #define CLICKABLE_BLOCKS 1
 /* appearance */
-static unsigned int             borderpx        = 1;            /* border pixel of windows */
+static unsigned int             borderpx        = 0;            /* border pixel of windows */
 static unsigned int             snap            = 32;           /* snap pixel */
 static const unsigned int       gappih          = 0;            /* horiz inner gap between windows */
 static const unsigned int       gappiv          = 0;            /* vert inner gap between windows */
