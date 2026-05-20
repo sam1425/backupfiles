@@ -281,11 +281,6 @@
 ;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
 (setq tramp-auto-save-directory "/tmp")
 
-;;; powershell
-;;;(rc/require 'powershell)
-;;;(add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
-;;;(add-to-list 'auto-mode-alist '("\\.psm1\\'" . powershell-mode))
-
 ;;; eldoc mode
 (defun rc/turn-on-eldoc-mode ()
   (interactive)
@@ -721,7 +716,30 @@
    (list (read-string "Command: " compile-command)))
   (compile command comint))
 
+;; Org Mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (C      . t)
+   (ruby   . t)))
 
+;; (setq org-babel-default-header-args:python
+;;       '((:results . "output")))
+
+(defun my/org-backtick-expand ()
+  (interactive)
+  (if (and (derived-mode-p 'org-mode)
+           (looking-back "^```\\([[:alnum:]-]*\\)" (line-beginning-position)))
+      (let ((lang (match-string 1)))
+        (delete-region (line-beginning-position) (point))
+        (insert "#+BEGIN_SRC " lang "\n\n#+END_SRC")
+        (forward-line -1))
+    (org-return t)))
+
+(with-eval-after-load 'org
+  (evil-define-key 'insert org-mode-map (kbd "RET") #'my/org-backtick-expand))
+
+(setq eglot-ignored-server-capabilities '(:diagnosticProvider))
 
 ;; pascalik.pas(24,44) Error: Can't evaluate constant expression
 ;compilation-error-regexp-alist-alist
@@ -729,6 +747,7 @@
 (add-to-list 'compilation-error-regexp-alist
              '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"
                1 2 (4) (5)))
+
 
 (custom-set-faces
  '(line-number ((t (:height 1.0))))
