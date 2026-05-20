@@ -20,6 +20,8 @@ clipmenud --primary >/dev/null 2>&1 &
 dunst >/dev/null 2>&1 &
 unclutter idle 5 >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fastcompmgr >/dev/null 2>&1 &
+/home/c0mplex/Documents/Programming/c/scratch/slop/slopd &
 
 # GUI Apps 
 pgrep -x firefox >/dev/null || firefox >/dev/null 2>&1 &
