@@ -23,7 +23,7 @@ auto-saves/
 eln-cache/
 
 # ── Package dirs (managed by rc/require / package.el / straight etc.) ────────
-elpa/
+.emacs.d/elpa/
 straight/
 .cask/
 

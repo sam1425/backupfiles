@@ -26,7 +26,7 @@
 (add-to-list 'default-frame-alist '(background-color . "#111314"))
 
 (setq custom-file "~/.emacs.custom.el")
-(load-file custom-file)
+(load custom-file t)
 
 (setq evil-want-keybinding nil)
 (add-to-list 'load-path "~/.emacs.local/")
@@ -538,7 +538,7 @@
 ;;(require 'dired+)
 ;;(require 'dirvish)
 
-(require 'dired-rainbow)
+(rc/require 'dired-rainbow)
 (with-eval-after-load 'dired-rainbow
 
   ;; --- files ---
