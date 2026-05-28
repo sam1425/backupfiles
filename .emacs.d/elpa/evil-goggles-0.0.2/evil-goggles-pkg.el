@@ -1,2 +1,0 @@
-;; Generated package description from evil-goggles.el  -*- no-byte-compile: t -*-
-(define-package "evil-goggles" "0.0.2" "Add a visual hint to evil operations" '((emacs "24.4") (evil "1.0.0")) :commit "7801d9204cd57d5aec11ef43b15357a431cf025c" :authors '(("edkolev" . "evgenysw@gmail.com")) :maintainer '("edkolev" . "evgenysw@gmail.com") :keywords '("emulations" "evil" "vim" "visual") :url "http://github.com/edkolev/evil-goggles")
