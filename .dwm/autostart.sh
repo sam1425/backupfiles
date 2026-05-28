@@ -24,10 +24,10 @@ fastcompmgr >/dev/null 2>&1 &
 /home/c0mplex/Documents/Programming/c/scratch/slop/slopd &
 
 # GUI Apps 
-pgrep -x firefox >/dev/null || firefox >/dev/null 2>&1 &
+pgrep -x librewolf >/dev/null || librewolf >/dev/null 2>&1 &
 pgrep -x emacs   >/dev/null || emacs >/dev/null 2>&1 &
-pgrep -x obsidian   >/dev/null || obsidian >/dev/null 2>&1 &
+# pgrep -x obsidian   >/dev/null || obsidian >/dev/null 2>&1 &
 
 # Terminal
 #pgrep -f "st -n basalt" >/dev/null || st -n basalt -e basalt &
-pgrep -f "st -n nchat"  >/dev/null || st -n nchat  -e nchat  &
+# pgrep -f "st -n nchat"  >/dev/null || st -n nchat  -e nchat  &

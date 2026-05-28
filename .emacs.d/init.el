@@ -38,6 +38,7 @@
       ;; (list #'targets-seek-backward #'targets-seek-forward))
 (targets-setup t)
 
+(electric-pair-mode 1)
 
 (require 'server)
 
@@ -113,10 +114,21 @@
               c-default-style '((java-mode . "java")
                                 (awk-mode . "awk")
                                 (other . "bsd")))
+(defun sam/c-expand-braces-on-enter ()
+  "Expand {} pairs cleanly on Enter, specific to c-mode."
+  (interactive)
+  (if (and (eq (char-before) ?{)
+           (eq (char-after) ?}))
+      (progn
+        (c-context-line-break)
+        (save-excursion
+          (c-context-line-break)))
+    (c-context-line-break)))
 
 (add-hook 'c-mode-hook (lambda ()
                          (interactive)
-                         (c-toggle-comment-style -1)))
+                         (c-toggle-comment-style -1)
+                         (local-set-key (kbd "RET") 'sam/c-expand-braces-on-enter)))
 
 ;;; Paredit
 (rc/require 'paredit)
@@ -153,6 +165,8 @@
 ;;(add-hook 'haskell-mode-hook 'haskell-indent-mode)
 ;;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;;(add-hook 'haskell-mode-hook 'haskell-doc-mode)
+
+(require 'revo-mode)
 
 (require 'basm-mode)
 
@@ -380,6 +394,7 @@
  'evil-multiedit
  'evil-surround
  'evil-visualstar
+ 'evil-matchit
  ;;'evil-args
  ;;'evil-indent-plus
  'evil-textobj-anyblock
@@ -412,6 +427,7 @@
 (evil-mode 1)
 (global-evil-surround-mode 1)
 (global-evil-visualstar-mode 1)
+(global-evil-matchit-mode 1)
 (global-evil-mc-mode 1)
 (evil-collection-init )
 (evil-goggles-mode)
@@ -431,12 +447,6 @@
     (evil-force-normal-state)))
 
 (with-eval-after-load 'evil
-  (dolist (map (list evil-normal-state-map
-                     ))
-    (define-key map (kbd "j")  #'ignore)
-    (define-key map (kbd "k") #'ignore)
-    (define-key map (kbd "l")    #'ignore)
-    (define-key map (kbd "h")  #'ignore))
 
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
@@ -599,7 +609,6 @@
 
 (add-hook 'dired-mode-hook
           (lambda ()
-            ;(message "HOOK WORKED")
             (dired-hide-details-mode 1)
             (dired-omit-mode 1)))
 
@@ -645,16 +654,7 @@
 
   (set-face-attribute 'dired-ignored nil
                       :foreground "#626262")
-  ;keybinds
-  ;;emacs keybindins
-  ;; (define-key dired-mode-map (kbd "l") #'dired-find-file)
-  ;; (define-key dired-mode-map (kbd "h") #'dired-up-directory)
-  ;; (define-key dired-mode-map (kbd "C-d") #'dired-hide-details-mode)
-  ;; (define-key dired-mode-map (kbd "C-.") #'dired-omit-mode)
-  ;; (define-key dired-mode-map (kbd "C-c h") #'dired-omit-mode)
-  ;; (define-key dired-mode-map (kbd "q") #'quit-window)
-  ;; (evil-define-key 'emacs 'global (kbd "M-SPC") #'execute-extended-command)
-  ;; (global-set-key (kbd "C-c p d") #'projectile-dired)
+  ;; dired keybinds
   (evil-define-key 'normal dired-mode-map
     ;; navigation
     (kbd "h")   #'dired-up-directory
