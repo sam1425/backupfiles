@@ -77,6 +77,7 @@ static const Rule               rules[] = {
 	{"sublime_text", NULL,            "sublime_text",           1 << 1,                0,         -1,         0,          -1         },
 	{"Emacs",        NULL,            NULL,                     1 << 1,                0,         0,          1,          -1         },
 	{"firefox",      NULL,            NULL,                     1 << 2,                0,         0,          1,          -1         },
+	{"firefoxkiosk",      NULL,            NULL,                     1 << 5,                0,         0,          1,          -1         },
 	{"obsidian",     NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
 	{"discord",      NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
 	{"Spotify",      NULL,            NULL,                     1 << 4,                0,         0,          0,          -1         },

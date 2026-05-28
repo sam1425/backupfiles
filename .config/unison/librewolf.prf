@@ -1,0 +1,18 @@
+# ~/.unison/librewolf.prf
+
+# The roots will be dynamically set by the script, 
+# but we define common preferences here.
+
+# Sync preferences
+fastcheck = true
+times = true
+backups = true
+maxbackups = 2
+
+# Ignore lock files and cache directories inside the profile
+ignore = Name lock
+ignore = Name .parentlock
+ignore = Name cache2
+ignore = Name startupCache
+ignore = Name Thumbnail瓶
+ignore = Name jumpListCache
