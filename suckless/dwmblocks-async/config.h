@@ -34,7 +34,7 @@
     esac \
     ", 0, 3)\
     X("", "date '+%I:%M %p'", 1, 4)\
-    X("", "s=$(cat /tmp/x_st 2>/dev/null || echo 0); [ \"$BLOCK_BUTTON\" = \"1\" ] && s=$(((s+1)%2)) && echo $s > /tmp/x_st; [ \"$s\" = \"1\" ] && printfrhysd/clever-f.vim 'X' || printf ' '", 0, 20)\
+    X("", "s=$(cat /tmp/x_st 2>/dev/null || echo 0); [ \"$BLOCK_BUTTON\" = \"1\" ] && s=$(((s+1)%2)) && echo \"$s\" > /tmp/x_st; [ \"$s\" = \"1\" ] && echo \"X\" || echo \" \"",   0,                    30) \
+    X("", "~/Documents/Programming/c/projects/habit_tracker/main",   0,                    5) \
     X("",     "printf '%1s'  ''",                    0,              0)
-
 #endif  // CONFIG_H
