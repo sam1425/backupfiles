@@ -304,7 +304,7 @@ static pid_t winpid(Window w);
 
 /* variables */
 static const char broken[] = "broken";
-static char stext[256];
+static char stext[1024];
 static int statusw;
 static int statussig;
 static pid_t statuspid = -1;
@@ -590,7 +590,8 @@ buttonpress(XEvent *e)
 					text = s + 1; /* move text to next char after delim */
 					if (x >= ev->x) /* check click pos */
 						break;
-					statussig = ch; /* save control char as sig # */
+					if (ch >= 10)
+						statussig = ch; /* save control char as sig # */
 						}
 				}
 		} else if (selmon->showtitle) {
@@ -897,8 +898,8 @@ drawbar(Monitor *m) /* take a pointer to the monitor we want to draw the bar on 
 		char *text, *s, ch;
 		drw_setscheme(drw, scheme[SchemeStatus]); /* set the colorscheme used by the drawing context */
 		x = 0; /* keep track of horiz pos whil drawing */
-		for (text = s = stext; *s; s++) { /* this loop handles the dwmblocks clickable blocks */
-			if ((unsigned char)(*s) < ' ') { /* ctrl chars (ASCII < 32) are used to separate click events */
+		for (text = s = stext; *s; s++) { /* this loop handles the dwmblocks clickable blocks and colors */
+			if ((unsigned char)(*s) < ' ') {
 				ch = *s;
 				*s = '\0';
 				tw = TEXTW(text) - lrpad;
@@ -906,6 +907,10 @@ drawbar(Monitor *m) /* take a pointer to the monitor we want to draw the bar on 
 				x += tw;
 				*s = ch;
 				text = s + 1;
+				if (ch >= 1 && ch <= 8) /* switch scheme if char is 1-8 */
+					drw_setscheme(drw, scheme[ch - 1]);
+				else if (ch == 10) /* reset to SchemeStatus on newline or char 10 */
+					drw_setscheme(drw, scheme[SchemeStatus]);
 			}
 		}
 		tw = TEXTW(text) - lrpad + 20; /* draw the last remaining segment after the last ctrl char */
