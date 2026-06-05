@@ -2,7 +2,32 @@
 (unless (server-running-p)
   (server-start))
 
+(defun rc/get-default-font ()
+  (cond
+   ((eq system-type 'gnu/linux) "MonaspiceKr Nerd Font-12")
+   ;;((eq system-type 'gnu/linux) "Iosevka-20")
+   ;;;((eq system-type 'gnu/linux) "Comic Shanns Mono-20")
+   ))
+;; (add-to-list 'default-frame-alist '(background-color . "#111314"))
+
+(setq custom-file "~/.emacs.custom.el")
+(add-to-list 'load-path "~/.emacs.local/")
+(load "~/.emacs.rc/rc.el")
+(load "~/.emacs.rc/misc-rc.el")
+(load "~/.emacs.rc/org-mode-rc.el")
+;;;(load "~/.emacs.rc/autocommit-rc.el")
+(load custom-file t)
+
 ;;; Appearance
+(rc/require 'gruvbox-theme)
+(load-theme 'gruvbox-dark-hard t)
+ (custom-theme-set-faces
+  'gruvbox-dark-hard
+  `(default ((t (:background "#111314"))))
+  `(line-number ((t (:foreground "#665c54" :background "#111314"))))
+  `(line-number-current-line ((t (:foreground "#ebdbb2" :background "#111314" :weight bold))))
+  `(mode-line ((t (:foreground "#ebdbb2" :background "#1d2021" :box nil))))
+  `(mode-line-inactive ((t (:foreground "#928374" :background "#111314" :box nil)))))
 (defun my-top-padding ()
   "Create a visual gap at the top of the window."
   (setq-default header-line-format " ")
@@ -16,58 +41,31 @@
 ;; Run after the theme loads to prevent 'Invalid face' errors
 (add-hook 'window-setup-hook #'my-top-padding)
 
-(defun rc/get-default-font ()
-  (cond
-   ;;((eq system-type 'windows-nt) "Consolas-13")
-   ((eq system-type 'gnu/linux) "MonaspiceKr Nerd Font-12")
-   ;;((eq system-type 'gnu/linux) "Iosevka-20")
-   ;;;((eq system-type 'gnu/linux) "Comic Shanns Mono-20")
-   ))
-(add-to-list 'default-frame-alist '(background-color . "#111314"))
-
-(setq custom-file "~/.emacs.custom.el")
-(load custom-file t)
-
-(setq evil-want-keybinding nil)
-(add-to-list 'load-path "~/.emacs.local/")
-(load "~/.emacs.rc/rc.el")
-(load "~/.emacs.d/targets.el/targets.el")
-;; (require 'targets)
-;; ;; (setq targets-user-text-objects '((comma "," nil separator)))
-;; (setq targets-seek-functions)
-      ;; (list #'targets-seek-backward #'targets-seek-forward))
-(targets-setup t)
-
-(electric-pair-mode 1)
-
-(require 'server)
-
-(rc/require 'gruvbox-theme)
-(load-theme 'gruvbox-dark-hard t)
- (custom-theme-set-faces
-  'gruvbox-dark-hard
-  `(default ((t (:background "#111314"))))
-  `(line-number ((t (:foreground "#665c54" :background "#111314"))))
-  `(line-number-current-line ((t (:foreground "#ebdbb2" :background "#111314" :weight bold))))
-  `(mode-line ((t (:foreground "#ebdbb2" :background "#1d2021" :box nil))))
-  `(mode-line-inactive ((t (:foreground "#928374" :background "#111314" :box nil)))))
-
-(load "~/.emacs.rc/misc-rc.el")
-(load "~/.emacs.rc/org-mode-rc.el")
-;;;(load "~/.emacs.rc/autocommit-rc.el")
-
 (add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(setq use-dialog-box nil)
-(setq window-combination-resize nil)
-(setq even-window-sizes nil)
-(setq display-buffer-alist
-      '((".*"
-         (display-buffer-reuse-window display-buffer-same-window))))
-(setq window-resize-pixelwise t)
-(setq frame-resize-pixelwise t)
+;; (setq use-dialog-box nil)
+;; (setq window-combination-resize nil)
+;; (setq even-window-sizes nil)
+;; (setq-default indent-tabs-mode nil)
+;; (setq-default tab-width 4)
+;; (setq window-resize-pixelwise t)
+;; (setq frame-resize-pixelwise t)
 
+(setq use-dialog-box nil
+      window-combination-resize nil
+      even-window-sizes nil
+      window-resize-pixelwise t
+      frame-resize-pixelwise t
+      indent-tabs-mode nil
+      tab-width 4)
+
+(setq display-buffer-alist
+      '(
+        ("\\*\\(Help\\|compilation\\|Process List\\|Messages\\)\\*"
+         (display-buffer-reuse-window display-buffer-same-window))
+        ("\\` \\*.*\\'"
+         (display-buffer-no-window))))
 ;;config
 (setq backup-directory-alist
       `(("." . "~/.emacs.d/filebackups/")))
@@ -104,10 +102,6 @@
     (define-key ido-completion-map (kbd "C-j") 'ido-exit-minibuffer)
     (define-key ido-completion-map (kbd "C-k") 'ido-delete-backward-updir)
     (define-key ido-completion-map (kbd "<escape>") 'keyboard-escape-quit)))
-
-;; (with-eval-after-load 'smex
-;;   (define-key minibuffer-local-map (kbd "C-h") 'ido-prev-match)
-;;   (define-key minibuffer-local-map (kbd "C-l") 'ido-next-match))
 
 ;;; c-mode
 (setq-default c-basic-offset 4
@@ -157,14 +151,14 @@
 ;;(rc/require 'uxntal-mode)
 
 ;;; Haskell mode
-;;(rc/require 'haskell-mode)
+(rc/require 'haskell-mode)
 
-;;(setq haskell-process-type 'cabal-new-repl)
-;;(setq haskell-process-log t)
+(setq haskell-process-type 'cabal-new-repl)
+(setq haskell-process-log t)
 
-;;(add-hook 'haskell-mode-hook 'haskell-indent-mode)
-;;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;;(add-hook 'haskell-mode-hook 'haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'haskell-indent-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'haskell-doc-mode)
 
 (require 'revo-mode)
 
@@ -189,6 +183,9 @@
 
 (require 'gdscript-mode)
 
+(require 'elixir-mode)
+
+
 ;; Whitespace mode
 (defun rc/set-up-whitespace-handling ()
   (interactive)
@@ -198,20 +195,20 @@
 ;;(add-hook 'tuareg-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'c++-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'c-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'emacs-lisp-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'rust-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'python-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'erlang-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
-;;(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
 ;;(add-hook 'porth-mode-hook 'rc/set-up-whitespace-handling)
 
@@ -421,7 +418,12 @@
 (setq evil-want-C-i-jump nil)
 (setq evil-undo-system 'undo-redo)
 (setq select-enable-clipboard t)
+(setq evil-want-keybinding nil)
 ;(setq evil-collection-setup-minibuffer t)
+
+(load "~/.emacs.d/targets.el/targets.el")
+(setq targets-seek-functions t )
+(targets-setup t)
 
 ;;evil
 (evil-mode 1)
@@ -433,9 +435,7 @@
 (evil-goggles-mode)
 (evil-replace-with-register-install)
 ;; (setq evil-args-delimiters '(","))
-
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(electric-pair-mode 1)
 
 (defun my/escape-or-mc-undo ()
   (interactive)
@@ -535,8 +535,6 @@
 ;;; Dired
 (require 'dired)
 (require 'dired-x)
-;;(require 'dired+)
-;;(require 'dirvish)
 
 (rc/require 'dired-rainbow)
 (with-eval-after-load 'dired-rainbow
@@ -707,14 +705,44 @@
     (comint-mode)))
 
 ;; Compile config
+(defvar my/compile-commands
+  '((c-mode           . "gcc -Wall -Wextra -O2 %f -o %b")
+    (simpc-mode       . "gcc -Wall -Wextra %f -o %b")
+    (c++-mode         . "g++ -Wall -Wextra -std=c++20 %f -o %b")
+    (emacs-lisp-mode  . "eval-buffer")
+    (rust-mode        . "cargo build")
+    (go-mode          . "go build %f")
+    (python-mode      . "python3 %f")
+    (ruby-mode        . "ruby %f")
+    (sh-mode          . "bash %f")))
+
+(defun my/compile-default-command ()
+  "Return a compile command derived from major mode, falling back to compile-command."
+  (or (when-let ((tmpl (alist-get major-mode my/compile-commands)))
+        (if buffer-file-name
+            (let* ((file (file-name-nondirectory buffer-file-name))
+                   (base (file-name-sans-extension file)))
+              (string-replace "%f" file (string-replace "%b" base tmpl)))
+          tmpl)) ; If no file exists, just return the raw template string
+      compile-command))
+
+(defun my/compile ()
+  "Run compile, defaulting to a mode-derived command on first use."
+  (interactive)
+  (unless (local-variable-p 'compile-command)
+    (setq-local compile-command (my/compile-default-command)))
+  (compile (read-shell-command "Command: " compile-command)))
+
 (with-eval-after-load 'compile
   (define-key compilation-mode-map (kbd "C-t") 'my/compile-toggle-comint)
   (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit))
 
-(defun my/compile (command &optional comint)
-  (interactive
-   (list (read-string "Command: " compile-command)))
-  (compile command comint))
+
+(let ((map minibuffer-local-map))
+  (define-key map (kbd "<escape>") 'keyboard-escape-quit)
+  (define-key map (kbd "C-k") 'previous-history-element)
+  (define-key map (kbd "C-j") 'next-history-element)
+  )
 
 ;; Org Mode
 (org-babel-do-load-languages
@@ -747,7 +775,6 @@
 (add-to-list 'compilation-error-regexp-alist
              '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"
                1 2 (4) (5)))
-
 
 (custom-set-faces
  '(line-number ((t (:height 1.0))))

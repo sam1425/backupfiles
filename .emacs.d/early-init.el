@@ -23,8 +23,8 @@
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-;;(push '(mode-line-format . nil) default-frame-alist)
+(push '(vertical-scroll-bars . nil) default-frame-alist)
+;; (push '(vertical-scroll-bars) default-frame-alist)
 
 (setq-default mode-line-format nil)
 
@@ -37,7 +37,5 @@
 (setq native-comp-deferred-compilation nil)
 ;; Suppress warnings and errors during asynchronous native compilation
 (setq native-comp-async-report-warnings-errors nil)
-
-(setq comp-deferred-compilation nil)
 
 (provide 'early-init)
