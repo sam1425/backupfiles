@@ -420,22 +420,22 @@
 (setq select-enable-clipboard t)
 (setq evil-want-keybinding nil)
 ;(setq evil-collection-setup-minibuffer t)
-
-(load "~/.emacs.d/targets.el/targets.el")
-(setq targets-seek-functions t )
-(targets-setup t)
-
 ;;evil
 (evil-mode 1)
+(evil-collection-init)
 (global-evil-surround-mode 1)
 (global-evil-visualstar-mode 1)
 (global-evil-matchit-mode 1)
 (global-evil-mc-mode 1)
-(evil-collection-init )
 (evil-goggles-mode)
 (evil-replace-with-register-install)
 ;; (setq evil-args-delimiters '(","))
+
 (electric-pair-mode 1)
+(load "~/.emacs.d/targets.el/targets.el")
+(setq targets-seek-functions t )
+(targets-setup)
+
 
 (defun my/escape-or-mc-undo ()
   (interactive)
@@ -533,73 +533,192 @@
   "w" 'save-buffer)
 
 ;;; Dired
+(rc/require 'dired-rainbow)
 (require 'dired)
 (require 'dired-x)
+(require 'dired-rainbow)
 
-(rc/require 'dired-rainbow)
 (with-eval-after-load 'dired-rainbow
-
-  ;; --- files ---
-  (dired-rainbow-define media "#d65d0e"        ; dark orange — warm/entertainment
+  ;; --- media & assets ---
+  (dired-rainbow-define media "#d65d0e"
     ("mp3" "mp4" "mkv" "webm" "flac" "ogg" "wav" "avi" "mov" "wmv"))
 
-  (dired-rainbow-define image "#98971a"        ; muted green — natural/visual
+  (dired-rainbow-define image "#98971a"
     ("jpg" "jpeg" "png" "gif" "svg" "webp" "bmp" "ico" "tiff"))
 
-  (dired-rainbow-define archive "#b16286"      ; muted purple — compressed/sealed
+  (dired-rainbow-define archive "#b16286"
     ("zip" "tar" "gz" "bz2" "xz" "zst" "7z" "rar" "deb" "rpm"))
 
-  (dired-rainbow-define document "#a89984"     ; warm gray — prose/text
+  (dired-rainbow-define document "#a89984"
     ("pdf" "doc" "docx" "odt" "epub" "md" "rst" "txt" "org"))
 
-  ;; --- systems ---
-  (dired-rainbow-define prog-systems "#5fd7ff" ; bright orange — hot/metal
-    ("c" "h" "cpp" "hpp" "cc" "hh" "cxx" "hxx" "s" "asm"))
+  ;; --- config / data ---
+  (dired-rainbow-define prog-config "#d79921"
+    ("json" "jsonc" "toml" "yaml" "yml" "ini" "cfg" "conf" "env" "nix" "lock"))
 
-  (dired-rainbow-define prog-rust "#cc241d"    ; dark red — close to Ruby but subdued
+  (dired-rainbow-define prog-data "#458588"
+    ("csv" "tsv" "sql" "db" "sqlite" "parquet"))
+
+  ;; --- C family --- bright blue, cold/metal
+  (dired-rainbow-define prog-c "#83a598"
+    ("c" "h"))
+
+  (dired-rainbow-define prog-cpp "#458588"
+    ("cpp" "hpp" "cc" "hh" "cxx" "hxx"))
+
+  ;; C# — purple, distinct from C/C++
+  (dired-rainbow-define prog-csharp "#d3869b"
+    ("cs" "csproj" "sln"))
+
+  ;; --- systems low-level ---
+  (dired-rainbow-define prog-asm "#928374"
+    ("s" "asm" "nasm"))
+
+  ;; Rust — canonical rust/orange-red
+  (dired-rainbow-define prog-rust "#e78a4e"
     ("rs"))
 
-  (dired-rainbow-define prog-ruby "#fb4934"    ; bright red — Ruby's own
-    ("rb" "rbs" "rake" "gemspec"))
+  ;; Zig — canonical yellow
+  (dired-rainbow-define prog-zig "#fabd2f"
+    ("zig" "zon"))
 
-  ;; --- managed/compiled ---
-  (dired-rainbow-define prog-jvm "#fabd2f"     ; bright yellow — enterprise/verbose
-    ("java" "class" "jar" "kt" "kts" "scala"))
+  ;; Odin — muted teal, young systems lang
+  (dired-rainbow-define prog-odin "#689d6a"
+    ("odin"))
 
-  (dired-rainbow-define prog-go "#8ec07c"      ; bright aqua — Go's clean aesthetic
-    ("go" "mod" "sum"))
+  ;; Hare — warm gray, minimal
+  (dired-rainbow-define prog-hare "#a89984"
+    ("ha"))
+
+  ;; Jai — warm orange, Jonathan Blow vibes
+  (dired-rainbow-define prog-jai "#d65d0e"
+    ("jai"))
+
+  ;; C3 — sibling of C, slightly distinct blue
+  (dired-rainbow-define prog-c3 "#7daea3"
+    ("c3"))
+
+  ;; Nim — gold/yellow, canonical nim color
+  (dired-rainbow-define prog-nim "#fabd2f"
+    ("nim" "nims" "nimble"))
+
+  ;; WASM / LLVM IR
+  (dired-rainbow-define prog-wasm "#8ec07c"
+    ("wasm" "wat" "ll" "bc"))
+
+  ;; --- JVM family ---
+  ;; Java — canonical duke red/orange
+  (dired-rainbow-define prog-java "#e78a4e"
+    ("java" "class" "jar"))
+
+  ;; Scala — canonical red
+  (dired-rainbow-define prog-scala "#cc241d"
+    ("scala" "sc"))
+
+  ;; Kotlin — canonical purple
+  (dired-rainbow-define prog-kotlin "#b16286"
+    ("kt" "kts"))
+
+  ;; Clojure — canonical green
+  (dired-rainbow-define prog-clojure "#98971a"
+    ("clj" "cljs" "cljc" "edn"))
 
   ;; --- scripting ---
-  (dired-rainbow-define prog-scripted "#b8bb26" ; bright green — alive/dynamic
-    ("py" "pl" "lua" "sh" "bash" "zsh" "fish" "awk" "sed"))
+  ;; Python — canonical blue/yellow, go with blue
+  (dired-rainbow-define prog-python "#83a598"
+    ("py" "pyi" "pyc"))
+
+  ;; Ruby — canonical red
+  (dired-rainbow-define prog-ruby "#fb4934"
+    ("rb" "rbs" "rake" "gemspec"))
+
+  ;; Lua — canonical blue
+  (dired-rainbow-define prog-lua "#458588"
+    ("lua"))
+
+  ;; Shell
+  (dired-rainbow-define prog-shell "#b8bb26"
+    ("sh" "bash" "zsh" "fish" "awk" "sed"))
+
+  ;; Tcl — muted, old school
+  (dired-rainbow-define prog-tcl "#928374"
+    ("tcl" "tk"))
+
+  ;; CoffeeScript — warm brown, legacy
+  (dired-rainbow-define prog-coffee "#d79921"
+    ("coffee"))
 
   ;; --- web ---
-  (dired-rainbow-define prog-web "#83a598"     ; bright blue — calm/frontend
+  (dired-rainbow-define prog-web "#fabd2f"
     ("html" "htm" "css" "scss" "sass" "less"
      "js" "mjs" "cjs" "ts" "tsx" "jsx" "vue" "svelte"))
 
-  ;; --- lisp family ---
-  (dired-rainbow-define prog-lisp "#d3869b"    ; bright purple — lisp is special
-    ("el" "elc" "lisp" "clj" "cljs" "cljc" "scm" "rkt" "hy"))
+  ;; --- Go --- canonical cyan/teal
+  (dired-rainbow-define prog-go "#8ec07c"
+    ("go"))
 
   ;; --- functional ---
-  (dired-rainbow-define prog-functional "#689d6a" ; muted aqua — cool/mathematical
-    ("hs" "lhs" "ml" "mli" "fs" "fsx" "elm" "ex" "exs" "erl" "hrl"))
+  ;; Haskell — canonical purple
+  (dired-rainbow-define prog-haskell "#d3869b"
+    ("hs" "lhs"))
 
-  ;; --- config/data ---
-  (dired-rainbow-define prog-config "#d79921"  ; yellow — needs attention
-    ("json" "jsonc" "toml" "yaml" "yml" "ini" "cfg" "conf" "env" "nix" "lock"))
+  ;; OCaml — canonical orange
+  (dired-rainbow-define prog-ocaml "#e78a4e"
+    ("ml" "mli" "mll" "mly"))
 
-  (dired-rainbow-define prog-data "#458588"    ; blue — structured/deep
-    ("csv" "tsv" "sql" "db" "sqlite" "parquet"))
+  ;; Elixir — canonical purple
+  (dired-rainbow-define prog-elixir "#b16286"
+    ("ex" "exs"))
 
-  ;; --- build infrastructure ---
-  (dired-rainbow-define prog-build "#928374"   ; gray — plumbing
-    ("Makefile" "makefile" "GNUmakefile" "CMakeLists.txt"
-     "Dockerfile" "docker-compose.yml" "Cargo.toml"
-     "package.json" "go.mod" "build.gradle" "pom.xml" "meson.build"))
+  ;; Erlang — canonical red, same family as Elixir
+  (dired-rainbow-define prog-erlang "#cc241d"
+    ("erl" "hrl"))
 
-  (dired-rainbow-define-chmod executable "#b8bb26" "-.*x.*"))
+  ;; F# — canonical blue
+  (dired-rainbow-define prog-fsharp "#83a598"
+    ("fs" "fsx" "fsi"))
+
+  ;; Elm — canonical teal/blue-green
+  (dired-rainbow-define prog-elm "#689d6a"
+    ("elm"))
+
+  ;; ReasonML — same family as OCaml
+  (dired-rainbow-define prog-reason "#e78a4e"
+    ("re" "rei" "res" "resi"))
+
+  ;; Gleam — canonical pink
+  (dired-rainbow-define prog-gleam "#d3869b"
+    ("gleam"))
+
+  ;; Dart — canonical blue
+  (dired-rainbow-define prog-dart "#83a598"
+    ("dart"))
+
+  ;; --- lisp family ---
+  (dired-rainbow-define prog-lisp "#d3869b"
+    ("el" "elc" "lisp" "scm" "rkt" "hy"))
+
+  ;; Common Lisp distinct shade
+  (dired-rainbow-define prog-commonlisp "#b16286"
+    ("asd" "fasl"))
+
+  ;;  Forth / esoteric — warm gray
+  (dired-rainbow-define prog-esoteric "#928374"
+    ("forth" "fth" "4th" "fs"))
+
+  ;; D — canonical red
+  (dired-rainbow-define prog-d "#cc241d"
+    ("d" "di"))
+
+  ;; Processing — canonical blue (based on IDE)
+  (dired-rainbow-define prog-processing "#458588"
+    ("pde"))
+
+  ;; --- build infra ---
+  (dired-rainbow-define prog-build "#928374"
+    ("mk" "cmake"))
+
+  (dired-rainbow-define-chmod executable "#fabd2f" "-.*x.*"))
 
 (setq dired-omit-files "^\\.[^.].*")
 (setq dired-listing-switches "-lAhvG --group-directories-first")
