@@ -150,6 +150,7 @@ static const char *dmenubash[] = {
     "[ -n \"$out\" ] && notify-send \"Output\" \"$out\"",
     NULL
 };
+
 static const char *i3dmenucmd[] = {
     "sh", "-c",
     "j4-dmenu-desktop --dmenu=\"dmenu -b -fn 'Poppins:size=12' -nb '$1' -nf '$2' -sb '$3' -sf '$4'\"",
