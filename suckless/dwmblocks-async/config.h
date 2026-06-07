@@ -1,6 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
-#define DELIMITER "  \x03"
+#define DELIMITER "  \x03⎸ "
+#define DELIMITER_TRAILING "  \x03⎸"
 
 #define YAD "GDK_SCALE=2 GDK_DPI_SCALE=1.0 yad --calendar --class='Yad' --undecorated --fixed --no-buttons --position=mouse --width=300 --height=200;"
 #define MAX_BLOCK_OUTPUT_LENGTH 45

@@ -55,8 +55,12 @@ bool status_update(status *const status) {
     }
 
 #if TRAILING_DELIMITER
+#ifndef DELIMITER_TRAILING
+#define DELIMITER_TRAILING DELIMITER
+#endif
     if (status->current[0] != '\0') {
-        (void)strncat(status->current, DELIMITER, LEN(DELIMITER));
+        (void)strncat(status->current, DELIMITER_TRAILING,
+                      LEN(DELIMITER_TRAILING));
     }
 #endif
 
