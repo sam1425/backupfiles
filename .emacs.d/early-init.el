@@ -1,3 +1,21 @@
+;; -*- lexical-binding: t; -*-
+
+;; --- Early Performance Tweaks ---
+
+;; Set GC threshold high during startup, restore later
+(setq gc-cons-threshold (* 128 1024 1024)) ; 128 MiB during startup
+(setq gc-cons-percentage 0.5)
+
+;; Defer file handler processing during startup
+(defvar file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
+
+;; Process communication tweaks (helps with LSP, sub-processes, terminals)
+(setq read-process-output-max (* 2 1024 1024)) ; 2 MiB buffer
+(setq process-adaptive-read-buffering nil)
+
+;; --- User's Original Configuration Settings ---
+
 ;;(column-number-mode 1)
 ;;(fringe-mode 0)
 (setq
@@ -37,5 +55,15 @@
 (setq native-comp-deferred-compilation nil)
 ;; Suppress warnings and errors during asynchronous native compilation
 (setq native-comp-async-report-warnings-errors nil)
+
+;; --- Restore Settings After Startup ---
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            ;; Restore GC to a value suitable for interactive use / LSP
+            (setq gc-cons-threshold (* 16 1024 1024)) ; 16 MiB
+            (setq gc-cons-percentage 0.1)
+            ;; Restore file name handler alist
+            (setq file-name-handler-alist file-name-handler-alist-original)
+            (message "GC threshold and file handlers restored.")))
 
 (provide 'early-init)

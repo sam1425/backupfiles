@@ -19,15 +19,18 @@
 (load custom-file t)
 
 ;;; Appearance
-(rc/require 'gruvbox-theme)
-(load-theme 'gruvbox-dark-hard t)
- (custom-theme-set-faces
-  'gruvbox-dark-hard
-  `(default ((t (:background "#111314"))))
-  `(line-number ((t (:foreground "#665c54" :background "#111314"))))
-  `(line-number-current-line ((t (:foreground "#ebdbb2" :background "#111314" :weight bold))))
-  `(mode-line ((t (:foreground "#ebdbb2" :background "#1d2021" :box nil))))
-  `(mode-line-inactive ((t (:foreground "#928374" :background "#111314" :box nil)))))
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox-dark-hard t)
+  (custom-theme-set-faces
+   'gruvbox-dark-hard
+   `(default ((t (:background "#111314"))))
+   `(line-number ((t (:foreground "#665c54" :background "#111314"))))
+   `(line-number-current-line ((t (:foreground "#ebdbb2" :background "#111314" :weight bold))))
+   `(mode-line ((t (:foreground "#ebdbb2" :background "#1d2021" :box nil))))
+   `(mode-line-inactive ((t (:foreground "#928374" :background "#111314" :box nil))))))
+
 (defun my-top-padding ()
   "Create a visual gap at the top of the window."
   (setq-default header-line-format " ")
@@ -43,14 +46,6 @@
 
 (add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; (setq use-dialog-box nil)
-;; (setq window-combination-resize nil)
-;; (setq even-window-sizes nil)
-;; (setq-default indent-tabs-mode nil)
-;; (setq-default tab-width 4)
-;; (setq window-resize-pixelwise t)
-;; (setq frame-resize-pixelwise t)
 
 (setq use-dialog-box nil
       window-combination-resize nil
@@ -73,18 +68,18 @@
 (setq auto-save-file-name-transforms
       `((".*" "~/.emacs.d/auto-saves/" t)))
 
-;;; ido
-(rc/require 'smex 'ido-completing-read+)
+;;; Completion via ido
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex)
+         ("C-c C-c M-x" . execute-extended-command)))
 
-(require 'ido-completing-read+)
-
-(ido-mode 1)
-(ido-everywhere 1)
-(ido-ubiquitous-mode 1)
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (ido-ubiquitous-mode 1))
 
 (setq default-directory "~/")
 
@@ -125,20 +120,20 @@
                          (local-set-key (kbd "RET") 'sam/c-expand-braces-on-enter)))
 
 ;;; Paredit
-(rc/require 'paredit)
-
-(defun rc/turn-on-paredit ()
-  (interactive)
-  (paredit-mode 1))
-
-(add-hook 'emacs-lisp-mode-hook  'rc/turn-on-paredit)
-(add-hook 'clojure-mode-hook     'rc/turn-on-paredit)
-(add-hook 'lisp-mode-hook        'rc/turn-on-paredit)
-(add-hook 'common-lisp-mode-hook 'rc/turn-on-paredit)
-(add-hook 'scheme-mode-hook      'rc/turn-on-paredit)
-(add-hook 'racket-mode-hook      'rc/turn-on-paredit)
-
-(rc/turn-on-paredit)
+(use-package paredit
+  :ensure t
+  :init
+  (defun rc/turn-on-paredit ()
+    (interactive)
+    (paredit-mode 1))
+  :hook ((emacs-lisp-mode . rc/turn-on-paredit)
+         (clojure-mode . rc/turn-on-paredit)
+         (lisp-mode . rc/turn-on-paredit)
+         (common-lisp-mode . rc/turn-on-paredit)
+         (scheme-mode . rc/turn-on-paredit)
+         (racket-mode . rc/turn-on-paredit))
+  :config
+  (rc/turn-on-paredit))
 
 ;;; Emacs lisp
 (add-hook 'emacs-lisp-mode-hook
@@ -147,44 +142,31 @@
                             (quote eval-print-last-sexp))))
 (add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
 
-;;; uxntal-mode
-;;(rc/require 'uxntal-mode)
-
 ;;; Haskell mode
-(rc/require 'haskell-mode)
+(use-package haskell-mode
+  :ensure t
+  :custom
+  (haskell-process-type 'cabal-new-repl)
+  (haskell-process-log t)
+  :hook ((haskell-mode . haskell-indent-mode)
+         (haskell-mode . interactive-haskell-mode)
+         (haskell-mode . haskell-doc-mode)))
 
-(setq haskell-process-type 'cabal-new-repl)
-(setq haskell-process-log t)
-
-(add-hook 'haskell-mode-hook 'haskell-indent-mode)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'haskell-doc-mode)
-
+;;; Local Packages (loaded directly from ~/.emacs.local/)
 (require 'revo-mode)
-
 (require 'basm-mode)
-
 (require 'fasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
-
 (require 'porth-mode)
-
 (require 'noq-mode)
-
 (require 'jai-mode)
-
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 (add-to-list 'auto-mode-alist '("\\.[b]\\'" . simpc-mode))
-
 (require 'umka-mode)
-
 (require 'c3-mode)
-
 (require 'gdscript-mode)
-
 (require 'elixir-mode)
-
 
 ;; Whitespace mode
 (defun rc/set-up-whitespace-handling ()
@@ -232,67 +214,26 @@
               (set-face-attribute 'line-number nil :height step)
               (set-face-attribute 'line-number-current-line nil :height step))))
 
-;;; magit
-;; magit requres this lib, but it is not installed automatically on
-;; Windows.
-;;(rc/require 'cl-lib)
-(rc/require 'magit)
+;;; Magit
+(use-package magit
+  :ensure t
+  :bind (("C-c m s" . magit-status)
+         ("C-c m l" . magit-log))
+  :custom
+  (magit-auto-revert-mode nil))
 
-(setq magit-auto-revert-mode nil)
-
-(global-set-key (kbd "C-c m s") 'magit-status)
-(global-set-key (kbd "C-c m l") 'magit-log)
-
-;; multiple cursors
-;;;(rc/require 'multiple-cursors)
-
-;;;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-;;;(global-set-key (kbd "C-n")         'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
-;; (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
-;; (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
-
-
-;;; helm
-;; (rc/require 'helm 'helm-ls-git)
-
-;; (setq helm-ff-transformer-show-only-basename nil)
-
-;; (global-set-key (kbd "C-c h t") 'helm-cmd-t)
-;; (global-set-key (kbd "C-c h g g") 'helm-git-grep)
-;; (global-set-key (kbd "C-c h g l") 'helm-ls-git-ls)
-;; (global-set-key (kbd "C-c h f") 'helm-find)
-;; (global-set-key (kbd "C-c h a") 'helm-org-agenda-files-headings)
-;; (global-set-key (kbd "C-c h r") 'helm-recentf)
-
-
-;;; yasnippet
-;; (rc/require 'yasnippet)
-
-;; (require 'yasnippet)
-;; (setq yas/triggers-in-field nil)
-;; (setq yas-snippet-dirs '("~/.emacs.snippets/"))
-
-;; (yas-global-mode 1)
-
-;;; word-wrap
+;;; Word-wrap
 (defun rc/enable-word-wrap ()
   (interactive)
   (toggle-word-wrap 1))
 
 (add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
 
-;;; nxml
-;; (add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
-;; (add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-;; (add-to-list 'auto-mode-alist '("\\.ant\\'" . nxml-mode))
-
 ;;; tramp
 ;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
 (setq tramp-auto-save-directory "/tmp")
 
-;;; eldoc mode
+;;; Eldoc mode
 (defun rc/turn-on-eldoc-mode ()
   (interactive)
   (eldoc-mode 1))
@@ -300,57 +241,37 @@
 (add-hook 'emacs-lisp-mode-hook 'rc/turn-on-eldoc-mode)
 
 ;;; Company
-(rc/require 'company)
-(require 'company)
-
-(global-company-mode)
-
-(add-hook 'tuareg-mode-hook
-          (lambda ()
-            (interactive)
-            (company-mode 0)))
-
-
-(with-eval-after-load 'company
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode)
+  (add-hook 'tuareg-mode-hook
+            (lambda ()
+              (interactive)
+              (company-mode 0)))
   (define-key company-active-map (kbd "C-j") 'company-select-next)
   (define-key company-active-map (kbd "C-k") 'company-select-previous))
 
+;;; Typescript & Tide
+(use-package typescript-mode
+  :ensure t
+  :mode ("\\.mts\\'" . typescript-mode))
 
-;;; Typescript
-(rc/require 'typescript-mode)
-(add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
-
-;;; Tide
-(rc/require 'tide)
-
-(defun rc/turn-on-tide-and-flycheck ()  ;Flycheck is a dependency of tide
-  (interactive)
-  (tide-setup)
-  (flycheck-mode 1))
-
-(add-hook 'typescript-mode-hook 'rc/turn-on-tide-and-flycheck)
-
-;;; Proof general
-;;;(rc/require 'proof-general)
-;; (add-hook 'coq-mode-hook
-;;           '(lambda ()
-;;              (local-set-key (kbd "C-c C-q C-n")
-;;                             (quote proof-assert-until-point-interactive))))
-;LaTeX mode
-;; (add-hook 'tex-mode-hook
-;;           (lambda ()
-;;             (interactive)
-;;             (add-to-list 'tex-verbatim-environments "code")))
-
-;; (setq font-latex-fontify-sectioning 'color)
+(use-package tide
+  :ensure t
+  :after typescript-mode
+  :init
+  (defun rc/turn-on-tide-and-flycheck ()  ;Flycheck is a dependency of tide
+    (interactive)
+    (tide-setup)
+    (flycheck-mode 1))
+  :hook (typescript-mode . rc/turn-on-tide-and-flycheck))
 
 ;;; Move Text
-(rc/require 'move-text)
+(use-package move-text
+  :ensure t)
 
-;;; Ebisp
-;;;(add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
-
-;;; Packages that don't require configuration
+;;; Packages loaded via rc/require (internally calls use-package :ensure t)
 (rc/require
  'scala-mode
  'd-mode
@@ -379,24 +300,10 @@
  'qml-mode
  'ag
  'elpy
- 'typescript-mode
  'rfc-mode
  'sml-mode
  'dirvish
  'nerd-icons
- ;;mine
- 'evil
- 'evil-goggles
- 'evil-collection
- 'evil-multiedit
- 'evil-surround
- 'evil-visualstar
- 'evil-matchit
- ;;'evil-args
- ;;'evil-indent-plus
- 'evil-textobj-anyblock
- 'evil-replace-with-register
- 'compile
  )
 
 (defun astyle-buffer (&optional justify)
@@ -409,33 +316,125 @@
      nil
      t)
     (goto-line saved-line-number)))
+
 (add-hook 'simpc-mode-hook
           (lambda ()
             (interactive)
             (setq-local fill-paragraph-function 'astyle-buffer)))
 
-(setq evil-want-C-u-scroll t)
-(setq evil-want-C-i-jump nil)
-(setq evil-undo-system 'undo-redo)
-(setq select-enable-clipboard t)
-(setq evil-want-keybinding nil)
-;(setq evil-collection-setup-minibuffer t)
-;;evil
-(evil-mode 1)
-(evil-collection-init)
-(global-evil-surround-mode 1)
-(global-evil-visualstar-mode 1)
-(global-evil-matchit-mode 1)
-(global-evil-mc-mode 1)
-(evil-goggles-mode)
-(evil-replace-with-register-install)
-;; (setq evil-args-delimiters '(","))
+;;; Evil Mode and Extensions
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
+  (setq evil-undo-system 'undo-redo)
+  (setq select-enable-clipboard t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1)
+  
+  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
+  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
+  (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
+  (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
+  (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
+  (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
+  (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
+  (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
+  (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
+  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
+  (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block))
+
+(use-package evil-leader
+  :ensure t
+  :after evil
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    ;; files
+    "ff" 'find-file
+    "fs" 'save-buffer
+    ;; buffers
+    "bb" 'switch-to-buffer
+    "bk" 'kill-buffer
+    "bd" 'kill-current-buffer
+    ;; magit
+    "ms" 'magit-status
+    "ml" 'magit-log
+    ;; dired
+    "dd" 'dired
+    ;; compile
+    "cc" 'compile
+    ;; misc
+    ";" 'smex
+    "w" 'save-buffer))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package evil-surround
+  :ensure t
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package evil-visualstar
+  :ensure t
+  :after evil
+  :config
+  (global-evil-visualstar-mode 1))
+
+(use-package evil-matchit
+  :ensure t
+  :after evil
+  :config
+  (global-evil-matchit-mode 1))
+
+(use-package evil-goggles
+  :ensure t
+  :after evil
+  :config
+  (evil-goggles-mode))
+
+(use-package evil-replace-with-register
+  :ensure t
+  :after evil
+  :config
+  (evil-replace-with-register-install))
+
+(use-package evil-multiedit
+  :ensure t
+  :after evil
+  :config
+  (evil-define-key '(normal visual) evil-multiedit-mode-map
+    (kbd "C-a") #'evil-multiedit-match-all
+    (kbd "C-n") #'evil-multiedit-match-and-next
+    (kbd "C-S-n") #'evil-multiedit-match-and-prev
+    (kbd "*")   #'evil-multiedit-next
+    (kbd "#")   #'evil-multiedit-prev
+    (kbd "<escape>") #'evil-multiedit-abort))
+
+(use-package evil-mc
+  :ensure t
+  :after evil
+  :config
+  (global-evil-mc-mode 1)
+  (evil-define-key '(normal visual) evil-mc-key-map
+    (kbd "<escape>") #'my/escape-or-mc-undo))
+
+(use-package evil-textobj-anyblock
+  :ensure t
+  :after evil)
 
 (electric-pair-mode 1)
 (load "~/.emacs.d/targets.el/targets.el")
-(setq targets-seek-functions t )
+(setq targets-seek-functions t)
 (targets-setup)
-
 
 (defun my/escape-or-mc-undo ()
   (interactive)
@@ -446,99 +445,46 @@
         (keyboard-quit))
     (evil-force-normal-state)))
 
-(with-eval-after-load 'evil
+;;; Dired and Dired Rainbow
+(use-package dired
+  :ensure nil
+  :config
+  (set-face-attribute 'dired-directory nil
+                      :foreground "#328374"
+                      :weight 'bold)
+  (set-face-attribute 'dired-symlink nil
+                      :foreground "#e5e5e5"
+                      :slant 'italic)
+  (set-face-attribute 'dired-ignored nil
+                      :foreground "#626262")
+  ;; dired keybinds
+  (evil-define-key 'normal dired-mode-map
+    ;; navigation
+    (kbd "h")   #'dired-up-directory
+    (kbd "l")   #'dired-find-file
+    ;; selection
+    (kbd "SPC") #'dired-mark               ; mark/unmark single file
+    (kbd "v")   #'dired-mark               ; also on v like visual
+    (kbd "V")   #'dired-unmark-all-marks   ; clear all marks
+    (kbd "u")   #'dired-undo               ; unmark under cursor
+    ;; file ops — yazi style
+    (kbd "x")   #'my/dired-cut
+    (kbd "y")   #'dired-do-copy            ; yank/copy
+    (kbd "p")   #'my/dired-paste
+    (kbd "d")   #'dired-do-delete          ; delete marked or file at point
+    (kbd "r")   #'wdired-change-to-wdired-mode
+    (kbd "R")   #'dired-do-rename          ; alias
+    ;; toggles
+    (kbd "C-h") #'dired-hide-details-mode
+    (kbd "C-.") #'dired-omit-mode
+    (kbd "q")   #'quit-window
+    ;; refresh
+    (kbd "gr")  #'revert-buffer))
 
-  (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
-  (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
-  (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
-  (define-key evil-normal-state-map (kbd "&")     'evil-first-non-blank)
-  (define-key evil-normal-state-map (kbd "^")     'evil-ex-substitute-repeat-simple)
-  (define-key evil-normal-state-map (kbd "Y")     (kbd "y$"))
-  (define-key evil-normal-state-map (kbd "C-S-j") 'evil-mc-make-cursor-move-next-line)
-  (define-key evil-normal-state-map (kbd "C-S-k") 'evil-mc-make-cursor-move-prev-line)
-  ;;multicursors
-  (define-key evil-normal-state-map (kbd "C-n")  'evil-multiedit-match-and-next)
-  ;; arguments
-  ;; (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
-  ;; (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
-
-  ;; bind evil-forward/backward-args
-  ;; (define-key evil-normal-state-map "L" 'evil-forward-arg)
-  ;; (define-key evil-normal-state-map "H" 'evil-backward-arg)
-  ;; (define-key evil-motion-state-map "L" 'evil-forward-arg)
-  ;; (define-key evil-motion-state-map "H" 'evil-backward-arg)
-
-  ;; ;; bind evil-jump-out-args
-  ;; (define-key evil-normal-state-map "K" 'evil-jump-out-args)
-  ;; textobj
-  (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
-  (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block)
-  )
-
-;; evil-multiedit
-(require 'evil-multiedit)
-;(evil-multiedit-default-keybinds)
-(with-eval-after-load 'evil-multiedit
-   (evil-define-key '(normal visual) evil-multiedit-mode-map
-    (kbd "C-a") #'evil-multiedit-match-all
-    (kbd "C-n") #'evil-multiedit-match-and-next
-    (kbd "C-S-n") #'evil-multiedit-match-and-prev
-    (kbd "*")   #'evil-multiedit-next
-    (kbd "#")   #'evil-multiedit-prev
-    (kbd "<escape>") #'evil-multiedit-abort
-    ))
-
-;; evil-mc
-;; (evil-define-key '(normal visual) 'global
-;;   "gzm" #'evil-mc-make-all-cursors
-;;   "gzu" #'evil-mc-undo-all-cursors
-;;   "gzz" #'+evil/mc-toggle-cursors
-;;   "gzc" #'+evil/mc-make-cursor-here
-;;   "gzn" #'evil-mc-make-and-goto-next-cursor
-;;   "gzp" #'evil-mc-make-and-goto-prev-cursor
-;;   "gzN" #'evil-mc-make-and-goto-last-cursor
-;;   "gzP" #'evil-mc-make-and-goto-first-cursor)
-(with-eval-after-load 'evil-mc
-   (evil-define-key '(normal visual) evil-mc-key-map
-    ;(kbd "C-n") #'evil-mc-make-and-goto-next-cursor
-    ;(kbd "C-n") #'evil-mc-make-and-goto-last-cursor
-    ;(kbd "C-n") #'evil-mc-make-and-goto-next-match
-    ;(kbd "C-N") #'evil-mc-make-and-goto-first-cursor
-    (kbd "<escape>") #'my/escape-or-mc-undo
-    )
- )
-
-
-(rc/require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-leader "<SPC>")
-
-(evil-leader/set-key
-  ;; files
-  "ff" 'find-file
-  "fs" 'save-buffer
-  ;; buffers
-  "bb" 'switch-to-buffer
-  "bk" 'kill-buffer
-  "bd" 'kill-current-buffer
-  ;; magit
-  "ms" 'magit-status
-  "ml" 'magit-log
-  ;; dired
-  "dd" 'dired
-  ;; compile
-  "cc" 'compile
-  ;; misc
-  ";" 'smex
-  "w" 'save-buffer)
-
-;;; Dired
-(rc/require 'dired-rainbow)
-(require 'dired)
-(require 'dired-x)
-(require 'dired-rainbow)
-
-(with-eval-after-load 'dired-rainbow
+(use-package dired-rainbow
+  :ensure t
+  :after dired
+  :config
   ;; --- media & assets ---
   (dired-rainbow-define media "#d65d0e"
     ("mp3" "mp4" "mkv" "webm" "flac" "ogg" "wav" "avi" "mov" "wmv"))
@@ -759,45 +705,6 @@
     (kbd "q")     #'wdired-finish-edit
     [escape]      #'wdired-abort-changes))
 
-
-(with-eval-after-load 'dired
-  (set-face-attribute 'dired-directory nil
-                      :foreground "#328374"
-                      :weight 'bold)
-
-  (set-face-attribute 'dired-symlink nil
-                      :foreground "#e5e5e5"
-                      :slant 'italic)
-
-  (set-face-attribute 'dired-ignored nil
-                      :foreground "#626262")
-  ;; dired keybinds
-  (evil-define-key 'normal dired-mode-map
-    ;; navigation
-    (kbd "h")   #'dired-up-directory
-    (kbd "l")   #'dired-find-file
-    ;; selection
-    (kbd "SPC") #'dired-mark               ; mark/unmark single file
-    (kbd "v")   #'dired-mark               ; also on v like visual
-    (kbd "V")   #'dired-unmark-all-marks   ; clear all marks
-    (kbd "u")   #'dired-undo               ; unmark under cursor
-    ;; file ops — yazi style
-    (kbd "x")   #'my/dired-cut
-    (kbd "y")   #'dired-do-copy            ; yank/copy
-    (kbd "p")   #'my/dired-paste
-    (kbd "d")   #'dired-do-delete          ; delete marked or file at point
-    (kbd "r")   #'wdired-change-to-wdired-mode
-    ;(kbd "r")   #'dired-do-rename          ; rename
-    (kbd "R")   #'dired-do-rename          ; alias
-    ;; toggles
-    (kbd "C-h") #'dired-hide-details-mode
-    (kbd "C-.") #'dired-omit-mode
-    (kbd "q")   #'quit-window
-    ;; refresh
-    (kbd "gr")  #'revert-buffer)
-  )
-
-
 (defun my/title-case-buffer ()
   "Capitalize the first letter of every word in the buffer, similar to :Title in Vim."
   (interactive)
@@ -852,16 +759,17 @@
     (setq-local compile-command (my/compile-default-command)))
   (compile (read-shell-command "Command: " compile-command)))
 
-(with-eval-after-load 'compile
+;;; Built-in Compilation Package
+(use-package compile
+  :ensure nil
+  :config
   (define-key compilation-mode-map (kbd "C-t") 'my/compile-toggle-comint)
   (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit))
-
 
 (let ((map minibuffer-local-map))
   (define-key map (kbd "<escape>") 'keyboard-escape-quit)
   (define-key map (kbd "C-k") 'previous-history-element)
-  (define-key map (kbd "C-j") 'next-history-element)
-  )
+  (define-key map (kbd "C-j") 'next-history-element))
 
 ;; Org Mode
 (org-babel-do-load-languages
@@ -897,5 +805,4 @@
 
 (custom-set-faces
  '(line-number ((t (:height 1.0))))
- '(line-number-current-line ((t (:height 1.0))))
- )
+ '(line-number-current-line ((t (:height 1.0)))))
