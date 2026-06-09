@@ -37,6 +37,8 @@
 #include <X11/Xproto.h>
 #include <X11/Xresource.h>
 #include <X11/Xutil.h>
+#include <X11/Xatom.h>
+
 #ifdef XINERAMA
 #include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA - multihead */
@@ -342,11 +344,37 @@ static Window root, wmcheckwin;
 
 static xcb_connection_t *xcon;
 
+static Atom dwm_selected_tags, dwm_occupied_tags, dwm_urgent_tags;
+
 /* configuration, allows nested code to access above variables */
 #include "config.h"
 
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
+
+
+void
+updatetagproperty(void)
+{
+    unsigned long mask, occ = 0, urg = 0;
+    Client *c;
+
+    for (c = selmon->clients; c; c = c->next) {
+        occ |= c->tags;
+        if (c->isurgent)
+            urg |= c->tags;
+    }
+
+    mask = selmon->tagset[selmon->seltags];
+    XChangeProperty(dpy, root, dwm_selected_tags,
+        XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&mask, 1);
+
+    XChangeProperty(dpy, root, dwm_occupied_tags,
+        XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&occ, 1);
+
+    XChangeProperty(dpy, root, dwm_urgent_tags,
+        XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&urg, 1);
+}
 
 /* function implementations */
 void
@@ -2025,6 +2053,10 @@ setup(void)
 	XSelectInput(dpy, root, wa.event_mask);
 	grabkeys(); /* register the keybinds in config.h */
 	focus(NULL); /* focus needs to start cleanly */
+    dwm_selected_tags = XInternAtom(dpy, "_DWM_SELECTED_TAGS", False);
+    dwm_occupied_tags = XInternAtom(dpy, "_DWM_OCCUPIED_TAGS", False);
+    dwm_urgent_tags   = XInternAtom(dpy, "_DWM_URGENT_TAGS",   False);
+    updatetagproperty();
 }
 
 void
@@ -2698,6 +2730,7 @@ view(const Arg *arg)
 		selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
 	focus(NULL);
 	arrange(selmon);
+    updatetagproperty();
 }
 
 pid_t

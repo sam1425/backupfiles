@@ -87,7 +87,7 @@ static const Rule               rules[] = {
 	{"obsidian",     NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
 	{"discord",      NULL,            NULL,                     1 << 3,                0,         0,          0,          -1         },
 	{"Spotify",      NULL,            NULL,                     1 << 4,                0,         0,          0,          -1         },
-	{NULL,     NULL,            "quickshell",                     0,                1,         0,          0,          -1         },
+	{NULL,     NULL,            "quickshell",                     ~0,                1,         0,          0,          -1         },
 };
 
 #include "vanitygaps.c"
