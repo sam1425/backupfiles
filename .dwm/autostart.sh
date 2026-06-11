@@ -23,6 +23,8 @@ unclutter idle 5 >/dev/null 2>&1 &
 fastcompmgr >/dev/null 2>&1 &
 /home/c0mplex/Documents/Programming/c/scratch/slop/slopd &
 
+qs -p /home/c0mplex/Documents/Programming/quickshell/shell.qml &
+
 # GUI Apps 
 pgrep -x librewolf >/dev/null || librewolf >/dev/null 2>&1 &
 pgrep -x emacs   >/dev/null || emacs >/dev/null 2>&1 &
