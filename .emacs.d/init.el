@@ -167,6 +167,11 @@
 (require 'c3-mode)
 (require 'gdscript-mode)
 (require 'elixir-mode)
+(require 'google-c-style)
+
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-l") 'cider-repl-clear-buffer)))
 
 ;; Whitespace mode
 (defun rc/set-up-whitespace-handling ()
@@ -176,8 +181,8 @@
 
 ;;(add-hook 'tuareg-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'c++-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'c-mode-hook 'rc/set-up-whitespace-handling 'google-make-newline-indent)
+(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling 'google-set-c-style)
 (add-hook 'emacs-lisp-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
@@ -284,7 +289,6 @@
  'clojure-mode
  'cmake-mode
  'rust-mode
- 'csharp-mode
  'nim-mode
  'jinja2-mode
  'markdown-mode
@@ -333,7 +337,7 @@
   (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
-  
+
   (define-key evil-normal-state-map (kbd "M-j") 'move-text-down)
   (define-key evil-normal-state-map (kbd "M-k") 'move-text-up)
   (define-key evil-motion-state-map (kbd "C-b")   'my/compile)
