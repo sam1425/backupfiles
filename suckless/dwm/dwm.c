@@ -122,7 +122,7 @@ struct Client { /* a window that dwm is managing */
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid; /* size hints */
 	int bw, oldbw; /* current and prev border widths */
 	unsigned int tags; /* bitmasks for which tags window is visible on */
-	int isfixed, isfloating, canfocus,isurgent, neverfocus, oldstate, isfullscreen, issticky, isterminal, noswallow; /* window states */
+	int isfixed, isfloating, nofocus,isurgent, neverfocus, oldstate, isfullscreen, issticky, isterminal, noswallow; /* window states */
 	pid_t pid; /* pid of application in window - useful for swallowing */
 	Client *next; /* next client, in the linked list of all clients */
 	Client *snext; /* next in the STACK */
@@ -182,7 +182,7 @@ typedef struct {
 	int isfloating;
 	int isterminal;
 	int noswallow;
-    int canfocus;
+    int nofocus;
 	int monitor;
 } Rule;
 
@@ -389,7 +389,7 @@ applyrules(Client *c)
 
 	/* rule matching */
 	c->isfloating = 0;
-    c->canfocus = 1;
+    c->nofocus = 0;
 	c->tags = 0;
 	XGetClassHint(dpy, c->win, &ch);
 	class    = ch.res_class ? ch.res_class : broken;
@@ -404,7 +404,7 @@ applyrules(Client *c)
 			c->isterminal = r->isterminal;
 			c->noswallow  = r->noswallow;
 			c->isfloating = r->isfloating;
-            c->canfocus = r->canfocus;
+            c->nofocus = r->nofocus;
 			c->tags |= r->tags;
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -1038,7 +1038,7 @@ focus(Client *c)
 	if (selmon->sel && selmon->sel != c) /* if there's a selected window that is not c, */
 		unfocus(selmon->sel, 0); /* unfocus it */
 	if (c) {
-        if (!c->canfocus) return;
+        if (c->nofocus) return;
 		if (c->mon != selmon) /* if the new client c is on a different monitor, */
 			selmon = c->mon; /* switch selmon (selected monitor) to that monitor */
 		if (c->isurgent) /* if urgent state was marked, */
@@ -1123,7 +1123,7 @@ focusstack(const Arg *arg)
 
 	if(i < 0)
 		return;
-    for (p = NULL, c = selmon->clients; c && (i || !ISVISIBLE(c) || !c->canfocus);
+    for (p = NULL, c = selmon->clients; c && (i || !ISVISIBLE(c) || c->nofocus);
 	i -= ISVISIBLE(c) ? 1 : 0, p = c, c = c->next)
     ;
 	focus(c ? c : p);
