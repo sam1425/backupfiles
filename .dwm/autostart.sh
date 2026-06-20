@@ -14,16 +14,16 @@ xset s off -dpms
 xset r rate 200 300
 
 # Daemons 
-/home/c0mplex/Documents/Programming/c/dwm/dwmblocks-async/updatemusic.sh >/dev/null 2>&1 &
+$HOME/Documents/Programming/c/dwm/dwmblocks-async/updatemusic.sh >/dev/null 2>&1 &
 dwmblocks >/dev/null 2>&1 & echo $! > /tmp/dwmblocks.pid
 clipmenud --primary >/dev/null 2>&1 &
 dunst >/dev/null 2>&1 &
 unclutter idle 5 >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fastcompmgr >/dev/null 2>&1 &
-/home/c0mplex/Documents/Programming/c/scratch/slop/slopd &
+$HOME/Documents/Programming/c/scratch/slop/slopd &
 
-qs -p /home/c0mplex/Documents/Programming/quickshell/shell.qml &
+qs -p $HOME/Documents/Programming/quickshell/shell.qml &
 
 # GUI Apps 
 pgrep -x librewolf >/dev/null || librewolf >/dev/null 2>&1 &

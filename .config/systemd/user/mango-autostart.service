@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/c0mplex/.config/mango/autostart.sh
+ExecStart=$HOME/.config/mango/autostart.sh
 RemainAfterExit=yes
 
 [Install]

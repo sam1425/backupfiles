@@ -6,7 +6,7 @@ REMOTE_HOST="192.168.1.12"
 REMOTE_PORT="22"  # <-- Change this to your remote SSH port
 
 # Native Arch AUR packages use ~/.mozilla/librewolf
-LOCAL_BASE="/home/c0mplex/.config/librewolf/librewolf"
+LOCAL_BASE="$HOME/.config/librewolf/librewolf"
 REMOTE_BASE="/home/$REMOTE_USER/.config/librewolf/librewolf"
 # ---------------------
 
