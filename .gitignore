@@ -39,7 +39,7 @@ tramp
 ido.last
 smex-items
 projectile-bookmarks.eld
-mc-lists.el
+.mc-lists.el
 company-statistics-cache.el
 
 # ── LSP / eglot workspace state ───────────────────────────────────────────────
@@ -52,6 +52,9 @@ org-id-locations
 
 # ── Dirvish / image cache ─────────────────────────────────────────────────────
 dirvish/
+
+# ── Emacs session state ───────────────────────────────────────────────────────
+multisession/
 
 # ── OS noise ──────────────────────────────────────────────────────────────────
 .DS_Store
