@@ -1,18 +1,61 @@
 # ~/.unison/librewolf.prf
 
-# The roots will be dynamically set by the script, 
+# The roots will be dynamically set by syncwolf.sh,
 # but we define common preferences here.
 
-# Sync preferences
 fastcheck = true
 times = true
-backups = true
-maxbackups = 2
+backups = false
 
-# Ignore lock files and cache directories inside the profile
+# ── Git repos inside profile (userChrome.css is its own git repo) ──────────
+ignore = Name .git
+
+# ── Locks & caches (never sync) ─────────────────────────────────────────────
 ignore = Name lock
 ignore = Name .parentlock
 ignore = Name cache2
 ignore = Name startupCache
-ignore = Name Thumbnail瓶
 ignore = Name jumpListCache
+ignore = Name Thumbnail*
+ignore = Name OfflineCache
+ignore = Name serviceworker.txt
+
+# ── Firefox Sync data (synced separately by Firefox Sync itself) ────────────
+ignore = Name weave
+ignore = Name storage-sync-v2.sqlite
+ignore = Name storage-sync-v2.sqlite-wal
+ignore = Name storage-sync-v2.sqlite-shm
+
+# ── Session / temp state (machine-specific) ─────────────────────────────────
+ignore = Name sessionstore-backups
+ignore = Name sessionCheckpoints.json
+ignore = Name recovery.jsonlz4
+ignore = Name recovery.baklz4
+ignore = Name broadcast-listeners.json
+ignore = Name notificationstore.json
+ignore = Name addonStartup.json.lz4
+
+# ── Large SQLite databases managed by Firefox Sync ──────────────────────────
+ignore = Name places.sqlite
+ignore = Name places.sqlite-wal
+ignore = Name favicons.sqlite
+ignore = Name favicons.sqlite-wal
+ignore = Name cookies.sqlite
+ignore = Name cookies.sqlite-wal
+ignore = Name webappsstore.sqlite
+ignore = Name webappsstore.sqlite-wal
+ignore = Name content-prefs.sqlite
+ignore = Name protections.sqlite
+ignore = Name storage.sqlite
+ignore = Name bounce-tracking-protection.sqlite
+ignore = Name synced-tabs.db
+ignore = Name synced-tabs.db-wal
+ignore = Name synced-tabs.db-shm
+ignore = Name permissions.sqlite
+ignore = Name formhistory.sqlite
+ignore = Name security_state
+ignore = Name AlternateServices.bin
+ignore = Name SiteSecurityServiceState.bin
+
+# ── Firefox Sync signed-in user state ───────────────────────────────────────
+ignore = Name signedInUser.json
