@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+fmt_c()   { clang-format --style=Google -i "$@"; }
+fmt_cpp() { clang-format --style=Google -i "$@"; }
+fmt_java(){ google-java-format -i "$@"; }
+fmt_py()  { yapf --style=google -i "$@"; }
+fmt_js()  { prettier --write --print-width 100 --single-quote --trailing-comma all --semi "$@"; }
+fmt_ts()  { prettier --write --print-width 100 --single-quote --trailing-comma all --semi "$@"; }
+fmt_json(){ prettier --write "$@"; }
+fmt_md()  { prettier --write --prose-wrap always "$@"; }
+fmt_go()  { gofmt -w "$@"; }
+fmt_rs()  { rustfmt "$@"; }
+fmt_dart(){ dart format "$@"; }
+fmt_rb()  { rubocop --autocorrect --only-indentation "$@" 2>/dev/null || true; }
+fmt_sh()  { shfmt -w "$@"; }
+fmt_yaml(){ prettier --write "$@"; }
+fmt_css() { prettier --write "$@"; }
+fmt_html(){ prettier --write "$@"; }
+
+fmt_file() {
+  local f="$1"
+  case "$f" in
+    *.c|*.h)                    fmt_c "$f" ;;
+    *.cpp|*.hpp|*.cc|*.cxx)     fmt_cpp "$f" ;;
+    *.java)                     fmt_java "$f" ;;
+    *.py)                       fmt_py "$f" ;;
+    *.js|*.mjs)                 fmt_js "$f" ;;
+    *.ts|*.tsx|*.mts)           fmt_ts "$f" ;;
+    *.jsx)                      fmt_js "$f" ;;
+    *.json)                     fmt_json "$f" ;;
+    *.md)                       fmt_md "$f" ;;
+    *.go)                       fmt_go "$f" ;;
+    *.rs)                       fmt_rs "$f" ;;
+    *.dart)                     fmt_dart "$f" ;;
+    *.rb)                       fmt_rb "$f" ;;
+    *.sh|*.bash)                fmt_sh "$f" ;;
+    *.yml|*.yaml)               fmt_yaml "$f" ;;
+    *.css|*.scss)               fmt_css "$f" ;;
+    *.html|*.htm)               fmt_html "$f" ;;
+    *)                          echo "format: no formatter for $f" >&2; return 1 ;;
+  esac
+}
+
+if [ $# -eq 0 ]; then
+  echo "Usage: format <file> [file...]" >&2
+  exit 1
+fi
+
+ret=0
+for f in "$@"; do
+  fmt_file "$f" || ret=$?
+done
+exit $ret
