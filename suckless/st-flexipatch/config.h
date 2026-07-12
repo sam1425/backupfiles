@@ -643,6 +643,7 @@ static Key key[] = {
 	{ XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
 	/* { XK_Return,        Mod1Mask,       "\033\r",        0,    0}, */
 	/* { XK_Return,        XK_ANY_MOD,     "\r",            0,    0}, */
+	/* { XK_J, ControlMask, "\033[B", 0, 0 }, */
 
     { XK_BackSpace,     ShiftMask,      "\025",    0,    0},
     { XK_Return,        ControlMask,    "\026\n",        0,    0},
