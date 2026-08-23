@@ -466,7 +466,7 @@ static Key key[] = {
 	{ XK_KP_9,         Mod1Mask|ControlMask|ShiftMask, "\033[185;8u", 0,  0},
 	{ XK_KP_9,         Mod1Mask|ShiftMask,             "\033[185;4u", 0,  0},
 	{ XK_KP_9,         ShiftMask,                      "\033[185;2u", 0,  0},
-	{ XK_BackSpace,    ControlMask,                    "\033[127;5u", 0,  0},
+	{ XK_BackSpace,    ControlMask,                    "\027",        0,  0},
 	{ XK_BackSpace,    ControlMask|ShiftMask,          "\033[127;6u", 0,  0},
 	{ XK_BackSpace,    Mod1Mask,                       "\033[127;3u", 0,  0},
 	{ XK_BackSpace,    Mod1Mask|ControlMask,           "\033[127;7u", 0,  0},
