@@ -307,6 +307,7 @@ static const Key        keys[] = {
 	 SHCMD("/usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle;"
            "/usr/bin/kill -44 $(</tmp/dwmblocks.pid)")},
 	/* {MODKEY,                           XK_x,                                            spawn,                                     SHCMD("~/.scripts/system/keybindgrabfix.sh")}, */
+	{MODKEY,                XK_b,                                            spawn,                                 SHCMD("notify-send hi hi")}
 };
 
 /* button definitions */
