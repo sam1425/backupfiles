@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (require 'generic-x)
 
 (define-generic-mode revo-mode
