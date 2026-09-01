@@ -16,7 +16,7 @@ xset r rate 200 300
 # Daemons 
 $HOME/Documents/Programming/c/dwm/dwmblocks-async/updatemusic.sh >/dev/null 2>&1 &
 dwmblocks >/dev/null 2>&1 & echo $! > /tmp/dwmblocks.pid
-clipmenud --primary >/dev/null 2>&1 &
+clipmenud >/dev/null 2>&1 &
 dunst >/dev/null 2>&1 &
 unclutter idle 5 >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

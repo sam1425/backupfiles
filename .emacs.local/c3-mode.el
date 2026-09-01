@@ -1,3 +1,5 @@
+;;; c3-mode.el --- Major mode for C3 -*- lexical-binding: t; -*-
+
 (require 'subr-x)
 
 (defvar c3-mode-syntax-table

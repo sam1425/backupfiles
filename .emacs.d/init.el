@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -802,6 +804,7 @@
 
 ;; pascalik.pas(24,44) Error: Can't evaluate constant expression
 ;compilation-error-regexp-alist-alist
+
 
 (add-to-list 'compilation-error-regexp-alist
              '("\\([a-zA-Z0-9\\.]+\\)(\\([0-9]+\\)\\(,\\([0-9]+\\)\\)?) \\(Warning:\\)?"
