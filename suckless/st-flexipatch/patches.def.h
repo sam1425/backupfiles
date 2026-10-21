@@ -221,6 +221,12 @@
  */
 #define HIDE_TERMINAL_CURSOR_PATCH 0
 
+/* This patch adds a hollow box cursor as a selectable cursor shape/style option when focused,
+ * allowing you to use the empty cursor with thin borders normally, alongside block, underline,
+ * bar, and snowman.
+ */
+#define HOLLOW_CURSOR_PATCH 1
+
 /* This patch adds a keybinding that lets you invert the current colorscheme of st.
  * This provides a simple way to temporarily switch to a light colorscheme if you use a dark
  * colorscheme or visa-versa.

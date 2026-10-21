@@ -258,6 +258,10 @@ unsigned int highlightbg = 160;
  * 6: Steady bar ("|")
  * 7: Blinking st cursor
  * 8: Steady st cursor
+#if HOLLOW_CURSOR_PATCH
+ * 9: Blinking hollow box
+ * 10: Steady hollow box ("▯")
+#endif // HOLLOW_CURSOR_PATCH
  */
 static unsigned int cursorstyle = 1;
 static Rune stcursor = 0x2603; /* snowman (U+2603) */
@@ -268,9 +272,20 @@ static Rune stcursor = 0x2603; /* snowman (U+2603) */
  * 4: Underline ("_")
  * 6: Bar ("|")
  * 7: Snowman ("☃")
+#if HOLLOW_CURSOR_PATCH
+ * 8: Hollow box ("▯")
+#endif // HOLLOW_CURSOR_PATCH
  */
+#if HOLLOW_CURSOR_PATCH
+static unsigned int cursorshape = 8;
+#else
 static unsigned int cursorshape = 6;
+#endif // HOLLOW_CURSOR_PATCH
 #endif // BLINKING_CURSOR_PATCH
+#if HOLLOW_CURSOR_PATCH
+/* 1: Render normal block cursor as hollow box, 0: Solid block */
+static int hollowcursor = 0;
+#endif // HOLLOW_CURSOR_PATCH
 
 /*
  * Default columns and rows numbers

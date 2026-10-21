@@ -2713,6 +2713,47 @@ xdrawglyph(Glyph g, int x, int y)
 	);
 }
 
+static void
+xdrawhollowcursor(int cx, int cy, Color *drawcol)
+{
+	XftDrawRect(xw.draw, drawcol,
+			#if ANYSIZE_PATCH
+			win.hborderpx + cx * win.cw,
+			win.vborderpx + cy * win.ch,
+			#else
+			borderpx + cx * win.cw,
+			borderpx + cy * win.ch,
+			#endif // ANYSIZE_PATCH
+			win.cw - 1, 1);
+	XftDrawRect(xw.draw, drawcol,
+			#if ANYSIZE_PATCH
+			win.hborderpx + cx * win.cw,
+			win.vborderpx + cy * win.ch,
+			#else
+			borderpx + cx * win.cw,
+			borderpx + cy * win.ch,
+			#endif // ANYSIZE_PATCH
+			1, win.ch - 1);
+	XftDrawRect(xw.draw, drawcol,
+			#if ANYSIZE_PATCH
+			win.hborderpx + (cx + 1) * win.cw - 1,
+			win.vborderpx + cy * win.ch,
+			#else
+			borderpx + (cx + 1) * win.cw - 1,
+			borderpx + cy * win.ch,
+			#endif // ANYSIZE_PATCH
+			1, win.ch - 1);
+	XftDrawRect(xw.draw, drawcol,
+			#if ANYSIZE_PATCH
+			win.hborderpx + cx * win.cw,
+			win.vborderpx + (cy + 1) * win.ch - 1,
+			#else
+			borderpx + cx * win.cw,
+			borderpx + (cy + 1) * win.ch - 1,
+			#endif // ANYSIZE_PATCH
+			win.cw, 1);
+}
+
 void
 #if LIGATURES_PATCH
 xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og, Line line, int len)
@@ -2840,6 +2881,12 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
 			/* FALLTHROUGH */
 			#endif // BLINKING_CURSOR_PATCH
 		case 2: /* Steady block */
+			#if HOLLOW_CURSOR_PATCH
+			if (hollowcursor) {
+				xdrawhollowcursor(cx, cy, &drawcol);
+				break;
+			}
+			#endif // HOLLOW_CURSOR_PATCH
 			xdrawglyph(g, cx, cy);
 			break;
 		case 3: /* Blinking underline */
@@ -2890,44 +2937,22 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
 			xdrawglyph(g, cx, cy);
 			break;
 		#endif // BLINKING_CURSOR_PATCH
+		#if HOLLOW_CURSOR_PATCH
+		#if BLINKING_CURSOR_PATCH
+		case 9: /* Blinking hollow box */
+			if (IS_SET(MODE_BLINK))
+				break;
+			/* FALLTHROUGH */
+		case 10: /* Steady hollow box */
+		#else
+		case 8: /* Hollow box */
+		#endif // BLINKING_CURSOR_PATCH
+			xdrawhollowcursor(cx, cy, &drawcol);
+			break;
+		#endif // HOLLOW_CURSOR_PATCH
 		}
 	} else {
-		XftDrawRect(xw.draw, &drawcol,
-				#if ANYSIZE_PATCH
-				win.hborderpx + cx * win.cw,
-				win.vborderpx + cy * win.ch,
-				#else
-				borderpx + cx * win.cw,
-				borderpx + cy * win.ch,
-				#endif // ANYSIZE_PATCH
-				win.cw - 1, 1);
-		XftDrawRect(xw.draw, &drawcol,
-				#if ANYSIZE_PATCH
-				win.hborderpx + cx * win.cw,
-				win.vborderpx + cy * win.ch,
-				#else
-				borderpx + cx * win.cw,
-				borderpx + cy * win.ch,
-				#endif // ANYSIZE_PATCH
-				1, win.ch - 1);
-		XftDrawRect(xw.draw, &drawcol,
-				#if ANYSIZE_PATCH
-				win.hborderpx + (cx + 1) * win.cw - 1,
-				win.vborderpx + cy * win.ch,
-				#else
-				borderpx + (cx + 1) * win.cw - 1,
-				borderpx + cy * win.ch,
-				#endif // ANYSIZE_PATCH
-				1, win.ch - 1);
-		XftDrawRect(xw.draw, &drawcol,
-				#if ANYSIZE_PATCH
-				win.hborderpx + cx * win.cw,
-				win.vborderpx + (cy + 1) * win.ch - 1,
-				#else
-				borderpx + cx * win.cw,
-				borderpx + (cy + 1) * win.ch - 1,
-				#endif // ANYSIZE_PATCH
-				win.cw, 1);
+		xdrawhollowcursor(cx, cy, &drawcol);
 	}
 }
 
@@ -3457,9 +3482,17 @@ int
 xsetcursor(int cursor)
 {
 	#if BLINKING_CURSOR_PATCH
+	#if HOLLOW_CURSOR_PATCH
+	if (!BETWEEN(cursor, 0, 10))
+	#else
 	if (!BETWEEN(cursor, 0, 8)) /* 7-8: st extensions */
+	#endif // HOLLOW_CURSOR_PATCH
+	#else
+	#if HOLLOW_CURSOR_PATCH
+	if (!BETWEEN(cursor, 0, 8)) /* 7: st snowman, 8: hollow box */
 	#else
 	if (!BETWEEN(cursor, 0, 7)) /* 7: st extension */
+	#endif // HOLLOW_CURSOR_PATCH
 	#endif // BLINKING_CURSOR_PATCH
 		return 1;
 	#if DEFAULT_CURSOR_PATCH
@@ -3474,7 +3507,11 @@ xsetcursor(int cursor)
 	#if BLINKING_CURSOR_PATCH
 	cursorblinks = win.cursor == 0 || win.cursor == 1 ||
 	               win.cursor == 3 || win.cursor == 5 ||
-	               win.cursor == 7;
+	               win.cursor == 7
+	               #if HOLLOW_CURSOR_PATCH
+	               || win.cursor == 9
+	               #endif // HOLLOW_CURSOR_PATCH
+	               ;
 	#endif // BLINKING_CURSOR_PATCH
 	return 0;
 }
