@@ -888,7 +888,7 @@ a list of hooks."
                      (list keys))
                  (cl-case to-type
                    (pair (list open close))
-                   ((quote separator)
+                   ((separator quote)
                     (list open)))))
          (hooks (if (listp hooks)
                     hooks

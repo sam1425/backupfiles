@@ -6,10 +6,6 @@
 
 (require 'scala-mode-syntax)
 
-;; Make lambdas proper clousures (only in this file)
-(make-local-variable 'lexical-binding)
-(setq lexical-binding t)
-
 (defcustom scala-imenu:should-flatten-index t
   "Controls whether or not the imenu index is flattened or hierarchical."
   :type 'boolean

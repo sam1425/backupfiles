@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -748,7 +750,7 @@
 
 (defun my/compile-default-command ()
   "Return a compile command derived from major mode, falling back to compile-command."
-  (or (when-let ((tmpl (alist-get major-mode my/compile-commands)))
+  (or (when-let* ((tmpl (alist-get major-mode my/compile-commands)))
         (if buffer-file-name
             (let* ((file (file-name-nondirectory buffer-file-name))
                    (base (file-name-sans-extension file)))

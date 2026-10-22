@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;(column-number-mode 1)
 ;;(fringe-mode 0)
 (setq
