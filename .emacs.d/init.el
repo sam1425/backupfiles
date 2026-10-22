@@ -239,6 +239,7 @@
 ;;; tramp
 ;;; http://stackoverflow.com/questions/13794433/how-to-disable-autosave-for-tramp-buffers-in-emacs
 (setq tramp-auto-save-directory "/tmp")
+(setq tramp-persistency-file-name (expand-file-name "tramp" "/tmp/"))
 
 ;;; Eldoc mode
 (defun rc/turn-on-eldoc-mode ()
