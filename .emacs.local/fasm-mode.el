@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 ;;; fasm-mode.el --- Fasm major mode -*- lexical-binding: t; -*-
-||||||| (empty tree)
-=======
-;;; fasm-mode.el --- Fasm major mode
->>>>>>> 3fe26ac (adding configs)
 
 ;; Author: Fanael Linithien <fanael4@gmail.com>
 ;; URL: https://github.com/Fanael/fasm-mode

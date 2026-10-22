@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ;; -*- lexical-binding: t; -*-
-||||||| (empty tree)
-=======
->>>>>>> 3fe26ac (adding configs)
 (require 'subr-x)
 
 (defvar simpc-mode-syntax-table
